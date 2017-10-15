@@ -1,0 +1,15 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Weapon extends Model
+{
+
+    public function specialQualities()
+    {
+        return $this->belongsToMany('App\SpecialQuality', 'weapon_special_quality')->withPivot('extra');
+    }
+
+}
