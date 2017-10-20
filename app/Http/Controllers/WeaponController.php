@@ -154,7 +154,7 @@ class WeaponController extends Controller
 	if ($special_qualities) {
 	    $weapon->specialQualities()->sync($special_qualities);        
 	}
-	else 
+	else {
 	    $weapon->specialQualities()->detach();
 	}
         
