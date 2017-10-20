@@ -11,34 +11,33 @@
 |
 */
 Route::get('/home', [
-    'middleware' => 'auth',
-    'uses' => 'AppController@index'
+//     'middleware' => 'auth',
+//     'uses' => 'AppController@index'
 ]);
 Route::resource('talents', 'TalentController', [
-    'middleware' => 'auth'
+//     'middleware' => 'auth'
 ]);
 Route::resource('talentoptions', 'TalentOptionController', [
-    'middleware' => 'auth'
+//     'middleware' => 'auth'
 ]);
 Route::resource('skillgroups', 'SkillGroupController', [
-    'middleware' => 'auth'
+//     'middleware' => 'auth'
 ]);
 Route::resource('skills', 'SkillController', [
-    'middleware' => 'auth'
+//     'middleware' => 'auth'
 ]);
 Route::resource('traits', 'TraitController', [
-    'middleware' => 'auth'
+//     'middleware' => 'auth'
 ]);
 Route::resource('weapons', 'WeaponController', [
-    'middleware' => 'auth'
+//     'middleware' => 'auth'
 ]);
 Route::resource('specialqualities', 'SpecialQualityController', [
-    'middleware' => 'auth'
+//     'middleware' => 'auth'
 ]);
 Route::get('/specialqualities/{id}/justcontent', 'SpecialQualityController@justcontent');
 
-
-Route::auth();
+//Route::auth();
 
 Route::get('/', 'HomeController@index');
 Route::post('/search', 'HomeController@search');

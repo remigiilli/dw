@@ -30,7 +30,7 @@
     @if (count($special_qualities))
 	<h2>Special Qualities</h2>
 	@foreach ($special_qualities as $special_quality)	
-	    @include('special_qualies.single')
+	    @include('special_qualities.single')
 	@endforeach    
     @endif    
 @endsection 

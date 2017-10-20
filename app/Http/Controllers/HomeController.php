@@ -15,6 +15,8 @@ use App\CharacterTrait as CharacterTrait;
 
 use App\SpecialQuality as SpecialQuality;
 
+use App\Weapon as Weapon;
+
 class HomeController extends Controller
 {
     public $attributes = array('ws' => 'WS','bs' => 'BS', 's' => 'S', 't' => 'T', 'ag' => 'Ag', 'int' => 'Int', 'per' => 'Per', 'wp' => 'WP', 'fel' => 'Fel');
@@ -28,7 +30,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//         $this->middleware('auth');
     }
 
     /**
@@ -58,7 +60,9 @@ class HomeController extends Controller
 	  $special_qualities = SpecialQuality::where('name', 'like', '%'.$request->search.'%')
 	      ->get();
 	      
+	  $weapons = Weapon::where('name', 'like', '%'.$request->search.'%')
+	      ->get();	      
 	      
-	  return view('searchresults', ['skills' => $skills, 'talents' => $talents, 'traits' => $traits, 'special_qualities' => $special_qualities, 'attributes' => $this->attributes, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+	  return view('searchresults', ['skills' => $skills, 'talents' => $talents, 'traits' => $traits, 'special_qualities' => $special_qualities, 'weapons' => $weapons, 'attributes' => $this->attributes, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }    
 }

@@ -24,33 +24,24 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    Home
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                </ul>
-                @if (Auth::user())
                 {{ Form::open(array('url' => 'search', 'class' => 'navbar-form navbar-left')) }}
 		    <div class="form-group">
 			{{ Form::text('search', null, array('class' => 'form-control', 'placeholder' => 'Search')) }}		    
 		    </div>
 		    <button type="submit" class="btn btn-default">Submit</button>
 		{{ Form::close() }} 
-		@endif
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                Admin <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
@@ -62,10 +53,8 @@
 				<li><a href="{{ url('/talentoptions') }}"><span class="glyphicon glyphicon-list"></span> Talent Options</a></li>
 				<li><a href="{{ url('/weapons') }}"><span class="glyphicon glyphicon-screenshot"></span> Weapons</a></li>
 				<li><a href="{{ url('/specialqualities') }}"><span class="glyphicon glyphicon-list"></span> Weapon Special Qualities</a></li>
-                                <li><a href="{{ url('/logout') }}"><span class=" glyphicon glyphicon-log-out"></span> Logout</a></li>
                             </ul>
                         </li>
-                    @endif
                 </ul>
             </div>
         </div>
