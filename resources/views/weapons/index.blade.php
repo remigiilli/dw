@@ -87,7 +87,13 @@
 @endif
 	    </td>
 	    <td>{{ $weapon->weight }}</td>
-	    <td>{{ $weapon->req }}</td>
+	    <td>
+@if (!is_null($weapon->req))	    
+		{{ $weapon->req }}
+@else
+		-
+@endif	    
+	    </td>
 	    <td>{{ $renow_levels[$weapon->renown] }}</td>
 	    <td>
 @if (count($weapon->specialQualities()->first()) > 0)

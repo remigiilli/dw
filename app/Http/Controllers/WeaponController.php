@@ -79,7 +79,7 @@ class WeaponController extends Controller
         $weapon->clip = $request->clip;
         $weapon->rld = $request->rld;
         $weapon->weight = $request->weight;
-        $weapon->req = $request->req;
+        $weapon->req = ($request->req !== '') ? $request->group_id : null;
         $weapon->renown = $request->renown;
         
         $weapon->save();
@@ -145,7 +145,7 @@ class WeaponController extends Controller
         $weapon->clip = $request->clip;
         $weapon->rld = $request->rld;
         $weapon->weight = $request->weight;
-        $weapon->req = $request->req;
+        $weapon->req = ($request->req !== '') ? $request->group_id : null;
         $weapon->renown = $request->renown;
         
         $weapon->save();
