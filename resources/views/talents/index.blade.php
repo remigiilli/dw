@@ -23,10 +23,13 @@
 	    <td>{{ $talent->id }}</td>
 	    <td>{{ $talent->name }}</td>
 	    <td>
-@if (count($talent->options()->first()) > 0)
-		<b>Talent Groups</b>: {{ implode(',', $talent->options->lists('name')->all() ) }}<br />
-@endif		
-		{!! nl2br(e($talent->description)) !!}
+		@if ($talent->prerequisites) 
+		<p><b>Prerequisites:</b> {!! nl2br(e($talent->prerequisites)) !!}</p>
+		@endif	    
+		@if (count($talent->options()->first()) > 0)
+		<p><b>Talent Groups</b>: {{ implode(', ', $talent->options->lists('name')->all() ) }}</p>
+		@endif		
+		<p>{!! nl2br(e($talent->description)) !!}</p>
 	    </td>
 	    <td>
 	      <a href="{{ route('talents.edit', $talent->id) }}" class="btn btn-info btn-sm">

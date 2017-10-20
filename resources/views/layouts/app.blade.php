@@ -33,7 +33,14 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                 </ul>
-
+                @if (Auth::user())
+                {{ Form::open(array('url' => 'search', 'class' => 'navbar-form navbar-left')) }}
+		    <div class="form-group">
+			{{ Form::text('search', null, array('class' => 'form-control', 'placeholder' => 'Search')) }}		    
+		    </div>
+		    <button type="submit" class="btn btn-default">Submit</button>
+		{{ Form::close() }} 
+		@endif
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->

@@ -63,6 +63,7 @@ class TalentController extends Controller
 
         $talent->name = $request->name;
         $talent->description = $request->description;
+        $talent->prerequisites = $request->prerequisites;
 
         $talent->save();
         
@@ -114,11 +115,17 @@ class TalentController extends Controller
 	$talent = Talent::find($id);
         $talent->name = $request->name;
         $talent->description = $request->description;
+        $talent->prerequisites = $request->prerequisites;
 
         $talent->save();
         
 	$options = $request->input('options');        
-	$talent->options()->sync($options);        
+	if ($options) {
+	    $talent->options()->sync($options);        
+	}
+	else {
+	    $talent->options()->detach();
+	}
         
         return redirect('talents')->with('status', 'Talent updated!');
     }
@@ -133,6 +140,7 @@ class TalentController extends Controller
     {
         $talent = Talent::find($id);
         
+        $talent->options()->detach();
         $talent->delete();
         
         return redirect('talents')->with('status', 'Talent deleted!');

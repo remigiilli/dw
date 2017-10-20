@@ -78,6 +78,19 @@ class SpecialQualityController extends Controller
 	
         return view('special_qualities.show',  ['special_quality' => $special_quality]);
     }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function justcontent($id)
+    {
+	$special_quality = SpecialQuality::find($id);
+	
+        return view('special_qualities.single',  ['special_quality' => $special_quality]);
+    }    
 
     /**
      * Show the form for editing the specified resource.

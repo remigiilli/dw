@@ -35,8 +35,11 @@ Route::resource('weapons', 'WeaponController', [
 Route::resource('specialqualities', 'SpecialQualityController', [
     'middleware' => 'auth'
 ]);
+Route::get('/specialqualities/{id}/justcontent', 'SpecialQualityController@justcontent');
 
 
 Route::auth();
 
 Route::get('/', 'HomeController@index');
+Route::post('/search', 'HomeController@search');
+

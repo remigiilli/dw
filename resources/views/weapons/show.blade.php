@@ -4,7 +4,6 @@
 
 @section('content')
 @if ((isset($weapon->id) && $weapon->id))
-   <h1>{{ $weapon->name }}</h1>
-   <p>{{ $weapon->description }}</p>
+   @include('weapons.single')
 @endif
 @endsection 

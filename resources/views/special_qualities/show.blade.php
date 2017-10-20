@@ -4,7 +4,6 @@
 
 @section('content')
 @if ((isset($special_quality->id) && $special_quality->id))
-   <h1>{{ $special_quality->name }}</h1>
-   <p>{{ $special_quality->description }}</p>   
+    @include('special_qualities.single')
 @endif
 @endsection 

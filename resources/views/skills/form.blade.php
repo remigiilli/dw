@@ -35,6 +35,14 @@
     {{ Form::label('description', 'Description') }}
     {{ Form::textarea('description', null, array('class' => 'form-control')) }}
     </div>    
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+    {{ Form::label('use', 'Skill Use') }}
+    {{ Form::textarea('use', null, array('class' => 'form-control')) }}
+    </div>    
+    <div class="form-group">
+    {{ Form::label('special', 'Special Uses') }}
+    {{ Form::textarea('special', null, array('class' => 'form-control')) }}
+    </div>        
+    <button type="submit" class="btn btn-primary">Submit</button>    
 {{ Form::close() }}
 @endsection 

@@ -11,6 +11,13 @@ use App\Http\Requests;
 use App\Skill as Skill;
 use App\SkillGroup as SkillGroup;
 
+use App\Talent as Talent;
+use App\TalentOption as TalentOption;
+
+use App\CharacterTrait as CharacterTrait;
+
+use App\SpecialQuality as SpecialQuality;
+
 class AppController extends Controller
 {
     /**
@@ -20,8 +27,6 @@ class AppController extends Controller
      */
     public function index()
     {
-	$skills = Skill::all();
-	
-        return view('index', ['skills' => $skills]);
+    
     }
 }

@@ -4,7 +4,6 @@
 
 @section('content')
 @if ((isset($trait->id) && $trait->id))
-   <h1>{{ $trait->name }}</h1>
-   <p>{{ $trait->description }}</p>
+    @include('traits.single')
 @endif
 @endsection 

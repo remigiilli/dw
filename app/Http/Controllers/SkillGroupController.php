@@ -60,6 +60,8 @@ class SkillGroupController extends Controller
 
         $skill_group->name = $request->name;
         $skill_group->description = $request->description;
+        $skill_group->use = $request->use;
+        $skill_group->special = $request->special;        
 
         $skill_group->save();
         
@@ -104,6 +106,8 @@ class SkillGroupController extends Controller
 	$skill_group = SkillGroup::find($id);
         $skill_group->name = $request->name;
         $skill_group->description = $request->description;
+        $skill_group->use = $request->use;
+        $skill_group->special = $request->special;          
 
         $skill_group->save();
         

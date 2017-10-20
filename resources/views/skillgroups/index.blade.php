@@ -22,7 +22,15 @@
 	<tr>
 	    <td>{{ $skill_group->id }}</td>
 	    <td>{{ $skill_group->name }}</td>
-	    <td>{!! nl2br(e($skill_group->description)) !!}</td>
+	    <td>
+		<p>{!! nl2br(e($skill_group->description)) !!}</p>
+		@if ($skill_group->use) 
+		<p><b>Skill Use:</b> {!! nl2br(e($skill_group->use)) !!}</p>
+		@endif
+		@if ($skill_group->special) 
+		<p><b>Special Uses:</b><br /> {!! nl2br(e($skill_group->special)) !!}</p>
+		@endif			
+	    </td>
 	    <td>
 	      <a href="{{ route('skillgroups.edit', $skill_group->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit

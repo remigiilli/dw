@@ -102,7 +102,7 @@ class WeaponController extends Controller
     {
 	$weapon = Weapon::find($id);
 	
-        return view('weapons.show',  ['weapon' => $weapon]);
+        return view('weapons.show',  ['weapon' => $weapon, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }
 
     /**

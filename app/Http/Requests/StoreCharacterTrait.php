@@ -37,7 +37,7 @@ class StoreCharacterTrait extends Request
 	    case 'POST':
 	    {
 		return [
-		    'name' => 'required|max:255|unique:character_traits,name',
+		    'name' => 'required|max:255|unique:traits,name',
 		    'description' => 'required',
 		];
 	    }
@@ -45,7 +45,7 @@ class StoreCharacterTrait extends Request
 	    case 'PATCH':
 	    {
 		return [
-		    'name' => 'required|max:255|unique:character_traits,name,'.$trait->id,
+		    'name' => 'required|max:255|unique:traits,name,'.$trait->id,
 		    'description' => 'required',
 		];
 	    }

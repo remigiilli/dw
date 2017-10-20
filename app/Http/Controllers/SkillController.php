@@ -66,6 +66,8 @@ class SkillController extends Controller
         $skill->name = $request->name;
         $skill->attribute = $request->attribute;
         $skill->description = $request->description;       
+        $skill->use = $request->use;
+        $skill->special = $request->special;        
         $skill->group_id = ($request->group_id) ? $request->group_id : null;
 
         $skill->save();
@@ -113,6 +115,8 @@ class SkillController extends Controller
         $skill->name = $request->name;
 	$skill->attribute = $request->attribute;        
         $skill->description = $request->description;
+        $skill->use = $request->use;
+        $skill->special = $request->special;
         $skill->group_id = ($request->group_id) ? $request->group_id : null;
 
         $skill->save();

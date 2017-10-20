@@ -23,10 +23,18 @@
     @foreach ($skills as $skill)
 	<tr>
 	    <td>{{ $skill->id }}</td>    
-	    <td>@if (count($skill->group()->first()) > 0) {{ $skill->group()->first()->name }} @endif	</td>
+	    <td>@if (count($skill->group()->first()) > 0) {{ $skill->group()->first()->name }} @endif</td>
 	    <td>{{ $skill->name }}</td>
 	    <td>{{ $attributes[$skill->attribute] }}</td>
-	    <td>{!! nl2br(e($skill->description)) !!}</td>
+	    <td>
+		<p>{!! nl2br(e($skill->description)) !!}</p>
+		@if ($skill->use) 
+		<p><b>Skill Use:</b> {!! nl2br(e($skill->use)) !!}</p>
+		@endif
+		@if ($skill->special) 
+		<p><b>Special Uses:</b><br /> {!! nl2br(e($skill->special)) !!}</p>
+		@endif		
+	    </td>
 	    <td>
 	      <a href="{{ route('skills.edit', $skill->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit

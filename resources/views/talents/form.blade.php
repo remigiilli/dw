@@ -24,9 +24,13 @@
     {{ Form::text('name', null, array('class' => 'form-control')) }}</p>
     </div>
     <div class="form-group">
+    {{ Form::label('prerequisites', 'Prerequisites') }}
+    {{ Form::textarea('prerequisites', null, array('class' => 'form-control')) }}
+    </div>    
+    <div class="form-group">
     {{ Form::label('description', 'Description') }}
     {{ Form::textarea('description', null, array('class' => 'form-control')) }}
-    </div>
+    </div>    
     <div class="form-group">
     {{ Form::label('talent-options', 'Options') }}
     {{ Form::select('options[]', $talent_options, $talent->options->lists('id')->all(), ['multiple' => 'multiple', 'id' => 'talent-options', 'class' => 'form-control']) }}
