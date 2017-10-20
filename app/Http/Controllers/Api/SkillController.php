@@ -70,7 +70,7 @@ class SkillController extends Controller
      */
     public function show($id)
     {
-	$skill = Skill::find($id);
+	$skill = Skill::with('group')->find($id);
 	
         return $skill;
     }

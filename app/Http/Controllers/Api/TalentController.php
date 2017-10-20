@@ -62,6 +62,19 @@ class TalentController extends Controller
         
         return response()->json($talent, 201);
     }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+	$talent = Talent::with('options')->find($id);
+	
+        return $talent;
+    }     
 
     /**
      * Update the specified resource in storage.

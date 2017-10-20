@@ -35,7 +35,7 @@ class WeaponController extends Controller
      */
     public function index()
     {
-	$weapons = Weapon::all();
+	$weapons = Weapon;
 	
         return $weapons;
     }
@@ -86,7 +86,7 @@ class WeaponController extends Controller
      */
     public function show($id)
     {
-	$weapon = Weapon::find($id);
+	$weapon = Weapon::with('specialQualities')->find($id);
 	
         return $weapon;
     }
