@@ -150,8 +150,13 @@ class WeaponController extends Controller
         
         $weapon->save();
         
-	$special_qualities = $request->input('special_qualities');        
-	$weapon->specialQualities()->sync($special_qualities);        
+	$special_qualities = $request->input('special_qualities');    
+	if ($special_qualities) {
+	    $weapon->specialQualities()->sync($special_qualities);        
+	}
+	else 
+	    $weapon->specialQualities()->detach();
+	}
         
         return redirect('weapons')->with('status', 'Weapon updated!');
     }
