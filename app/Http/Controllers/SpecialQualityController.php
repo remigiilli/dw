@@ -14,6 +14,7 @@ use App\Http\Requests\StoreSpecialQuality as StoreSpecialQuality;
 
 class SpecialQualityController extends Controller
 {
+     public $extra = array(0 => 'No Adittional value', 1 => 'Adittional value');
     /**
      * Instantiate a new SpecialQualityController instance.
      *
@@ -45,7 +46,7 @@ class SpecialQualityController extends Controller
     {
 	$special_quality = new SpecialQuality;
 	
-        return view('special_qualities.form', ['special_quality' => $special_quality]);
+        return view('special_qualities.form', ['special_quality' => $special_quality, 'extra' => $this->extra]);
     }
 
     /**
@@ -60,6 +61,7 @@ class SpecialQualityController extends Controller
 
         $special_quality->name = $request->name;
         $special_quality->description = $request->description;
+        $special_quality->extra = ($request->extra !== '') ? $request->extra : 0;
         
         $special_quality->save();
         
@@ -102,7 +104,7 @@ class SpecialQualityController extends Controller
     {
 	$special_quality = SpecialQuality::find($id);
 	
-        return view('special_qualities.form',  ['special_quality' => $special_quality]);
+        return view('special_qualities.form',  ['special_quality' => $special_quality, 'extra' => $this->extra]);
     }
 
     /**
@@ -117,6 +119,7 @@ class SpecialQualityController extends Controller
 	$special_quality = SpecialQuality::find($id);
         $special_quality->name = $request->name;
         $special_quality->description = $request->description;
+        $special_quality->extra = ($request->extra !== '') ? $request->extra : 0;
         
         $special_quality->save();    
         

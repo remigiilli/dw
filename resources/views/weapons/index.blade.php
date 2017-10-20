@@ -97,8 +97,10 @@
 	    <td>{{ $renow_levels[$weapon->renown] }}</td>
 	    <td>
 @if (count($weapon->specialQualities()->first()) > 0)
-		{{ implode(',', $weapon->specialQualities->lists('name')->all() ) }}<br />
-@endif		    
+    @foreach ($weapon->specialQualities as $special_quality)
+	 {{ $special_quality->name }}@if ($special_quality->extra)({{$special_quality->pivot->extra}})@endif,
+    @endforeach
+@endif	    		    
 	    </td>
 	    <td>
 	      <a href="{{ route('weapons.edit', $weapon->id) }}" class="btn btn-info btn-sm">

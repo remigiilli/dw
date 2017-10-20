@@ -27,6 +27,10 @@
     {{ Form::label('description', 'Description') }}
     {{ Form::textarea('description', null, array('class' => 'form-control')) }}
     </div>    
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+    {{ Form::label('extra', 'Additional Value') }}
+    {{ Form::select('extra', $extra, $special_quality->extra, ['class' => 'form-control']) }}
+    </div>        
+    <button type="submit" class="btn btn-primary">Submit</button>    
 {{ Form::close() }}
 @endsection 

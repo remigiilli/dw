@@ -39,6 +39,7 @@ class StoreSpecialQuality extends Request
 		return [
 		    'name' => 'required|max:255|unique:special_qualities,name',
 		    'description' => 'required',
+		    'extra' => 'integer',
 		];
 	    }
 	    case 'PUT':
@@ -47,6 +48,7 @@ class StoreSpecialQuality extends Request
 		return [
 		    'name' => 'required|max:255|unique:special_qualities,name,'.$special_quality->id,
 		    'description' => 'required',
+		    'extra' => 'integer',
 		];
 	    }
 	    default:break;

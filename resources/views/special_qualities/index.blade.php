@@ -9,6 +9,7 @@
 	    <th>ID</th>
 	    <th>Name</th>
 	    <th>Description</th>
+	    <th>Additional Value</th>
 	    <td></td>
 	    <td>
 	      <a href="{{ route('specialqualities.create') }}" class="btn btn-info btn-sm">
@@ -23,11 +24,12 @@
 	    <td>{{ $special_quality->id }}</td>
 	    <td>{{ $special_quality->name }}</td>
 	    <td>{{ $special_quality->description }}</td>
+	    <td>{{ $special_quality->extra }}</td>
 	    <td>
 	      <a href="{{ route('specialqualities.edit', $special_quality->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
-	    </td>	    
+	    </td>	    	    
 	    <td>
 	      {{ Form::open(['route' => ['specialqualities.destroy', $special_quality->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>

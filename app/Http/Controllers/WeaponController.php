@@ -86,7 +86,7 @@ class WeaponController extends Controller
         
 	$special_qualities = $request->input('special_qualities');               
 	if ($special_qualities) {	
-	    $weapon->specialQualities()->sync($special_qualities);
+	    $weapon->specialQualities()->sync($special_qualities);;
 	}
         
         return redirect('weapons')->with('status', 'Weapon created!');
