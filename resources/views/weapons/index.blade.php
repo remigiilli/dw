@@ -33,7 +33,11 @@
 	    <td>{{ $weapon->id }}</td>
 	    <td>{{ $weapon->name }}</td>
 	    <td>	
+@if ($weapon->type)		    
 		{{ $classes[$weapon->type] }}
+@else
+		-
+@endif
 	    </td>	    	    
 	    <td>	
 		{{ $weapon->description }}
