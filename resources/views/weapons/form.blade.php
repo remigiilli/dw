@@ -97,7 +97,7 @@
     </div>  
     <div class="form-group">
     {{ Form::label('weight', 'Weight') }}
-    {{ Form::number('weight', null, array('class' => 'form-control')) }}
+    {{ Form::number('weight', null, array('class' => 'form-control', 'step' => '0.5')) }}
     </div>       
     <div class="form-group">
     {{ Form::label('req', 'Requisition') }}
