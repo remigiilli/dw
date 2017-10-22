@@ -70,7 +70,7 @@ class WargearController extends Controller
     {
 	$wargear = Wargear::find($id);
 	
-        return view('wargear.show',  ['wargear' => $wargear, 'renow_levels' => $this->renow_levels]);
+        return view('wargear.show',  ['wargear_item' => $wargear, 'renow_levels' => $this->renow_levels]);
     }
 
     /**

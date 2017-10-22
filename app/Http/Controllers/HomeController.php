@@ -19,6 +19,8 @@ use App\SpecialQuality as SpecialQuality;
 
 use App\Weapon as Weapon;
 
+use App\Wargear as Wargear;
+
 class HomeController extends Controller
 {
     public $attributes = array('ws' => 'WS','bs' => 'BS', 's' => 'S', 't' => 'T', 'ag' => 'Ag', 'int' => 'Int', 'per' => 'Per', 'wp' => 'WP', 'fel' => 'Fel');
@@ -67,7 +69,10 @@ class HomeController extends Controller
 	      
 	  $weapons = Weapon::where('name', 'like', '%'.$request->search.'%')
 	      ->get();	      
-	      
-	  return view('searchresults', ['skills' => $skills, 'talents' => $talents, 'traits' => $traits, 'special_qualities' => $special_qualities, 'psychic_powers' => $psychic_powers, 'weapons' => $weapons, 'attributes' => $this->attributes, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+
+	  $wargear = Wargear::where('name', 'like', '%'.$request->search.'%')
+	      ->get();	                
+          
+	  return view('searchresults', ['skills' => $skills, 'talents' => $talents, 'traits' => $traits, 'special_qualities' => $special_qualities, 'psychic_powers' => $psychic_powers, 'weapons' => $weapons, 'wargear' => $wargear, 'attributes' => $this->attributes, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }    
 }

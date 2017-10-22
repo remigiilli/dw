@@ -16,3 +16,4 @@
 </p>  
 <p><b>Sustained</b> @if ($psychic_power->sustained) Yes @else No @endif</p>
 <p>{!! nl2br(e($psychic_power->description)) !!}</p>
+<p><a href="{{ route('psychicpowers.edit', $psychic_power->id) }}">Edit</a></p>

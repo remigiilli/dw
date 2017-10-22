@@ -39,4 +39,10 @@
 	    @include('special_qualities.single')
 	@endforeach    
     @endif    
+    @if (count($wargear))
+	<h2>Wargear</h2>
+	@foreach ($wargear as $wargear_item)	
+	    @include('wargear.single')
+	@endforeach    
+    @endif     
 @endsection 

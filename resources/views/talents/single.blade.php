@@ -8,3 +8,4 @@
     <p><b>Talent Groups</b>: {{ implode(', ', $talent->options->lists('name')->all() ) }}</p>
 @endif		
 <p>{!! nl2br(e($talent->description)) !!}</p>
+<p><a href="{{ route('talents.edit', $talent->id) }}">Edit</a></p>

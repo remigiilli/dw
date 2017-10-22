@@ -1,13 +1,14 @@
-<h3>{{ $wargear->name }}</h3>
-<p>{!! nl2br(e($wargear->description)) !!}</p>
+<h3>{{ $wargear_item->name }}</h3>
+<p>{!! nl2br(e($wargear_item->description)) !!}</p>
 <div class="row">
     <div class="col-lg-4">
-	<b>Weight</b> {{ $wargear->weight }}<br />
+	<b>Weight</b> {{ $wargear_item->weight }}<br />
     </div>
     <div class="col-lg-4">
-	<b>Requision</b> {{ $wargear->req }}<br />   
+	<b>Requision</b> {{ $wargear_item->req }}<br />   
     </div>
     <div class="col-lg-4">
-	<b>Renown</b> {{ $renow_levels[$wargear->renown] }}<br />
+	<b>Renown</b> {{ $renow_levels[$wargear_item->renown] }}<br />
     </div>
 </div>
+<p><a href="{{ route('wargear.edit', $wargear_item->id) }}">Edit</a></p>

@@ -17,3 +17,4 @@
 @elseif (count($skill->group()->first()) > 0 && $skill->group()->first()->special)
     <p><b>Special Uses:</b><br />  {!! nl2br(e($skill->group()->first()->special)) !!}</p>
 @endif
+<p><a href="{{ route('skills.edit', $skill->id) }}">Edit</a></p>
