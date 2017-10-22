@@ -9,6 +9,7 @@
 	<tr>
 	    <th>ID</th>
 	    <th>Name</th>	    
+            <th>Category</th>	
 	    <th>Class</th>	
 	    <th>Description</th>
 	    <th>Range</th>
@@ -33,6 +34,7 @@
 	<tr>
 	    <td>{{ $weapon->id }}</td>
 	    <td>{{ $weapon->name }}</td>
+	    <td>@if (count($weapon->category()->first()) > 0) {{ $weapon->category()->first()->name }} @else Uncategorized @endif</td>            
 	    <td>	
 @if ($weapon->type)		    
 		{{ $classes[$weapon->type] }}

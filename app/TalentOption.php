@@ -8,6 +8,6 @@ class TalentOption extends Model
 {
     public function talents()
     {
-        return $this->belongsToMany('App\TalentOption');
+        return $this->belongsToMany('App\Talent');
     }
 }

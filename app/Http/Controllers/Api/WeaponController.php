@@ -35,7 +35,7 @@ class WeaponController extends Controller
      */
     public function index()
     {
-	$weapons = Weapon;
+	$weapons = Weapon::all();
 	
         return $weapons;
     }

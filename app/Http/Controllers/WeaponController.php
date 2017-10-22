@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\URL;
 use App\Http\Requests;
 
 use App\Weapon as Weapon;
+use App\WeaponCategory as WeaponCategory;
 use App\SpecialQuality as SpecialQuality;
 
 use App\Http\Requests\StoreWeapon as StoreWeapon;
@@ -51,8 +52,9 @@ class WeaponController extends Controller
 	$weapon = new Weapon;
 	
 	$special_qualities = SpecialQuality::lists('name', 'id');
+        $weapon_categories = WeaponCategory::lists('name', 'id');
 	
-        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'weapon_categories' => $weapon_categories, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }
 
     /**
@@ -83,6 +85,7 @@ class WeaponController extends Controller
         $weapon->weight = $request->weight;
         $weapon->req = ($request->req !== '') ? $request->group_id : null;
         $weapon->renown = $request->renown;
+        $weapon->weapon_category_id = ($request->weapon_category_id) ? $request->weapon_category_id : null;
         
         $weapon->save();
         
@@ -118,8 +121,9 @@ class WeaponController extends Controller
 	$weapon = Weapon::find($id);
 
 	$special_qualities = SpecialQuality::lists('name', 'id');
+        $weapon_categories = WeaponCategory::lists('name', 'id');        
 	
-        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'weapon_categories' => $weapon_categories, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }
 
     /**
@@ -150,6 +154,7 @@ class WeaponController extends Controller
         $weapon->weight = $request->weight;
         $weapon->req = ($request->req !== '') ? $request->group_id : null;
         $weapon->renown = $request->renown;
+        $weapon->weapon_category_id = ($request->weapon_category_id) ? $request->weapon_category_id : null;
         
         $weapon->save();
         
