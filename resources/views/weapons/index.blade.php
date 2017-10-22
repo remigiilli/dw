@@ -11,7 +11,6 @@
 	    <th>Name</th>	    
             <th>Category</th>	
 	    <th>Class</th>	
-	    <th>Description</th>
 	    <th>Range</th>
 	    <th>ROF</th>
 	    <th>Damage</th>
@@ -41,10 +40,7 @@
 @else
 		-
 @endif
-	    </td>	    	    
-	    <td>	
-		{!! nl2br(e($weapon->description)) !!}
-	    </td>	    
+	    </td>	    	    	    
 	    <td>
 @if ($weapon->range)	 
     @if ($weapon->range_type == 0)	
