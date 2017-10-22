@@ -34,7 +34,7 @@
 	<tr>
 	    <td>{{ $weapon->id }}</td>
 	    <td>{{ $weapon->name }}</td>
-	    <td>@if (count($weapon->category()->first()) > 0) {{ $weapon->category()->first()->name }} @else Uncategorized @endif</td>            
+	    <td>@if (count($weapon->category()->first()) > 0) {{ $weapon->category()->first()->name }} @else - @endif</td>            
 	    <td>	
 @if ($weapon->type)		    
 		{{ $classes[$weapon->type] }}
