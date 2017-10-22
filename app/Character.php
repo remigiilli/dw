@@ -25,4 +25,9 @@ class Character extends Model
     {
         return $this->belongsToMany('App\Weapons');
     }    
+    
+    public function psychicPowers()
+    {
+        return $this->belongsToMany('App\PsychicPowers');
+    }        
 }

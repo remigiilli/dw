@@ -13,6 +13,8 @@ use App\TalentOption as TalentOption;
 
 use App\CharacterTrait as CharacterTrait;
 
+use App\PsychicPower as PsychicPower;
+
 use App\SpecialQuality as SpecialQuality;
 
 use App\Weapon as Weapon;
@@ -56,13 +58,16 @@ class HomeController extends Controller
 
 	  $traits = CharacterTrait::where('name', 'like', '%'.$request->search.'%')
 	      ->get();
-	      
+
+	  $psychic_powers = PsychicPower::where('name', 'like', '%'.$request->search.'%')
+	      ->get();          
+          
 	  $special_qualities = SpecialQuality::where('name', 'like', '%'.$request->search.'%')
 	      ->get();
 	      
 	  $weapons = Weapon::where('name', 'like', '%'.$request->search.'%')
 	      ->get();	      
 	      
-	  return view('searchresults', ['skills' => $skills, 'talents' => $talents, 'traits' => $traits, 'special_qualities' => $special_qualities, 'weapons' => $weapons, 'attributes' => $this->attributes, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+	  return view('searchresults', ['skills' => $skills, 'talents' => $talents, 'traits' => $traits, 'special_qualities' => $special_qualities, 'psychic_powers' => $psychic_powers, 'weapons' => $weapons, 'attributes' => $this->attributes, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }    
 }

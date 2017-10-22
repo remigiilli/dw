@@ -3,6 +3,7 @@
 @section('title', 'Page Title')
 
 @section('content')
+<div class="table-responsive"> 
     <table  class="table table-striped">
       <thead>    
 	<tr>
@@ -40,7 +41,7 @@
 @endif
 	    </td>	    	    
 	    <td>	
-		{{ $weapon->description }}
+		{!! nl2br(e($weapon->description)) !!}
 	    </td>	    
 	    <td>
 @if ($weapon->range)	 
@@ -120,4 +121,5 @@
     @endforeach
       </tbody>    
     </table>
+</div>
 @endsection 

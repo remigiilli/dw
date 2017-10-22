@@ -14,6 +14,9 @@ Route::get('/home', [
 //     'middleware' => 'auth',
 //     'uses' => 'AppController@index'
 ]);
+Route::resource('characters', 'CharacterController', [
+//     'middleware' => 'auth'
+]);
 Route::resource('talents', 'TalentController', [
 //     'middleware' => 'auth'
 ]);
@@ -27,6 +30,9 @@ Route::resource('skills', 'SkillController', [
 //     'middleware' => 'auth'
 ]);
 Route::resource('traits', 'TraitController', [
+//     'middleware' => 'auth'
+]);
+Route::resource('psychicpowers', 'PsychicPowerController', [
 //     'middleware' => 'auth'
 ]);
 Route::resource('weapons', 'WeaponController', [

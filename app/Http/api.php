@@ -25,6 +25,9 @@ Route::resource('skills', 'SkillController', [
 Route::resource('traits', 'TraitController', [
 
 ]);
+Route::resource('psychicpowers', 'PsychicPowerController', [
+
+]);
 Route::resource('weapons', 'WeaponController', [
 
 ]);

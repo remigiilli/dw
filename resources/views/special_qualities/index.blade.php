@@ -3,6 +3,7 @@
 @section('title', 'Page Title')
 
 @section('content')
+<div class="table-responsive"> 
     <table  class="table table-striped">
       <thead>    
 	<tr>
@@ -23,7 +24,7 @@
 	<tr>
 	    <td>{{ $special_quality->id }}</td>
 	    <td>{{ $special_quality->name }}</td>
-	    <td>{{ $special_quality->description }}</td>
+	    <td>{!! nl2br(e($special_quality->description)) !!}</td>
 	    <td>{{ $special_quality->extra }}</td>
 	    <td>
 	      <a href="{{ route('specialqualities.edit', $special_quality->id) }}" class="btn btn-info btn-sm">
@@ -39,4 +40,5 @@
     @endforeach
       </tbody>    
     </table>
+</div>
 @endsection 

@@ -29,7 +29,7 @@
     </div>
     <div class="form-group">
     {{ Form::label('type', 'Class') }}    
-    {{ Form::select('type', $classes, $weapon->type, ['placeholder' => 'No Class', 'class' => 'form-control']) }}
+    {{ Form::select('type', $classes, $weapon->type, ['placeholder' => 'No Class...', 'class' => 'form-control']) }}
     </div>      
     <div class="form-group">    
 	<div class="row">

@@ -21,6 +21,12 @@
 	    @include('traits.single')
 	@endforeach
     @endif
+    @if (count($psychic_powers))
+	<h2>Psychic Powers</h2>
+	@foreach ($psychic_powers as $psychic_power)
+	    @include('psychic_powers.single')
+	@endforeach
+    @endif    
     @if (count($weapons))
 	<h2>Weapons</h2>
 	@foreach ($weapons as $weapon)	

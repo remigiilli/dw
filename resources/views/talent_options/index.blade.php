@@ -3,6 +3,7 @@
 @section('title', 'Page Title')
 
 @section('content')
+<div class="table-responsive"> 
     <table  class="table table-striped">
       <thead>    
 	<tr>
@@ -35,4 +36,5 @@
     @endforeach
       </tbody>    
     </table>
+</div>
 @endsection 

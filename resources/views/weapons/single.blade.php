@@ -1,6 +1,6 @@
 <h3>{{ $weapon->name }}</h3>
 <p><b>{{ $classes[$weapon->type] }}</b>
-<p>{{ $weapon->description }}</p>
+<p>{!! nl2br(e($weapon->description)) !!}</p>
 <div class="row">
     <div class="col-lg-6">
 	<b>Damage</b> {{ $weapon->dmg1 }}D{{ $weapon->dmg2 }} + {{ $weapon->dmg3 }} {{ $weapon->dmg4 }}<br />
