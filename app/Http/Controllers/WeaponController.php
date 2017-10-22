@@ -18,6 +18,7 @@ class WeaponController extends Controller
      public $damage_types = array('e' => 'Energy', 'i' => 'Impact', 'r' => 'Rending', 'x' => 'Explosive');
      public $renow_levels = array('' => '-', 'r' => 'Respected', 'd' => 'Distinguished', 'f' => 'Famed', 'h' => 'Hero');
      public $classes = array('b' => 'Basic', 'h' => 'Heavy', 'm' => 'Melee', 'o' => 'Mounted', 'p' => 'Pistol', 't' => 'Thrown');  
+     public $range_types = array(0 => 'Range in meters', 1 => 'SB x Range');  
     /**
      * Instantiate a new WeaponController instance.
      *
@@ -51,7 +52,7 @@ class WeaponController extends Controller
 	
 	$special_qualities = SpecialQuality::lists('name', 'id');
 	
-        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }
 
     /**
@@ -67,7 +68,8 @@ class WeaponController extends Controller
         $weapon->name = $request->name;
         $weapon->description = $request->description;
         $weapon->type = $request->type;
-        $weapon->range = $request->range;        
+        $weapon->range = $request->range;       
+        $weapon->range_type = $request->range_type;        
         $weapon->rof1 = $request->rof1;
         $weapon->rof2 = $request->rof2;
         $weapon->rof3 = $request->rof3;
@@ -117,7 +119,7 @@ class WeaponController extends Controller
 
 	$special_qualities = SpecialQuality::lists('name', 'id');
 	
-        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }
 
     /**
@@ -133,7 +135,8 @@ class WeaponController extends Controller
         $weapon->name = $request->name;
         $weapon->description = $request->description;
         $weapon->type = $request->type;
-        $weapon->range = $request->range;        
+        $weapon->range = $request->range;
+        $weapon->range_type = $request->range_type;
         $weapon->rof1 = $request->rof1;
         $weapon->rof2 = $request->rof2;
         $weapon->rof3 = $request->rof3;

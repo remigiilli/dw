@@ -11,7 +11,7 @@
 </div>
 <div class="row">
     <div class="col-lg-3">
-	<b>Range</b> @if ($weapon->range) {{ $weapon->range }}m @else - @endif <br />
+	<b>Range</b> @if ($weapon->range) @if ($weapon->range_type == 0) {{ $weapon->range }}m @else SB x {{ $weapon->range }}@endif @else - @endif <br />
     </div>
     <div class="col-lg-3">
 	<b>ROF</b> @if ($weapon->rof1) S @else - @endif / @if ($weapon->rof2) {{ $weapon->rof2 }} @else - @endif / @if ($weapon->rof3) {{ $weapon->rof3 }} @else - @endif<br />

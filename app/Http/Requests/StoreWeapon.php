@@ -38,7 +38,9 @@ class StoreWeapon extends Request
 	    {
 		return [
 		    'name' => 'required|max:255|unique:weapons,name',
-		    'type' => 'in:b,h,m,o,p,t',		    
+		    'type' => 'in:b,h,m,o,p,t',		
+                    'range' => 'numeric',
+                    'range_type' => 'integer',
 		    'rof1' => 'boolean',
 		    'rof2' => 'integer',
 		    'rof3' => 'integer',		    
@@ -59,7 +61,9 @@ class StoreWeapon extends Request
 	    {
 		return [
 		    'name' => 'required|max:255|unique:weapons,name,'.$weapon->id,
-		    'type' => 'in:b,h,m,o,p,t',		    
+		    'type' => 'in:b,h,m,o,p,t',		
+                    'range' => 'numeric',
+                    'range_type' => 'integer',                    
 		    'rof1' => 'boolean',
 		    'rof2' => 'integer',
 		    'rof3' => 'integer',		    

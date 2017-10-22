@@ -43,8 +43,12 @@
 		{{ $weapon->description }}
 	    </td>	    
 	    <td>
-@if ($weapon->range)	    
-		{{ $weapon->range }}
+@if ($weapon->range)	 
+    @if ($weapon->range_type == 0)	
+        {{ $weapon->range }}m
+    @else
+        SB X {{ $weapon->range }}
+    @endif    
 @else
 		-
 @endif	    

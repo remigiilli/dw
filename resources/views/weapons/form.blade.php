@@ -29,11 +29,19 @@
     </div>
     <div class="form-group">
     {{ Form::label('type', 'Class') }}    
-    {{ Form::select('type', $classes, $weapon->type, ['placeholder' => 'Pick an Class...', 'class' => 'form-control']) }}
+    {{ Form::select('type', $classes, $weapon->type, ['placeholder' => 'No Class', 'class' => 'form-control']) }}
     </div>      
-    <div class="form-group">
-    {{ Form::label('range', 'Range') }}
-    {{ Form::number('range', null, array('class' => 'form-control')) }}
+    <div class="form-group">    
+	<div class="row">
+            <div class="col-lg-6">
+                {{ Form::label('range_type', 'Range Type') }}    
+                {{ Form::select('range_type', $range_types, $weapon->range_type, ['class' => 'form-control']) }}                
+            </div>
+            <div class="col-lg-6">
+                {{ Form::label('range', 'Range') }}
+                {{ Form::number('range', null, array('class' => 'form-control')) }}                
+            </div>
+        </div>
     </div>
     <div class="form-group">    
 	<div class="row">
