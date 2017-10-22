@@ -21,15 +21,15 @@
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}
-    {{ Form::text('name', null, array('class' => 'form-control')) }}</p>
+    {{ Form::text('name', null, array('class' => 'form-control', 'data-paste' => 'capitalize')) }}</p>
     </div>
     <div class="form-group">
     {{ Form::label('prerequisites', 'Prerequisites') }}
-    {{ Form::textarea('prerequisites', null, array('class' => 'form-control')) }}
+    {{ Form::textarea('prerequisites', null, array('class' => 'form-control', 'data-paste' => 'remove-newlines')) }}
     </div>    
     <div class="form-group">
     {{ Form::label('description', 'Description') }}
-    {{ Form::textarea('description', null, array('class' => 'form-control')) }}
+    {{ Form::textarea('description', null, array('class' => 'form-control', 'data-paste' => 'remove-newlines')) }}
     </div>    
     <div class="form-group">
     {{ Form::label('talent-options', 'Options') }}

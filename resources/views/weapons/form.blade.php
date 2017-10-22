@@ -21,11 +21,11 @@
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}
-    {{ Form::text('name', null, array('class' => 'form-control')) }}
+    {{ Form::text('name', null, array('class' => 'form-control', 'data-paste' => 'capitalize')) }}
     </div>
     <div class="form-group">
     {{ Form::label('description', 'Description') }}
-    {{ Form::textarea('description', null, array('class' => 'form-control')) }}
+    {{ Form::textarea('description', null, array('class' => 'form-control', 'data-paste' => 'remove-newlines')) }}
     </div>
     <div class="form-group">
     {{ Form::label('type', 'Class') }}    

@@ -21,7 +21,7 @@
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}
-    {{ Form::text('name', null, array('class' => 'form-control')) }}</p>
+    {{ Form::text('name', null, array('class' => 'form-control', 'data-paste' => 'capitalize')) }}</p>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 {{ Form::close() }}
