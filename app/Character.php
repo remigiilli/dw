@@ -29,5 +29,10 @@ class Character extends Model
     public function psychicPowers()
     {
         return $this->belongsToMany('App\PsychicPowers');
-    }        
+    }       
+    
+    public function wargear()
+    {
+        return $this->belongsToMany('App\Wargear')->withPivot('amount');
+    }       
 }

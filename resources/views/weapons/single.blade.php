@@ -1,6 +1,6 @@
 <h3>{{ $weapon->name }}</h3>
 <p>@if (count($weapon->category()->first()) > 0) {{ $weapon->category()->first()->name }} @else Uncategorized @endif</p>
-<p><b>{{ $classes[$weapon->type] }}</b>
+<p><b>{{ $classes[$weapon->type] }}</b></p>
 <p>{!! nl2br(e($weapon->description)) !!}</p>
 <div class="row">
     <div class="col-lg-6">

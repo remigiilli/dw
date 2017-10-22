@@ -105,7 +105,7 @@
     </div>      
     <div class="form-group">
     {{ Form::label('renown', 'Renown') }}    
-    {{ Form::select('renown', $renow_levels, $weapon->renown, ['placeholder' => 'Pick an Renown Level...', 'class' => 'form-control']) }}
+    {{ Form::select('renown', $renow_levels, $weapon->renown, ['class' => 'form-control']) }}
     </div>          
     
     <div class="form-group">
