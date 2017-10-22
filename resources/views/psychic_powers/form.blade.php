@@ -29,7 +29,7 @@
     </div>
     <div class="form-group">
     {{ Form::label('action', 'Action') }}
-    {{ Form::number('action', null, array('class' => 'form-control')) }}
+    {{ Form::number('action', null, array('class' => 'form-control', 'step' => '0.5')) }}
     </div> 
     <div class="form-group">
     {{ Form::label('opposed', 'Opposed') }} 
