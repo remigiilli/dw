@@ -1,5 +1,14 @@
 <h3>{{ $psychic_power->name }}</h3>
-<p><b>Action</b> {{ $psychic_power->action }}</p>
+<p><b>Action</b> 
+@if (!$psychic_power->action)	
+    Free
+@elseif ($psychic_power->action == 0.5)
+    Half
+@elseif ($psychic_power->action > 1)
+    extended ({{ $psychic_power->action }})
+@else
+     {{ $psychic_power->action }}
+@endif</p>
 <p><b>Opposed</b> @if ($psychic_power->opposed) Yes @else No @endif</p>
 <p><b>Range</b> 
 @if ($psychic_power->range_type == 0)	
