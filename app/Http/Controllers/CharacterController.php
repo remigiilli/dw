@@ -9,12 +9,17 @@ use Illuminate\Support\Facades\URL;
 use App\Http\Requests;
 
 use App\Character as Character;
-use App\SpecialQuality as SpecialQuality;
+use App\Skill as Skill;
+use App\Weapon as Weapon;
+use App\Talent as Talent;
+use App\CharacterTrait as CharacterTrait;
 
 use App\Http\Requests\StoreCharacter as StoreCharacter;
 
 class CharacterController extends Controller
 {
+    public $attributes = array('ws' => 'WS','bs' => 'BS', 's' => 'S', 't' => 'T', 'ag' => 'Ag', 'int' => 'Int', 'per' => 'Per', 'wp' => 'WP', 'fel' => 'Fel');
+    
     /**
      * Instantiate a new CharacterController instance.
      *
@@ -45,8 +50,13 @@ class CharacterController extends Controller
     public function create()
     {  
 	$character = new Character;
+        
+	$skills = Skill::all();        
+        $talents = Talent::all();    
+        $traits = CharacterTrait::all();    
+        $weapons = Weapon::all();    
 	
-        return view('characters.form', ['character' => $character]);
+        return view('characters.form', ['character' => $character, 'skills' => $skills, 'attributes' => $this->attributes, 'weapons' => $weapons, 'talents' => $talents, 'traits' => $traits]);
     }
 
     /**
@@ -91,7 +101,7 @@ class CharacterController extends Controller
 	}
         
 	$weapons = $request->input('weapons');               
-	if ($skills) {	
+	if ($weapons) {	
 	    $character->weapons()->sync($weapons);
 	}
                 
@@ -120,8 +130,13 @@ class CharacterController extends Controller
     public function edit($id)
     {
 	$character = Character::find($id);
+        
+	$skills = Skill::all();          
+        $talents = Talent::all();    
+        $traits = CharacterTrait::all();    
+        $weapons = Weapon::all();            
 	
-        return view('characters.form', ['character' => $character]);
+        return view('characters.form', ['character' => $character, 'skills' => $skills, 'attributes' => $this->attributes, 'weapons' => $weapons, 'talents' => $talents, 'traits' => $traits]);
     }
 
     /**
@@ -133,6 +148,8 @@ class CharacterController extends Controller
      */
     public function update(StoreCharacter $request, $id)
     {
+	$character = Character::find($id);        
+        
         $character->name = $request->name;
         $character->description = $request->description;
         $character->ws = $request->ws;
@@ -149,17 +166,37 @@ class CharacterController extends Controller
         
         $character->save();
 
-	$skills = $request->input('skills');               
-	$character->skills()->sync($skills);
-	
-	$traits = $request->input('traits');               
-	$character->traits()->sync($traits);
+	$skills = $request->input('skills'); 
+	if ($skills) {
+	    $character->skills()->sync($skills);   
+	}
+	else {
+	    $character->skills()->detach();
+	}        
         
-	$talents = $request->input('talents');               
-	$character->talents()->sync($talents);
+	$traits = $request->input('traits'); 
+	if ($traits) {
+	    $character->traits()->sync($traits);   
+	}
+	else {
+	    $character->traits()->detach();
+	}    
         
-	$weapons = $request->input('weapons');               
-	$character->weapons()->sync($weapons);
+	$talents = $request->input('talents'); 
+	if ($talents) {
+	    $character->talents()->sync($talents);   
+	}
+	else {
+	    $character->talents()->detach();
+	}    
+
+	$weapons = $request->input('weapons'); 
+	if ($weapons) {
+	    $character->weapons()->sync($weapons);   
+	}
+	else {
+	    $character->weapons()->detach();
+	}            
                 
         return redirect('characters')->with('status', 'Character updated!');
     }

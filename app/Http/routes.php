@@ -20,6 +20,7 @@ Route::resource('characters', 'CharacterController', [
 Route::resource('talents', 'TalentController', [
 //     'middleware' => 'auth'
 ]);
+Route::get('/talents/{id}/justcontent', 'TalentController@justcontent');
 Route::resource('talentoptions', 'TalentOptionController', [
 //     'middleware' => 'auth'
 ]);
@@ -29,21 +30,26 @@ Route::resource('skillgroups', 'SkillGroupController', [
 Route::resource('skills', 'SkillController', [
 //     'middleware' => 'auth'
 ]);
+Route::get('/skills/{id}/justcontent', 'SkillController@justcontent');
 Route::resource('traits', 'TraitController', [
 //     'middleware' => 'auth'
 ]);
+Route::get('/traits/{id}/justcontent', 'TraitController@justcontent');
 Route::resource('psychicpowers', 'PsychicPowerController', [
 //     'middleware' => 'auth'
 ]);
+Route::get('/psychicpowers/{id}/justcontent', 'PsychicPowerController@justcontent');
 Route::resource('wargear', 'WargearController', [
 //     'middleware' => 'auth'
 ]);
+Route::get('/wargear/{id}/justcontent', 'WargearController@justcontent');
 Route::resource('wargearcategories', 'WargearCategoryController', [
 //     'middleware' => 'auth'
 ]);
 Route::resource('weapons', 'WeaponController', [
 //     'middleware' => 'auth'
 ]);
+Route::get('/weapons/{id}/justcontent', 'WeaponController@justcontent');
 Route::resource('weaponcategories', 'WeaponCategoryController', [
 //     'middleware' => 'auth'
 ]);

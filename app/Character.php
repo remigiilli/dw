@@ -13,17 +13,17 @@ class Character extends Model
     
     public function traits()
     {
-        return $this->belongsToMany('App\CharacterTraits')->withPivot('extra');
+        return $this->belongsToMany('App\CharacterTrait', 'character_trait', 'character_id', 'trait_id')->withPivot('extra');
     }
 
     public function talents()
     {
-        return $this->belongsToMany('App\Talent', 'App\TalentOption');
+        return $this->belongsToMany('App\Talent');
     }
 
     public function weapons()
     {
-        return $this->belongsToMany('App\Weapons');
+        return $this->belongsToMany('App\Weapon');
     }    
     
     public function psychicPowers()

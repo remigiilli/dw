@@ -84,6 +84,19 @@ class PsychicPowerController extends Controller
 	
         return view('psychic_powers.show',  ['psychic_power' => $psychic_power]);
     }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function justcontent($id)
+    {
+	$psychic_power = PsychicPower::find($id);
+	
+        return view('psychic_powers.single',  ['psychic_power' => $psychic_power]);
+    }      
 
     /**
      * Show the form for editing the specified resource.

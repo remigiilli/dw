@@ -80,7 +80,6 @@ $(function () {
                 id = $('option:selected', this).val();
                 name =  $(this).parent().parent().find('[data-extra-toggle="1"]').attr('name');
                 name = name.replace(/\[(\d+)?\]/, '['+id+']');
-                console.log(name);
                 $(this).parent().parent().find('[data-extra-toggle="1"]').removeAttr('disabled').attr('name', name).show();
             }
             else {
@@ -89,7 +88,21 @@ $(function () {
                 $(this).parent().parent().find('[data-extra-toggle="1"]').val('').attr('disabled', 'disabled').attr('name', name).hide();
             }
         });
-        $(this).parent().parent().parent().append(repeateble_element);
+        
+        $('[data-toggle="popoverload-selected"]', repeateble_element).click(function(event) {
+            var e=$(this);
+            var uri = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '') + '/' +  e.data('type') + '/' + e.prev().val() + '/justcontent';
+            $.get(uri,function(d) {	  
+                e.popover({html: true, content: d}).popover('show');
+            });
+            event.preventDefault();
+        });    
+        $('[data-toggle="popoverload-selected"]', repeateble_element).focusout(function(event) {
+            $(this).popover('hide');
+        });            
+        
+        $('[data-change="check-extra"]', repeateble_element).change();
+        $(this).parent().parent().parent().append(repeateble_element);        
         $('[data-change="check-extra"]', repeateble_element).focus();
     });    
     

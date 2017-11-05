@@ -109,6 +109,19 @@ class WeaponController extends Controller
 	
         return view('weapons.show',  ['weapon' => $weapon, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function justcontent($id)
+    {
+	$weapon = Weapon::find($id);
+	
+        return view('weapons.single',  ['weapon' => $weapon, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+    }       
 
     /**
      * Show the form for editing the specified resource.

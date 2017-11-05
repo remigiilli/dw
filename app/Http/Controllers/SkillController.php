@@ -89,6 +89,19 @@ class SkillController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function justcontent($id)
+    {
+	$skill = Skill::find($id);
+	
+        return view('skills.single',  ['skill' => $skill, 'attributes' => $this->attributes]);
+    }        
+    
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

@@ -79,6 +79,19 @@ class TraitController extends Controller
 	
         return view('traits.show',  ['trait' => $trait]);
     }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function justcontent($id)
+    {
+	$trait = CharacterTrait::find($id);
+	
+        return view('traits.single',  ['trait' => $trait]);
+    }     
 
     /**
      * Show the form for editing the specified resource.

@@ -76,6 +76,19 @@ class WargearController extends Controller
 	
         return view('wargear.show',  ['wargear_item' => $wargear, 'renow_levels' => $this->renow_levels]);
     }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function justcontent($id)
+    {
+	$wargear = Wargear::find($id);
+	
+        return view('wargear.single',  ['wargear_item' => $wargear, 'renow_levels' => $this->renow_levels]);
+    }     
 
     /**
      * Show the form for editing the specified resource.
