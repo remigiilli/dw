@@ -51,7 +51,7 @@ class WeaponController extends Controller
     {  
 	$weapon = new Weapon;
 	
-	$special_qualities = SpecialQuality::lists('name', 'id');
+	$special_qualities = SpecialQuality::all();
         $weapon_categories = WeaponCategory::lists('name', 'id');
 	
         return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'weapon_categories' => $weapon_categories, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
@@ -120,7 +120,7 @@ class WeaponController extends Controller
     {
 	$weapon = Weapon::find($id);
 
-	$special_qualities = SpecialQuality::lists('name', 'id');
+	$special_qualities = SpecialQuality::all();
         $weapon_categories = WeaponCategory::lists('name', 'id');        
 	
         return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'weapon_categories' => $weapon_categories, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);

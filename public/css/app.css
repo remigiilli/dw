@@ -5730,4 +5730,10 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.repeateble-template {
+  display: none; }
+
+.repeateble-element {
+  display: block; }
+
 /*# sourceMappingURL=app.css.map */

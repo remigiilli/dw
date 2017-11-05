@@ -109,8 +109,42 @@
     </div>          
     
     <div class="form-group">
-    {{ Form::label('weapon-special-qualities', 'Options') }}
-    {{ Form::select('special_qualities[]', $special_qualities, $weapon->specialQualities->lists('id')->all(), ['multiple' => 'multiple', 'id' => 'weapon-special-qualities', 'class' => 'form-control']) }}
+        {{ Form::label('weapon-special-qualities', 'Options') }}
+        <div class="repeateble-holder" id="weapon-special-qualities-holder">           
+            @if (count($weapon->specialQualities()->first()) > 0)        
+                @foreach ($weapon->specialQualities as $special_quality)
+                    <div data-load="repeateble-add" data-id="{{ $special_quality->id }}"@if ($special_quality->extra) data-extra="{{$special_quality->pivot->extra}}"@endif></div>
+                @endforeach                       
+            @endif                        
+            <div class="repeateble-template form-group row">
+                <div class="col-lg-3">
+                    <select name="special_qualities[]" id="weapon-special-qualities" class="form-control" data-change="check-extra">    
+                    @foreach ($special_qualities as $special_quality)
+                        <option value="{{ $special_quality->id }}"
+                                @if ($special_quality->extra) data-extra="1" @endif                                 
+                        >{{ $special_quality->name }}</option>        
+                    @endforeach
+                    </select>
+                </div>                    
+                <div class="col-lg-3">
+                    <input name="special_qualities[][extra]" data-extra-toggle="1" type="text" disabled="disabled" class="form-control" />    
+                </div>
+                <div class="col-lg-3">
+                    <a class="btn btn-info btn-sm" data-click="repeateble-remove">
+                        <span class="glyphicon glyphicon-trash"></span> Remove
+                    </a>
+                </div>    
+            </div>
+            <div class="repeateble-content ">
+                <div class="row form-group">
+                    <div class="col-md-offset-6 col-lg-3">
+                        <a class="btn btn-info btn-sm" data-click="repeateble-add">
+                            <span class="glyphicon glyphicon-trash"></span> Add
+                        </a>                
+                    </div>                
+                </div>
+            </div>
+        </div>
     </div>    
     <button type="submit" class="btn btn-primary">Submit</button>
 {{ Form::close() }}

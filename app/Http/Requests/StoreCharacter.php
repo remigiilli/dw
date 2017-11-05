@@ -49,7 +49,6 @@ class StoreCharacter extends Request
 		    'fel' => 'required|integer',
 		    'wounds' => 'required|integer',
 		    'psy' => 'required|integer',
-		    'renown' => 'required|integer',
 		];
 	    }
 	    case 'PUT':
@@ -68,7 +67,6 @@ class StoreCharacter extends Request
 		    'fel' => 'required|integer',
 		    'wounds' => 'required|integer',
 		    'psy' => 'required|integer',
-		    'renown' => 'required|integer',
 		];
 	    }
 	    default:break;

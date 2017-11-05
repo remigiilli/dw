@@ -43,31 +43,64 @@ $(function () {
 	$(this).popover('hide');
     });
     $('[data-paste="remove-newlines"]').on('paste', function(event){
-        var e=$(this);
+        var element = $(this);
         var dt = event.originalEvent.clipboardData;
         if(dt && dt.items && dt.items[0]){
             dt.items[0].getAsString(function(text){
-                e.insertAtCaret(text.replace(/\r?\n|\r/g, ' '));
+                element.insertAtCaret(text.replace(/\r?\n|\r/g, ' '));
             });
         }
         else if(dt && 'getData' in dt){
-            e.insertAtCaret(dt.getData('text').replace(/\r?\n|\r/g, ' '));
+            element.insertAtCaret(dt.getData('text').replace(/\r?\n|\r/g, ' '));
         }        
 	event.preventDefault();        
     });    
     $('[data-paste="capitalize"]').on('paste', function(event){
-        var e=$(this);
+        var element = $(this);
         var dt = event.originalEvent.clipboardData;
         if(dt && dt.items && dt.items[0]){
             dt.items[0].getAsString(function(text){
-                e.insertAtCaret(text.capitalize());
+                element.insertAtCaret(text.capitalize());
             });
         }
         else if(dt && 'getData' in dt){
-            e.insertAtCaret(dt.getData('text').capitalize());
+            element.insertAtCaret(dt.getData('text').capitalize());
         }        
 	event.preventDefault();        
+    });     
+    
+    $('[data-click="repeateble-add"]').click(function(event) {        
+        var repeateble_element = $(this).parent().parent().parent().parent().find('.repeateble-template').clone().removeClass('repeateble-template').addClass('repeateble-element');
+        $('[data-extra-toggle="1"]', repeateble_element).hide();
+        $('[data-click="repeateble-remove"]', repeateble_element).click(function(event) {
+            $(this).parent().parent().remove();
+        });        
+        $('[data-change="check-extra"]', repeateble_element).change(function(event) {
+            if (typeof $('option:selected', this).data('extra') !== 'undefined') {
+                id = $('option:selected', this).val();
+                name =  $(this).parent().parent().find('[data-extra-toggle="1"]').attr('name');
+                name = name.replace(/\[(\d+)?\]/, '['+id+']');
+                console.log(name);
+                $(this).parent().parent().find('[data-extra-toggle="1"]').removeAttr('disabled').attr('name', name).show();
+            }
+            else {
+                name =  $(this).parent().parent().find('[data-extra-toggle="1"]').attr('name');
+                name = name.replace(/\[(\d+)\]/, '[]');                
+                $(this).parent().parent().find('[data-extra-toggle="1"]').val('').attr('disabled', 'disabled').attr('name', name).hide();
+            }
+        });
+        $(this).parent().parent().parent().append(repeateble_element);
+        $('[data-change="check-extra"]', repeateble_element).focus();
     });    
+    
+    $('[data-load="repeateble-add"]').each(function(){
+        var holderElement = $(this).parent();       
+        $('[data-click="repeateble-add"]', holderElement).click();
+        var currentElement = $('.repeateble-element:last-child', holderElement);
+        $('[data-change="check-extra"]', currentElement).val($(this).data('id')).change();
+        if (typeof $(this).data('extra') !== 'undefined') {
+            $('[data-extra-toggle="1"]', currentElement).val($(this).data('extra'));
+        }         
+    });
 }) 
-
 //# sourceMappingURL=app.js.map
