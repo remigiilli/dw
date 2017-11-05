@@ -8,7 +8,8 @@
       <thead>    
 	<tr>
 	    <th>ID</th>
-	    <th>Name</th>	    
+	    <th>Name</th>	
+            <th>Category</th>
 	    <th>Weight</th>	
 	    <th>Requisition</th>	
 	    <th>Renown</th>	
@@ -25,6 +26,7 @@
 	<tr>
 	    <td>{{ $wargear_item->id }}</td>
 	    <td>{{ $wargear_item->name }}</td>
+            <td>@if (count($wargear_item->category()->first()) > 0) {{ $wargear_item->category()->first()->name }} @else - @endif</td>            
 	    <td>{{ $wargear_item->weight }}</td>
 	    <td>
 @if (!is_null($wargear_item->req))	    

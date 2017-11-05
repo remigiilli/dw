@@ -38,6 +38,9 @@ Route::resource('psychicpowers', 'PsychicPowerController', [
 Route::resource('wargear', 'WargearController', [
 //     'middleware' => 'auth'
 ]);
+Route::resource('wargearcategories', 'WargearCategoryController', [
+//     'middleware' => 'auth'
+]);
 Route::resource('weapons', 'WeaponController', [
 //     'middleware' => 'auth'
 ]);

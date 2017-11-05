@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Wargear as Wargear;
+use App\WargearCategory as WargearCategory;
 
 use App\Http\Requests\StoreWargear as StoreWargear;
 
@@ -34,8 +35,10 @@ class WargearController extends Controller
     public function create()
     {
 	$wargear = new Wargear;
+        
+        $wargear_categories = WargearCategory::lists('name', 'id');
 	
-        return view('wargear.form', ['wargear' => $wargear, 'renow_levels' => $this->renow_levels]);
+        return view('wargear.form', ['wargear' => $wargear, 'renow_levels' => $this->renow_levels, 'wargear_categories' => $wargear_categories]);
 
     }
 
@@ -54,6 +57,7 @@ class WargearController extends Controller
         $wargear->weight = $request->weight;
         $wargear->req = ($request->req !== '') ? $request->req : null;
         $wargear->renown = $request->renown;
+        $wargear->wargear_category_id = ($request->wargear_category_id) ? $request->wargear_category_id : null;
         
         $wargear->save();
         
@@ -82,8 +86,10 @@ class WargearController extends Controller
     public function edit($id)
     {
 	$wargear = Wargear::find($id);
+        
+        $wargear_categories = WargearCategory::lists('name', 'id');
 
-        return view('wargear.form', ['wargear' => $wargear, 'renow_levels' => $this->renow_levels]);
+        return view('wargear.form', ['wargear' => $wargear, 'renow_levels' => $this->renow_levels, 'wargear_categories' => $wargear_categories]);
 
     }
 
@@ -102,6 +108,7 @@ class WargearController extends Controller
         $wargear->weight = $request->weight;
         $wargear->req = ($request->req !== '') ? $request->req : null;
         $wargear->renown = $request->renown;
+        $wargear->wargear_category_id = ($request->wargear_category_id) ? $request->wargear_category_id : null;        
         
         $wargear->save();
         

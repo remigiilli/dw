@@ -24,7 +24,7 @@
     {{ Form::text('name', null, array('class' => 'form-control', 'data-paste' => 'capitalize')) }}
     </div>
     <div class="form-group">
-    {{ Form::label('weapon_category__id', 'Category') }}    
+    {{ Form::label('weapon_category_id', 'Category') }}    
     {{ Form::select('weapon_category_id', $weapon_categories, $weapon->weapon_category_id, ['placeholder' => 'Uncategorized', 'class' => 'form-control']) }}
     </div>  
     <div class="form-group">

@@ -23,6 +23,10 @@
     {{ Form::label('name', 'Name') }}
     {{ Form::text('name', null, array('class' => 'form-control', 'data-paste' => 'capitalize')) }}
     </div>
+   <div class="form-group">
+    {{ Form::label('wargear_category_id', 'Category') }}    
+    {{ Form::select('wargear_category_id', $wargear_categories, $wargear->wargear_category_id, ['placeholder' => 'Uncategorized', 'class' => 'form-control']) }}
+    </div>  
     <div class="form-group">
     {{ Form::label('description', 'Description') }}
     {{ Form::textarea('description', null, array('class' => 'form-control', 'data-paste' => 'remove-newlines')) }}
