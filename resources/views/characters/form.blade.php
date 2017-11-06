@@ -175,7 +175,7 @@
                     <div class="input-group">      
                         <select name="traits[]" class="form-control" data-change="check-extra">    
                         @foreach ($traits as $trait)
-                            <option value="{{ $trait->id }}" data-extra="1">{{ $trait->name }}</option>        
+                            <option value="{{ $trait->id }}">{{ $trait->name }}</option>        
                         @endforeach
                         </select>
                         <span class="input-group-btn">
@@ -184,9 +184,7 @@
                     </div>                                            
                 </div>                    
                 <div class="col-lg-3">
-                    <select name="traits[][]" data-extra-toggle="1"  disabled="disabled" class="form-control">
 
-                    </select>
                 </div>
                 <div class="col-lg-3">
                     <a class="btn btn-info btn-sm" data-click="repeateble-remove">
@@ -219,7 +217,7 @@
                     <div class="input-group">      
                         <select name="psychic_powers[]" class="form-control" data-change="check-extra">    
                         @foreach ($psychic_powers as $psychic_power)
-                            <option value="{{ $psychic_power->id }}" data-extra="1">{{ $psychic_power->name }}</option>        
+                            <option value="{{ $psychic_power->id }}">{{ $psychic_power->name }}</option>        
                         @endforeach
                         </select>
                         <span class="input-group-btn">
@@ -228,9 +226,7 @@
                     </div>                        
                 </div>                    
                 <div class="col-lg-3">
-                    <select name="psychic_powers[][]" data-extra-toggle="1"  disabled="disabled" class="form-control">
-
-                    </select>
+  
                 </div>
                 <div class="col-lg-3">
                     <a class="btn btn-info btn-sm" data-click="repeateble-remove">
@@ -263,7 +259,7 @@
                     <div class="input-group">      
                         <select name="weapons[]" class="form-control" data-change="check-extra">    
                         @foreach ($weapons as $weapon)
-                            <option value="{{ $weapon->id }}" data-extra="1">{{ $weapon->name }}</option>        
+                            <option value="{{ $weapon->id }}">{{ $weapon->name }}</option>        
                         @endforeach
                         </select>
                         <span class="input-group-btn">
@@ -272,9 +268,7 @@
                     </div>                        
                 </div>                    
                 <div class="col-lg-3">
-                    <select name="weapons[][]" data-extra-toggle="1"  disabled="disabled" class="form-control">
 
-                    </select>
                 </div>
                 <div class="col-lg-3">
                     <a class="btn btn-info btn-sm" data-click="repeateble-remove">
@@ -307,7 +301,7 @@
                     <div class="input-group">    
                         <select name="wargear[]" class="form-control" data-change="check-extra">    
                         @foreach ($wargear as $wargear_item)
-                            <option value="{{ $wargear_item->id }}" data-extra="1">{{ $wargear_item->name }}</option>        
+                            <option value="{{ $wargear_item->id }}">{{ $wargear_item->name }}</option>        
                         @endforeach
                         </select>
                         <span class="input-group-btn">
@@ -316,9 +310,7 @@
                     </div>
                 </div>                    
                 <div class="col-lg-3">
-                    <select name="wargear[][]" data-extra-toggle="1"  disabled="disabled" class="form-control">
 
-                    </select>
                 </div>
                 <div class="col-lg-3">
                     <a class="btn btn-info btn-sm" data-click="repeateble-remove">
