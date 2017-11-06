@@ -203,6 +203,7 @@
             </div>
         </div>          
     </div>    
+    
     <!-- Weapons -->
     <div class="form-group">
         {{ Form::label('character-weapons', 'Weapons') }}
@@ -222,6 +223,49 @@
                         </select>
                         <span class="input-group-btn">
                           <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="weapons"><span class="glyphicon glyphicon-question-sign"></span></button>
+                        </span>                      
+                    </div>                        
+                </div>                    
+                <div class="col-lg-3">
+
+                </div>
+                <div class="col-lg-3">
+                    <a class="btn btn-info btn-sm" data-click="repeateble-remove">
+                        <span class="glyphicon glyphicon-trash"></span> Remove
+                    </a>
+                </div>    
+            </div>
+            <div class="repeateble-content ">
+                <div class="row form-group">
+                    <div class="col-md-offset-6 col-lg-3">
+                        <a class="btn btn-info btn-sm" data-click="repeateble-add">
+                            <span class="glyphicon glyphicon-trash"></span> Add
+                        </a>                
+                    </div>                
+                </div>
+            </div>
+        </div>          
+    </div>    
+    
+    <!-- PsychicPower -->
+    <div class="form-group">
+        {{ Form::label('character-psychic-powers', 'Psychic Powers') }}
+        <div class="repeateble-holder" id="character-psychic-powers-holder">           
+            @if (count($character->psychicPowers()->first()) > 0)        
+                @foreach ($character->psychicPower as $psychic_power)
+                    <div data-load="repeateble-add" data-id="{{ $psychic_power->id }}"></div>
+                @endforeach                       
+            @endif                        
+            <div class="repeateble-template form-group row">
+                <div class="col-lg-3">
+                    <div class="input-group">      
+                        <select name="psychic_powers[]" class="form-control" data-change="check-extra">    
+                        @foreach ($psychic_powers as $psychic_power)
+                            <option value="{{ $psychic_power->id }}" data-extra="1">{{ $psychic_power->name }}</option>        
+                        @endforeach
+                        </select>
+                        <span class="input-group-btn">
+                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="psychicpowers"><span class="glyphicon glyphicon-question-sign"></span></button>
                         </span>                      
                     </div>                        
                 </div>                    

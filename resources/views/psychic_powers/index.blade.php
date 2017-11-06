@@ -9,11 +9,11 @@
 	<tr>
 	    <th>ID</th>
 	    <th>Name</th>	    	   	    	    
+            <th>Category</th>	
 	    <th>Action</th>
 	    <th>Opposed</th>
             <th>Range</th>
 	    <th>Sustained</th>
-            <th>Description</th>
 	    <td></td>
 	    <td>
 	      <a href="{{ route('psychicpowers.create') }}" class="btn btn-info btn-sm">
@@ -27,6 +27,7 @@
 	<tr>
 	    <td>{{ $psychic_power->id }}</td>
 	    <td>{{ $psychic_power->name }}</td>
+            <td>@if (count($psychic_power->category()->first()) > 0) {{ $psychic_power->category()->first()->name }} @else - @endif</td>               
             <td>{{ $psychic_power->action }}</td>	
             <td>@if ($psychic_power->opposed) Yes @else No @endif</td>	    	    	    
 	    <td>
@@ -43,9 +44,6 @@
                 @endif    
 	    </td>
             <td>@if ($psychic_power->sustained) Yes @else No @endif</td>	   
-	    <td>	
-		{!! nl2br(e($psychic_power->description)) !!}
-	    </td>            
 	    <td>
 	      <a href="{{ route('psychicpowers.edit', $psychic_power->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit

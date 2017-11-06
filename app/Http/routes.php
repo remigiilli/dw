@@ -39,6 +39,9 @@ Route::resource('psychicpowers', 'PsychicPowerController', [
 //     'middleware' => 'auth'
 ]);
 Route::get('/psychicpowers/{id}/justcontent', 'PsychicPowerController@justcontent');
+Route::resource('psychicpowercategories', 'PsychicPowerCategoryController', [
+//     'middleware' => 'auth'
+]);
 Route::resource('wargear', 'WargearController', [
 //     'middleware' => 'auth'
 ]);

@@ -110,6 +110,8 @@ class WargearCategoryController extends Controller
     {
         $wargear_category = WargearCategory::find($id);
         
+        $wargear_category->delete();        
+        
         return redirect('wargearcategories')->with('status', 'WargearCategory deleted!');
     }
 }

@@ -1,4 +1,5 @@
 <h3>{{ $psychic_power->name }}</h3>
+<p>@if (count($psychic_power->category()->first()) > 0) {{ $psychic_power->category()->first()->name }} @else Uncategorized @endif</p>
 <p><b>Action</b> 
 @if (!$psychic_power->action)	
     Free

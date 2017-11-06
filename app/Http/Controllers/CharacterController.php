@@ -14,6 +14,7 @@ use App\Weapon as Weapon;
 use App\Wargear as Wargear;
 use App\Talent as Talent;
 use App\CharacterTrait as CharacterTrait;
+use App\PsychicPower as PsychicPower;
 
 use App\Http\Requests\StoreCharacter as StoreCharacter;
 
@@ -57,8 +58,18 @@ class CharacterController extends Controller
         $traits = CharacterTrait::all();    
         $weapons = Weapon::all();    
         $wargear = Wargear::all();    
+        $psychic_powers = PsychicPower::all();              
 	
-        return view('characters.form', ['character' => $character, 'skills' => $skills, 'attributes' => $this->attributes, 'weapons' => $weapons, 'wargear' => $wargear, 'talents' => $talents, 'traits' => $traits]);
+        return view('characters.form', [
+            'character' => $character, 
+            'skills' => $skills, 
+            'attributes' => $this->attributes, 
+            'weapons' => $weapons, 
+            'wargear' => $wargear, 
+            'talents' => $talents, 
+            'traits' => $traits, 
+            'psychic_powers' => $psychic_powers
+        ]);
     }
 
     /**
@@ -109,6 +120,10 @@ class CharacterController extends Controller
             }            
         }
 
+	$psychic_powers = $request->input('psychic_powers');               
+	if ($psychic_powers) {	
+	    $character->psychicPowers()->sync($psychic_powers);
+	}         
         
 	$weapons = $request->input('weapons');               
 	if ($weapons) {	
@@ -151,8 +166,18 @@ class CharacterController extends Controller
         $traits = CharacterTrait::all();    
         $weapons = Weapon::all();           
         $wargear = Wargear::all();
+        $psychic_powers = PsychicPower::all();      
 	
-        return view('characters.form', ['character' => $character, 'skills' => $skills, 'attributes' => $this->attributes, 'wargear' => $wargear, 'weapons' => $weapons, 'talents' => $talents, 'traits' => $traits]);
+        return view('characters.form', [
+            'character' => $character, 
+            'skills' => $skills, 
+            'attributes' => $this->attributes, 
+            'wargear' => $wargear, 
+            'weapons' => $weapons, 
+            'talents' => $talents, 
+            'traits' => $traits, 
+            'psychic_powers' => $psychic_powers
+        ]);
     }
 
     /**
@@ -210,6 +235,14 @@ class CharacterController extends Controller
                 $character->talents()->attach($talent);
             }            
         }
+        
+	$psychic_powers = $request->input('psychic_powers');               
+	if ($psychic_powers) {	
+	    $character->psychicPowers()->sync($psychic_powers);
+	}     
+	else {
+	    $character->psychicPowers()->detach();
+	}         
 
         $weapons = $request->input('weapons'); 
 	if ($weapons) {

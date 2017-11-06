@@ -52,10 +52,11 @@
 				<li><a href="{{ url('/talents') }}"><span class="glyphicon glyphicon-star"></span> Talents</a></li>
 				<li><a href="{{ url('/talentoptions') }}"><span class="glyphicon glyphicon-list"></span> Talent Options</a></li>
                                 <li><a href="{{ url('/psychicpowers') }}"><span class="glyphicon glyphicon-star"></span> Psychic Powers</a></li>
+                                <li><a href="{{ url('/psychicpowercategories') }}"><span class="glyphicon glyphicon-star"></span> Psychic Powers Categories</a></li>
                                 <li><a href="{{ url('/wargear') }}"><span class="glyphicon glyphicon-screenshot"></span> Wargear</a></li>
-                                <li><a href="{{ url('/wargearcategories') }}"><span class="glyphicon glyphicon-screenshot"></span> WargearCategories</a></li>
+                                <li><a href="{{ url('/wargearcategories') }}"><span class="glyphicon glyphicon-screenshot"></span> Wargear Categories</a></li>
 				<li><a href="{{ url('/weapons') }}"><span class="glyphicon glyphicon-screenshot"></span> Weapons</a></li>
-                                <li><a href="{{ url('/weaponcategories') }}"><span class="glyphicon glyphicon-screenshot"></span> WeaponCategories</a></li>
+                                <li><a href="{{ url('/weaponcategories') }}"><span class="glyphicon glyphicon-screenshot"></span> Weapon Categories</a></li>
 				<li><a href="{{ url('/specialqualities') }}"><span class="glyphicon glyphicon-list"></span> Weapon Special Qualities</a></li>
                             </ul>
                         </li>
