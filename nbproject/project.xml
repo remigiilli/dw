@@ -8,6 +8,7 @@
         <libraries xmlns="http://www.netbeans.org/ns/cdnjs-libraries/1"/>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
             <word>endif</word>
+            <word>psychicPowers</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
