@@ -110,6 +110,8 @@ class WeaponCategoryController extends Controller
     {
         $weapon_category = WeaponCategory::find($id);
         
+        $weapon_category->delete();
+        
         return redirect('weaponcategories')->with('status', 'WeaponCategory deleted!');
     }
 }

@@ -15,9 +15,9 @@
 @endif
 
 @if ((isset($character->id) && $character->id))
-    {{ Form::model($character, array('method' => 'PUT', 'route' => array('characters.update', $character->id))) }}
+    {{ Form::model($character, array('method' => 'PUT', 'data-submit' => 'repeateble-remove', 'route' => array('characters.update', $character->id))) }}
 @else
-    {{ Form::model($character, array('method' => 'POST', 'route' => array('characters.store'))) }}
+    {{ Form::model($character, array('method' => 'POST', 'data-submit' => 'repeateble-remove', 'route' => array('characters.store'))) }}
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}
@@ -82,12 +82,16 @@
             @endif                        
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
-                    <select name="skills[]" class="form-control" data-change="check-extra">    
-                    @foreach ($skills as $skill)
-                        <option value="{{ $skill->id }}" data-extra="1">@if (count($skill->group()->first()) > 0) {{ $skill->group()->first()->name }} @endif{{ $skill->name }} ({{ $attributes[$skill->attribute] }})</option>        
-                    @endforeach
-                    </select>
-                    <a href="#" data-toggle="popoverload-selected" data-type="skills">?</a>
+                    <div class="input-group"> 
+                        <select name="skills[]" class="form-control" data-change="check-extra">    
+                        @foreach ($skills as $skill)
+                            <option value="{{ $skill->id }}" data-extra="1">@if (count($skill->group()->first()) > 0) {{ $skill->group()->first()->name }} @endif{{ $skill->name }} ({{ $attributes[$skill->attribute] }})</option>        
+                        @endforeach
+                        </select>
+                        <span class="input-group-btn">
+                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="skills"><span class="glyphicon glyphicon-question-sign"></span></button>
+                        </span>                    
+                    </div>
                 </div>                    
                 <div class="col-lg-3">
                     <select name="skills[][proficeincy]" data-extra-toggle="1"  disabled="disabled" class="form-control">
@@ -119,20 +123,26 @@
         <div class="repeateble-holder" id="character-talents-holder">           
             @if (count($character->talents()->first()) > 0)        
                 @foreach ($character->talents as $talent)
-                    <div data-load="repeateble-add" data-id="{{ $talent->id }}"></div>
+                    <div data-load="repeateble-add" data-id="{{ $talent->id }}" @if ($talent->pivot->talent_option_id) data-extra="{{$talent->pivot->talent_option_id}}" @endif></div>
                 @endforeach                       
             @endif                        
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
-                    <select name="talents[]" class="form-control" data-change="check-extra">    
-                    @foreach ($talents as $talent)
-                        <option value="{{ $talent->id }}" data-extra="1">{{ $talent->name }}</option>        
-                    @endforeach
-                    </select>
-                    <a href="#" data-toggle="popoverload-selected" data-type="talents">?</a>
+                    <div class="input-group"> 
+                        <select name="talents[]" class="form-control" data-org-name="talents[]" data-change="check-extra">    
+                        @foreach ($talents as $talent)
+                            <option value="{{ $talent->id }}" @if (count($talent->options()->first()) > 0) data-extra="options" data-options='{!! $talent->options->toJson() !!}' @endif>{{ $talent->name }}</option>        
+                        @endforeach
+                        </select>
+                        <span class="input-group-btn">
+                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="talents"><span class="glyphicon glyphicon-question-sign"></span></button>
+                        </span>                       
+                    </div>
                 </div>                    
                 <div class="col-lg-3">
+                    <select name="talents[][]" data-extra-toggle="1"  disabled="disabled" class="form-control">
 
+                    </select>
                 </div>
                 <div class="col-lg-3">
                     <a class="btn btn-info btn-sm" data-click="repeateble-remove">
@@ -162,12 +172,16 @@
             @endif                        
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
-                    <select name="traits[]" class="form-control" data-change="check-extra">    
-                    @foreach ($traits as $trait)
-                        <option value="{{ $trait->id }}" data-extra="1">{{ $trait->name }}</option>        
-                    @endforeach
-                    </select>
-                    <a href="#" data-toggle="popoverload-selected" data-type="traits">?</a>
+                    <div class="input-group">      
+                        <select name="traits[]" class="form-control" data-change="check-extra">    
+                        @foreach ($traits as $trait)
+                            <option value="{{ $trait->id }}" data-extra="1">{{ $trait->name }}</option>        
+                        @endforeach
+                        </select>
+                        <span class="input-group-btn">
+                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="traits"><span class="glyphicon glyphicon-question-sign"></span></button>
+                        </span>                        
+                    </div>                                            
                 </div>                    
                 <div class="col-lg-3">
 
@@ -200,12 +214,16 @@
             @endif                        
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
-                    <select name="weapons[]" class="form-control" data-change="check-extra">    
-                    @foreach ($weapons as $weapon)
-                        <option value="{{ $weapon->id }}" data-extra="1">{{ $weapon->name }}</option>        
-                    @endforeach
-                    </select>
-                    <a href="#" data-toggle="popoverload-selected" data-type="weapons">?</a>
+                    <div class="input-group">      
+                        <select name="weapons[]" class="form-control" data-change="check-extra">    
+                        @foreach ($weapons as $weapon)
+                            <option value="{{ $weapon->id }}" data-extra="1">{{ $weapon->name }}</option>        
+                        @endforeach
+                        </select>
+                        <span class="input-group-btn">
+                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="weapons"><span class="glyphicon glyphicon-question-sign"></span></button>
+                        </span>                      
+                    </div>                        
                 </div>                    
                 <div class="col-lg-3">
 
@@ -226,7 +244,49 @@
                 </div>
             </div>
         </div>          
-    </div>       
+    </div>
+    <!-- Wargear -->
+    <div class="form-group">
+        {{ Form::label('character-wargears', 'Wargear') }}
+        <div class="repeateble-holder" id="character-wargears-holder">           
+            @if (count($character->wargear()->first()) > 0)        
+                @foreach ($character->wargear as $wargear)
+                    <div data-load="repeateble-add" data-id="{{ $wargear->id }}"></div>
+                @endforeach                       
+            @endif                        
+            <div class="repeateble-template form-group row">
+                <div class="col-lg-3">
+                    <div class="input-group">    
+                        <select name="wargears[]" class="form-control" data-change="check-extra">    
+                        @foreach ($wargear as $wargear)
+                            <option value="{{ $wargear->id }}" data-extra="1">{{ $wargear->name }}</option>        
+                        @endforeach
+                        </select>
+                        <span class="input-group-btn">
+                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="wargear"><span class="glyphicon glyphicon-question-sign"></span></button>
+                        </span>                    
+                    </div>
+                </div>                    
+                <div class="col-lg-3">
+
+                </div>
+                <div class="col-lg-3">
+                    <a class="btn btn-info btn-sm" data-click="repeateble-remove">
+                        <span class="glyphicon glyphicon-trash"></span> Remove
+                    </a>
+                </div>    
+            </div>
+            <div class="repeateble-content ">
+                <div class="row form-group">
+                    <div class="col-md-offset-6 col-lg-3">
+                        <a class="btn btn-info btn-sm" data-click="repeateble-add">
+                            <span class="glyphicon glyphicon-trash"></span> Add
+                        </a>                
+                    </div>                
+                </div>
+            </div>
+        </div>          
+    </div>  
     <button type="submit" class="btn btn-primary">Submit</button>
 {{ Form::close() }}
 @endsection 

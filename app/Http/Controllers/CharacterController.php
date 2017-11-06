@@ -11,6 +11,7 @@ use App\Http\Requests;
 use App\Character as Character;
 use App\Skill as Skill;
 use App\Weapon as Weapon;
+use App\Wargear as Wargear;
 use App\Talent as Talent;
 use App\CharacterTrait as CharacterTrait;
 
@@ -55,8 +56,9 @@ class CharacterController extends Controller
         $talents = Talent::all();    
         $traits = CharacterTrait::all();    
         $weapons = Weapon::all();    
+        $wargear = Wargear::all();    
 	
-        return view('characters.form', ['character' => $character, 'skills' => $skills, 'attributes' => $this->attributes, 'weapons' => $weapons, 'talents' => $talents, 'traits' => $traits]);
+        return view('characters.form', ['character' => $character, 'skills' => $skills, 'attributes' => $this->attributes, 'weapons' => $weapons, 'wargear' => $wargear, 'talents' => $talents, 'traits' => $traits]);
     }
 
     /**
@@ -95,15 +97,28 @@ class CharacterController extends Controller
 	    $character->traits()->sync($traits);
 	}
         
-	$talents = $request->input('talents');               
-	if ($talents) {	
-	    $character->talents()->sync($talents);
-	}
+	$talents = $request->input('talents');  
+        foreach ($talents as $k => $talent) {                      
+            if (is_array($talent)) {
+                foreach ($talent as $t) {
+                    $character->talents()->attach($k, ['talent_option_id' => $t]);
+                }
+            }
+            else {
+                $character->talents()->attach($talent);
+            }            
+        }
+
         
 	$weapons = $request->input('weapons');               
 	if ($weapons) {	
 	    $character->weapons()->sync($weapons);
 	}
+        
+	$wargear = $request->input('wargear');               
+	if ($wargear) {	
+	    $character->wargear()->sync($wargear);
+	}        
                 
         return redirect('characters')->with('status', 'Character created!');
     }
@@ -134,9 +149,10 @@ class CharacterController extends Controller
 	$skills = Skill::all();          
         $talents = Talent::all();    
         $traits = CharacterTrait::all();    
-        $weapons = Weapon::all();            
+        $weapons = Weapon::all();           
+        $wargear = Wargear::all();
 	
-        return view('characters.form', ['character' => $character, 'skills' => $skills, 'attributes' => $this->attributes, 'weapons' => $weapons, 'talents' => $talents, 'traits' => $traits]);
+        return view('characters.form', ['character' => $character, 'skills' => $skills, 'attributes' => $this->attributes, 'wargear' => $wargear, 'weapons' => $weapons, 'talents' => $talents, 'traits' => $traits]);
     }
 
     /**
@@ -182,21 +198,34 @@ class CharacterController extends Controller
 	    $character->traits()->detach();
 	}    
         
-	$talents = $request->input('talents'); 
-	if ($talents) {
-	    $character->talents()->sync($talents);   
-	}
-	else {
-	    $character->talents()->detach();
-	}    
+	$talents = $request->input('talents');  
+        $character->talents()->detach();
+        foreach ($talents as $k => $talent) {                      
+            if (is_array($talent)) {
+                foreach ($talent as $t) {
+                    $character->talents()->attach($k, ['talent_option_id' => $t]);
+                }
+            }
+            else {
+                $character->talents()->attach($talent);
+            }            
+        }
 
-	$weapons = $request->input('weapons'); 
+        $weapons = $request->input('weapons'); 
 	if ($weapons) {
 	    $character->weapons()->sync($weapons);   
 	}
 	else {
 	    $character->weapons()->detach();
-	}            
+	}           
+        
+	$wargear = $request->input('wargear'); 
+	if ($wargear) {
+	    $character->wargear()->sync($wargear);   
+	}
+	else {
+	    $character->wargear()->detach();
+	}         
                 
         return redirect('characters')->with('status', 'Character updated!');
     }

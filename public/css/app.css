@@ -5736,4 +5736,7 @@ button.close {
 .repeateble-element {
   display: block; }
 
+.popover {
+  max-width: 500px; }
+
 /*# sourceMappingURL=app.css.map */

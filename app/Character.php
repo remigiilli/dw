@@ -18,7 +18,7 @@ class Character extends Model
 
     public function talents()
     {
-        return $this->belongsToMany('App\Talent');
+        return $this->belongsToMany('App\Talent', 'character_talent')->withPivot('talent_option_id')->leftJoin('talent_options', 'talent_options.id', '=', 'character_talent.talent_option_id');        
     }
 
     public function weapons()

@@ -76,24 +76,40 @@ $(function () {
             $(this).parent().parent().remove();
         });        
         $('[data-change="check-extra"]', repeateble_element).change(function(event) {
+            id = $('option:selected', this).val();            
             if (typeof $('option:selected', this).data('extra') !== 'undefined') {
+                $(this).attr('name', '');                                
                 id = $('option:selected', this).val();
-                name =  $(this).parent().parent().find('[data-extra-toggle="1"]').attr('name');
+                name =  $(this).parent().parent().parent().find('[data-extra-toggle="1"]').attr('name');
                 name = name.replace(/\[(\d+)?\]/, '['+id+']');
-                $(this).parent().parent().find('[data-extra-toggle="1"]').removeAttr('disabled').attr('name', name).show();
+                if ($('option:selected', this).data('extra') == 'options') {
+                    var options = $('option:selected', this).data('options');
+                    console.log(options);
+                    for(i=0; i < options.length ; i++) {
+                        $(this).parent().parent().parent().find('[data-extra-toggle="1"]').append($('<option>', { 
+                            value: options[i].id,
+                            text : options[i].name 
+                        }));
+                    }
+                    $(this).parent().parent().parent().find('[data-extra-toggle="1"]').removeAttr('disabled').attr('name', name).show();
+                }
+                else {                            
+                    $(this).parent().parent().parent().find('[data-extra-toggle="1"]').removeAttr('disabled').attr('name', name).show();
+                }
             }
             else {
-                name =  $(this).parent().parent().find('[data-extra-toggle="1"]').attr('name');
+                $(this).attr('name', $(this).data('org-name'));                
+                name =  $(this).parent().parent().parent().find('[data-extra-toggle="1"]').attr('name');
                 name = name.replace(/\[(\d+)\]/, '[]');                
-                $(this).parent().parent().find('[data-extra-toggle="1"]').val('').attr('disabled', 'disabled').attr('name', name).hide();
+                $(this).parent().parent().parent().find('[data-extra-toggle="1"]').val('').attr('disabled', 'disabled').attr('name', name).hide();
             }
         });
         
         $('[data-toggle="popoverload-selected"]', repeateble_element).click(function(event) {
             var e=$(this);
-            var uri = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '') + '/' +  e.data('type') + '/' + e.prev().val() + '/justcontent';
+            var uri = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '') + '/' +  e.data('type') + '/' + e.parent().prev().val() + '/justcontent';
             $.get(uri,function(d) {	  
-                e.popover({html: true, content: d}).popover('show');
+                e.popover({html: true, content: d, container: 'body'}).popover('show');
             });
             event.preventDefault();
         });    
@@ -104,6 +120,10 @@ $(function () {
         $('[data-change="check-extra"]', repeateble_element).change();
         $(this).parent().parent().parent().append(repeateble_element);        
         $('[data-change="check-extra"]', repeateble_element).focus();
+    });    
+    
+    $('[data-submit="repeateble-remove"]').submit(function(event) { 
+        $('.repeateble-template').remove();
     });    
     
     $('[data-load="repeateble-add"]').each(function(){
