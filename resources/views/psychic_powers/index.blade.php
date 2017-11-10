@@ -39,6 +39,12 @@
                     {{ $psychic_power->range }}m x PR
                 @elseif ($psychic_power->range_type == 3)
                     {{ $psychic_power->range }}m radius x PR
+                @elseif ($psychic_power->range_type == 5)
+                    {{ $psychic_power->range }}m
+                @elseif ($psychic_power->range_type == 6)
+                    {{ $psychic_power->range }}m + PR
+                @elseif ($psychic_power->range_type == 7)
+                    {{ $psychic_power->range }}d10 m x PR                        
                 @else
                     Special
                 @endif    
