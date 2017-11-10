@@ -1,10 +1,10 @@
 <h3>{{ $weapon->name }}</h3>
 <p>@if (count($weapon->category()->first()) > 0) {{ $weapon->category()->first()->name }} @else Uncategorized @endif</p>
-<p><b>{{ $classes[$weapon->type] }}</b></p>
+<p><b>@if ($weapon->type) {{ $classes[$weapon->type] }} @else - @endif</b></p>
 <p>{!! nl2br(e($weapon->description)) !!}</p>
 <div class="row">
     <div class="col-lg-6">
-	<b>Damage</b> {{ $weapon->dmg1 }}D{{ $weapon->dmg2 }} + {{ $weapon->dmg3 }} {{ $weapon->dmg4 }}<br />
+	<b>Damage</b> @if ($weapon->dmg1 || $weapon->dmg3) {{ $weapon->dmg1 }}D{{ $weapon->dmg2 }} + {{ $weapon->dmg3 }} {{ $weapon->dmg4 }}@endif<br />
     </div>
     <div class="col-lg-6">
 	<b>Pen</b> {{ $weapon->pen }}<br />
