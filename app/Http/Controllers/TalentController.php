@@ -36,6 +36,18 @@ class TalentController extends Controller
 	
         return view('talents.index', ['talents' => $talents]);
     }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function listing()
+    {
+	$talents = Talent::all();
+	
+        return view('talents.list', ['talents' => $talents]);
+    }    
 
     /**
      * Show the form for creating a new resource.
@@ -72,7 +84,7 @@ class TalentController extends Controller
 	    $talent->options()->sync($options);
 	}
         
-        return redirect('talents')->with('status', 'Talent created!');
+        return redirect('admin/talents')->with('status', 'Talent created!');
     }
 
     /**
@@ -140,7 +152,7 @@ class TalentController extends Controller
 	    $talent->options()->detach();
 	}
         
-        return redirect('talents')->with('status', 'Talent updated!');
+        return redirect('admin/talents')->with('status', 'Talent updated!');
     }
 
     /**
@@ -156,6 +168,6 @@ class TalentController extends Controller
         $talent->options()->detach();
         $talent->delete();
         
-        return redirect('talents')->with('status', 'Talent deleted!');
+        return redirect('admin/talents')->with('status', 'Talent deleted!');
     }
 }

@@ -9,7 +9,7 @@
 	<tr>
 	    <th>ID</th><th>Name</th><th>Description</th><td></td>
 	    <td>
-	      <a href="{{ route('weaponcategories.create') }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.weaponcategories.create') }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Add
 	      </a>	    
 	    </td>
@@ -22,12 +22,12 @@
 	    <td>{{ $weapon_category->name }}</td>
 	    <td>{!! nl2br(e($weapon_category->description))!!}</td>
 	    <td>
-	      <a href="{{ route('weaponcategories.edit', $weapon_category->id) }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.weaponcategories.edit', $weapon_category->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
 	    </td>	    
 	    <td>
-	      {{ Form::open(['route' => ['weaponcategories.destroy', $weapon_category->id], 'method' => 'delete']) }}
+	      {{ Form::open(['route' => ['admin.weaponcategories.destroy', $weapon_category->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 	      {{ Form::close() }}
 	    </td>

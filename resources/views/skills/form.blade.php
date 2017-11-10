@@ -15,9 +15,9 @@
 @endif
 
 @if ((isset($skill->id) && $skill->id))
-    {{ Form::model($skill, array('method' => 'PUT', 'route' => array('skills.update', $skill->id))) }}
+    {{ Form::model($skill, array('method' => 'PUT', 'route' => array('admin.skills.update', $skill->id))) }}
 @else
-    {{ Form::model($skill, array('method' => 'POST', 'route' => array('skills.store'))) }}
+    {{ Form::model($skill, array('method' => 'POST', 'route' => array('admin.skills.store'))) }}
 @endif
     <div class="form-group">
     {{ Form::label('group_id', 'Group') }}

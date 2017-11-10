@@ -11,7 +11,7 @@
 	    <th>Name</th>
 	    <td></td>
 	    <td>
-	      <a href="{{ route('talentoptions.create') }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.talentoptions.create') }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Add
 	      </a>	    
 	    </td>
@@ -23,12 +23,12 @@
 	    <td>{{ $talent_option->id }}</td>
 	    <td>{{ $talent_option->name }}</td>
 	    <td>
-	      <a href="{{ route('talentoptions.edit', $talent_option->id) }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.talentoptions.edit', $talent_option->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
 	    </td>	    
 	    <td>
-	      {{ Form::open(['route' => ['talentoptions.destroy', $talent_option->id], 'method' => 'delete']) }}
+	      {{ Form::open(['route' => ['admin.talentoptions.destroy', $talent_option->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 	      {{ Form::close() }}
 	    </td>

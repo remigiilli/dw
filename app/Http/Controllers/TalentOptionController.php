@@ -62,7 +62,7 @@ class TalentOptionController extends Controller
 
         $talent_option->save();
 
-        return redirect('talentoptions')->with('status', 'TalentOption created!');
+        return redirect('admin/talentoptions')->with('status', 'TalentOption created!');
     }
 
     /**
@@ -105,7 +105,7 @@ class TalentOptionController extends Controller
 
         $talent_option->save();
         
-        return redirect('talentoptions')->with('status', 'TalentOption updated!');
+        return redirect('admin/talentoptions')->with('status', 'TalentOption updated!');
     }
 
     /**
@@ -120,6 +120,6 @@ class TalentOptionController extends Controller
         
         $talent_option->delete();
         
-        return redirect('talentoptions')->with('status', 'TalentOption deleted!');
+        return redirect('admin/talentoptions')->with('status', 'TalentOption deleted!');
     }
 }

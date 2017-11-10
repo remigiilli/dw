@@ -15,9 +15,9 @@
 @endif
 
 @if ((isset($trait->id) && $trait->id))
-    {{ Form::model($trait, array('method' => 'PUT', 'route' => array('traits.update', $trait->id))) }}
+    {{ Form::model($trait, array('method' => 'PUT', 'route' => array('admin.traits.update', $trait->id))) }}
 @else
-    {{ Form::model($trait, array('method' => 'POST', 'route' => array('traits.store'))) }}
+    {{ Form::model($trait, array('method' => 'POST', 'route' => array('admin.traits.store'))) }}
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}

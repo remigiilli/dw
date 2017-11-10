@@ -14,7 +14,7 @@
 	    <th>Description</th>
 	    <td></td>
 	    <td>
-	      <a href="{{ route('skills.create') }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.skills.create') }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Add
 	      </a>	    
 	    </td>
@@ -37,12 +37,12 @@
 		@endif		
 	    </td>
 	    <td>
-	      <a href="{{ route('skills.edit', $skill->id) }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.skills.edit', $skill->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
 	    </td>	    
 	    <td>
-	      {{ Form::open(['route' => ['skills.destroy', $skill->id], 'method' => 'delete']) }}
+	      {{ Form::open(['route' => ['admin.skills.destroy', $skill->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 	      {{ Form::close() }}
 	    </td>

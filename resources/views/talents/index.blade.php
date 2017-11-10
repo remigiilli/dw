@@ -12,7 +12,7 @@
 	    <th>Description</th>
 	    <td></td>
 	    <td>
-	      <a href="{{ route('talents.create') }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.talents.create') }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Add
 	      </a>	    
 	    </td>
@@ -33,12 +33,12 @@
 		<p>{!! nl2br(e($talent->description)) !!}</p>
 	    </td>
 	    <td>
-	      <a href="{{ route('talents.edit', $talent->id) }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.talents.edit', $talent->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
 	    </td>	    
 	    <td>
-	      {{ Form::open(['route' => ['talents.destroy', $talent->id], 'method' => 'delete']) }}
+	      {{ Form::open(['route' => ['admin.talents.destroy', $talent->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 	      {{ Form::close() }}
 	    </td>

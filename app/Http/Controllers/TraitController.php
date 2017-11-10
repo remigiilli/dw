@@ -36,6 +36,18 @@ class TraitController extends Controller
 	
         return view('traits.index', ['traits' => $traits]);
     }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function listing()
+    {
+	$traits = CharacterTrait::all()->sortBy('name');
+                	
+        return view('traits.list', ['traits' => $traits]);
+    }        
 
     /**
      * Show the form for creating a new resource.
@@ -64,7 +76,7 @@ class TraitController extends Controller
 
         $trait->save();
         
-        return redirect('traits')->with('status', 'Trait created!');
+        return redirect('admin/traits')->with('status', 'Trait created!');
     }
 
     /**
@@ -122,7 +134,7 @@ class TraitController extends Controller
 
         $trait->save();
         
-        return redirect('traits')->with('status', 'Trait updated!');
+        return redirect('admin/traits')->with('status', 'Trait updated!');
     }
 
     /**
@@ -137,6 +149,6 @@ class TraitController extends Controller
         
         $trait->delete();
         
-        return redirect('traits')->with('status', 'Trait deleted!');
+        return redirect('admin/traits')->with('status', 'Trait deleted!');
     }
 }

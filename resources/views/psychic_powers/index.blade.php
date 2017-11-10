@@ -16,7 +16,7 @@
 	    <th>Sustained</th>
 	    <td></td>
 	    <td>
-	      <a href="{{ route('psychicpowers.create') }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.psychicpowers.create') }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Add
 	      </a>	    
 	    </td>
@@ -51,12 +51,12 @@
 	    </td>
             <td>@if ($psychic_power->sustained) Yes @else No @endif</td>	   
 	    <td>
-	      <a href="{{ route('psychicpowers.edit', $psychic_power->id) }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.psychicpowers.edit', $psychic_power->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
 	    </td>	    
 	    <td>
-	      {{ Form::open(['route' => ['psychicpowers.destroy', $psychic_power->id], 'method' => 'delete']) }}
+	      {{ Form::open(['route' => ['admin.psychicpowers.destroy', $psychic_power->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 	      {{ Form::close() }}
 	    </td>

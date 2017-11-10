@@ -11,7 +11,7 @@
 	    <th>Name</th>	    
 	    <td></td>
 	    <td>
-	      <a href="{{ route('characters.create') }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.characters.create') }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Add
 	      </a>	    
 	    </td>
@@ -23,12 +23,12 @@
 	    <td>{{ $character->id }}</td>
 	    <td>{{ $character->name }}</td>
 	    <td>
-	      <a href="{{ route('characters.edit', $character->id) }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.characters.edit', $character->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
 	    </td>	    
 	    <td>
-	      {{ Form::open(['route' => ['characters.destroy', $character->id], 'method' => 'delete']) }}
+	      {{ Form::open(['route' => ['admin.characters.destroy', $character->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 	      {{ Form::close() }}
 	    </td>

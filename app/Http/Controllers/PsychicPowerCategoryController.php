@@ -51,7 +51,7 @@ class PsychicPowerCategoryController extends Controller
         
         $psychic_power_category->save();
         
-        return redirect('psychicpowercategories')->with('status', 'WargearCategory created!');        
+        return redirect('admin/psychicpowercategories')->with('status', 'WargearCategory created!');        
     }
 
     /**
@@ -95,7 +95,7 @@ class PsychicPowerCategoryController extends Controller
         
         $psychic_power_category->save();
         
-        return redirect('psychicpowercategories')->with('status', 'WargearCategory updated!');
+        return redirect('admin/psychicpowercategories')->with('status', 'WargearCategory updated!');
     }
 
     /**
@@ -110,6 +110,6 @@ class PsychicPowerCategoryController extends Controller
         
         $psychic_power_category->delete(); 
         
-        return redirect('psychicpowercategories')->with('status', 'WargearCategory deleted!');
+        return redirect('admin/psychicpowercategories')->with('status', 'WargearCategory deleted!');
     }
 }

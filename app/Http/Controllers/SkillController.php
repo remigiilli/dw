@@ -37,6 +37,26 @@ class SkillController extends Controller
 	
         return view('skills.index', ['skills' => $skills, 'attributes' => $this->attributes]);
     }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function listing()
+    {
+	$skills = Skill::all()->sortBy(function($skill) {
+            if (count($skill->group()->first()) > 0) {
+                return $skill->group()->first()->name.' '.$skill->name;
+            }
+            else {
+                return $skill->name;
+            }
+        });
+                
+	
+        return view('skills.list', ['skills' => $skills, 'attributes' => $this->attributes]);
+    }    
 
     /**
      * Show the form for creating a new resource.
@@ -72,7 +92,7 @@ class SkillController extends Controller
 
         $skill->save();
         
-        return redirect('skills')->with('status', 'Skill created!');
+        return redirect('admin/skills')->with('status', 'Skill created!');
     }
 
     /**
@@ -134,7 +154,7 @@ class SkillController extends Controller
 
         $skill->save();
         
-        return redirect('skills')->with('status', 'Skill updated!');
+        return redirect('admin/skills')->with('status', 'Skill updated!');
     }
 
     /**
@@ -149,6 +169,6 @@ class SkillController extends Controller
         
         $skill->delete();
         
-        return redirect('skills')->with('status', 'Skill deleted!');
+        return redirect('admin/skills')->with('status', 'Skill deleted!');
     }
 }

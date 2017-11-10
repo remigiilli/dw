@@ -22,7 +22,7 @@
 	    <th>Renown</th>	
 	    <td></td>
 	    <td>
-	      <a href="{{ route('weapons.create') }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.weapons.create') }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Add
 	      </a>	    
 	    </td>
@@ -106,12 +106,12 @@
 @endif	    		    
 	    </td>
 	    <td>
-	      <a href="{{ route('weapons.edit', $weapon->id) }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.weapons.edit', $weapon->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
 	    </td>	    
 	    <td>
-	      {{ Form::open(['route' => ['weapons.destroy', $weapon->id], 'method' => 'delete']) }}
+	      {{ Form::open(['route' => ['admin.weapons.destroy', $weapon->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 	      {{ Form::close() }}
 	    </td>

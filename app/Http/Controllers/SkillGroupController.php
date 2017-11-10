@@ -65,7 +65,7 @@ class SkillGroupController extends Controller
 
         $skill_group->save();
         
-        return redirect('skillgroups')->with('status', 'SkillGroup created!');
+        return redirect('admin/skillgroups')->with('status', 'SkillGroup created!');
     }
 
     /**
@@ -111,7 +111,7 @@ class SkillGroupController extends Controller
 
         $skill_group->save();
         
-        return redirect('skillgroups')->with('status', 'SkillGroup updated!');
+        return redirect('admin/skillgroups')->with('status', 'SkillGroup updated!');
     }
 
     /**
@@ -126,6 +126,6 @@ class SkillGroupController extends Controller
         
         $skill_group->delete();
         
-        return redirect('skillgroups')->with('status', 'SkillGroup deleted!');
+        return redirect('admin/skillgroups')->with('status', 'SkillGroup deleted!');
     }
 }

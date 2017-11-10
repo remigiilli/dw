@@ -65,7 +65,7 @@ class SpecialQualityController extends Controller
         
         $special_quality->save();
         
-        return redirect('specialqualities')->with('status', 'SpecialQuality created!');
+        return redirect('admin/specialqualities')->with('status', 'SpecialQuality created!');
     }
 
     /**
@@ -123,7 +123,7 @@ class SpecialQualityController extends Controller
         
         $special_quality->save();    
         
-        return redirect('specialqualities')->with('status', 'SpecialQuality updated!');
+        return redirect('admin/specialqualities')->with('status', 'SpecialQuality updated!');
     }
 
     /**
@@ -138,6 +138,6 @@ class SpecialQualityController extends Controller
         
         $special_quality->delete();
         
-        return redirect('specialqualities')->with('status', 'SpecialQuality deleted!');
+        return redirect('admin/specialqualities')->with('status', 'SpecialQuality deleted!');
     }
 }

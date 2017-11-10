@@ -9,7 +9,7 @@
 	<tr>
 	    <th>ID</th><th>Name</th><th>Description</th><td></td>
 	    <td>
-	      <a href="{{ route('traits.create') }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.traits.create') }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Add
 	      </a>	    
 	    </td>
@@ -22,12 +22,12 @@
 	    <td>{{ $trait->name }}</td>
 	    <td>{!! nl2br(e($trait->description))!!}</td>
 	    <td>
-	      <a href="{{ route('traits.edit', $trait->id) }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.traits.edit', $trait->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
 	    </td>	    
 	    <td>
-	      {{ Form::open(['route' => ['traits.destroy', $trait->id], 'method' => 'delete']) }}
+	      {{ Form::open(['route' => ['admin.traits.destroy', $trait->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 	      {{ Form::close() }}
 	    </td>

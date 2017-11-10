@@ -15,9 +15,9 @@
 @endif
 
 @if ((isset($wargear->id) && $wargear->id))
-    {{ Form::model($wargear, array('method' => 'PUT', 'route' => array('wargear.update', $wargear->id))) }}
+    {{ Form::model($wargear, array('method' => 'PUT', 'route' => array('admin.wargear.update', $wargear->id))) }}
 @else
-    {{ Form::model($wargear, array('method' => 'POST', 'route' => array('wargear.store'))) }}
+    {{ Form::model($wargear, array('method' => 'POST', 'route' => array('admin.wargear.store'))) }}
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}

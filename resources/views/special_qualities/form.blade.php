@@ -15,9 +15,9 @@
 @endif
 
 @if ((isset($special_quality->id) && $special_quality->id))
-    {{ Form::model($special_quality, array('method' => 'PUT', 'route' => array('specialqualities.update', $special_quality->id))) }}
+    {{ Form::model($special_quality, array('method' => 'PUT', 'route' => array('admin.specialqualities.update', $special_quality->id))) }}
 @else
-    {{ Form::model($special_quality, array('method' => 'POST', 'route' => array('specialqualities.store'))) }}
+    {{ Form::model($special_quality, array('method' => 'POST', 'route' => array('admin.specialqualities.store'))) }}
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}

@@ -13,7 +13,7 @@
 	    <th>Additional Value</th>
 	    <td></td>
 	    <td>
-	      <a href="{{ route('specialqualities.create') }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.specialqualities.create') }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Add
 	      </a>	    
 	    </td>
@@ -27,12 +27,12 @@
 	    <td>{!! nl2br(e($special_quality->description)) !!}</td>
 	    <td>{{ $special_quality->extra }}</td>
 	    <td>
-	      <a href="{{ route('specialqualities.edit', $special_quality->id) }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.specialqualities.edit', $special_quality->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
 	    </td>	    	    
 	    <td>
-	      {{ Form::open(['route' => ['specialqualities.destroy', $special_quality->id], 'method' => 'delete']) }}
+	      {{ Form::open(['route' => ['admin.specialqualities.destroy', $special_quality->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 	      {{ Form::close() }}
 	    </td>

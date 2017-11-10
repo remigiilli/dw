@@ -135,7 +135,7 @@ class CharacterController extends Controller
 	    $character->wargear()->sync($wargear);
 	}        
                 
-        return redirect('characters')->with('status', 'Character created!');
+        return redirect('admin/characters')->with('status', 'Character created!');
     }
 
     /**
@@ -260,7 +260,7 @@ class CharacterController extends Controller
 	    $character->wargear()->detach();
 	}         
                 
-        return redirect('characters')->with('status', 'Character updated!');
+        return redirect('admin/characters')->with('status', 'Character updated!');
     }
 
     /**
@@ -279,6 +279,6 @@ class CharacterController extends Controller
         $character->weapons()->detach();
         $character->delete();
         
-        return redirect('characters')->with('status', 'Character deleted!');
+        return redirect('admin/characters')->with('status', 'Character deleted!');
     }
 }

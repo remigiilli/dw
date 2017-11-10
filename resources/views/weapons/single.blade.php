@@ -44,4 +44,4 @@
 	 @endif	    	 
     @endforeach</p>
 @endif
-<p><a href="{{ route('weapons.edit', $weapon->id) }}">Edit</a></p>
+<p><a href="{{ route('admin.weapons.edit', $weapon->id) }}">Edit</a></p>

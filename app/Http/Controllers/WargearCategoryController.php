@@ -52,7 +52,7 @@ class WargearCategoryController extends Controller
         
         $wargear_category->save();
         
-        return redirect('wargearcategories')->with('status', 'WargearCategory created!');        
+        return redirect('admin/wargearcategories')->with('status', 'WargearCategory created!');        
     }
 
     /**
@@ -97,7 +97,7 @@ class WargearCategoryController extends Controller
         
         $wargear_category->save();
         
-        return redirect('wargearcategories')->with('status', 'WargearCategory updated!');
+        return redirect('admin/wargearcategories')->with('status', 'WargearCategory updated!');
     }
 
     /**
@@ -112,6 +112,6 @@ class WargearCategoryController extends Controller
         
         $wargear_category->delete();        
         
-        return redirect('wargearcategories')->with('status', 'WargearCategory deleted!');
+        return redirect('admin/wargearcategories')->with('status', 'WargearCategory deleted!');
     }
 }

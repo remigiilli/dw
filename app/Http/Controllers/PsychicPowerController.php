@@ -39,6 +39,20 @@ class PsychicPowerController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function listing($id)
+    {
+        $psychic_power_category = PsychicPowerCategory::find($id);
+	$psychic_powers = PsychicPower::where('psychic_power_category_id', $id)->get()->sortBy('name');
+	
+        return view('psychic_powers.list', ['psychic_power_category' => $psychic_power_category, 'psychic_powers' => $psychic_powers]);
+    }    
+    
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -73,7 +87,7 @@ class PsychicPowerController extends Controller
         
         $psychic_power->save();
         
-        return redirect('psychicpowers')->with('status', 'PsychicPower created!');
+        return redirect('admin/psychicpowers')->with('status', 'PsychicPower created!');
     }
 
     /**
@@ -138,7 +152,7 @@ class PsychicPowerController extends Controller
         
         $psychic_power->save();
         
-        return redirect('psychicpowers')->with('status', 'PsychicPower updated!');
+        return redirect('admin/psychicpowers')->with('status', 'PsychicPower updated!');
     }
 
     /**
@@ -153,6 +167,6 @@ class PsychicPowerController extends Controller
         
         $psychic_power->delete();
         
-        return redirect('psychicpowers')->with('status', 'PsychicPower deleted!');
+        return redirect('admin/psychicpowers')->with('status', 'PsychicPower deleted!');
     }
 }

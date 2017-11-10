@@ -26,6 +26,20 @@ class WargearController extends Controller
 	
         return view('wargear.index', ['wargear' => $wargear, 'renow_levels' => $this->renow_levels]);
     }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function listing($id)
+    {
+        $wargear_category = WargearCategory::find($id);
+	$wargear = Wargear::where('wargear_category_id', $id)->get()->sortBy('name');        
+	
+        return view('wargear.list', ['wargear_category' => $wargear_category, 'wargear' => $wargear, 'renow_levels' => $this->renow_levels]);
+    }    
 
     /**
      * Show the form for creating a new resource.
@@ -61,7 +75,7 @@ class WargearController extends Controller
         
         $wargear->save();
         
-        return redirect('wargear')->with('status', 'Wargear created!');
+        return redirect('admin/wargear')->with('status', 'Wargear created!');
     }
 
     /**
@@ -125,7 +139,7 @@ class WargearController extends Controller
         
         $wargear->save();
         
-        return redirect('wargear')->with('status', 'Wargear updated!');
+        return redirect('admin/wargear')->with('status', 'Wargear updated!');
     }
 
     /**
@@ -140,6 +154,6 @@ class WargearController extends Controller
         
         $wargear->delete();
         
-        return redirect('wargear')->with('status', 'Wargear deleted!');
+        return redirect('admin/wargear')->with('status', 'Wargear deleted!');
     }
 }

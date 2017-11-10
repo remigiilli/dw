@@ -41,6 +41,20 @@ class WeaponController extends Controller
 	
         return view('weapons.index', ['weapons' => $weapons, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function listing($id)
+    {
+        $weapon_category = WeaponCategory::find($id);
+	$weapons = Weapon::where('weapon_category_id', $id)->get()->sortBy('name');
+	
+        return view('weapons.list', ['weapon_category' => $weapon_category, 'weapons' => $weapons, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+    }    
 
     /**
      * Show the form for creating a new resource.
@@ -94,7 +108,7 @@ class WeaponController extends Controller
 	    $weapon->specialQualities()->sync($special_qualities);;
 	}
         
-        return redirect('weapons')->with('status', 'Weapon created!');
+        return redirect('admin/weapons')->with('status', 'Weapon created!');
     }
 
     /**
@@ -179,7 +193,7 @@ class WeaponController extends Controller
 	    $weapon->specialQualities()->detach();
 	}
         
-        return redirect('weapons')->with('status', 'Weapon updated!');
+        return redirect('admin/weapons')->with('status', 'Weapon updated!');
     }
 
     /**
@@ -195,6 +209,6 @@ class WeaponController extends Controller
         $weapon->specialQualities()->detach();
         $weapon->delete();
         
-        return redirect('weapons')->with('status', 'Weapon deleted!');
+        return redirect('admin/weapons')->with('status', 'Weapon deleted!');
     }
 }

@@ -15,9 +15,9 @@
 @endif
 
 @if ((isset($character->id) && $character->id))
-    {{ Form::model($character, array('method' => 'PUT', 'data-submit' => 'repeateble-remove', 'route' => array('characters.update', $character->id))) }}
+    {{ Form::model($character, array('method' => 'PUT', 'data-submit' => 'repeateble-remove', 'route' => array('admin.characters.update', $character->id))) }}
 @else
-    {{ Form::model($character, array('method' => 'POST', 'data-submit' => 'repeateble-remove', 'route' => array('characters.store'))) }}
+    {{ Form::model($character, array('method' => 'POST', 'data-submit' => 'repeateble-remove', 'route' => array('admin.characters.store'))) }}
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}

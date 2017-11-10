@@ -15,9 +15,9 @@
 @endif
 
 @if ((isset($talent->id) && $talent->id))
-    {{ Form::model($talent, array('method' => 'PUT', 'route' => array('talents.update', $talent->id))) }}
+    {{ Form::model($talent, array('method' => 'PUT', 'route' => array('admin.talents.update', $talent->id))) }}
 @else
-    {{ Form::model($talent, array('method' => 'POST', 'route' => array('talents.store'))) }}
+    {{ Form::model($talent, array('method' => 'POST', 'route' => array('admin.talents.store'))) }}
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}

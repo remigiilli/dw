@@ -15,7 +15,7 @@
 	    <th>Renown</th>	
 	    <td></td>
 	    <td>
-	      <a href="{{ route('wargear.create') }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.wargear.create') }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Add
 	      </a>	    
 	    </td>
@@ -37,12 +37,12 @@
 	    </td>
 	    <td>{{ $renow_levels[$wargear_item->renown] }}</td>
 	    <td>
-	      <a href="{{ route('wargear.edit', $wargear_item->id) }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.wargear.edit', $wargear_item->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
 	    </td>	    
 	    <td>
-	      {{ Form::open(['route' => ['wargear.destroy', $wargear_item->id], 'method' => 'delete']) }}
+	      {{ Form::open(['route' => ['admin.wargear.destroy', $wargear_item->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 	      {{ Form::close() }}
 	    </td>

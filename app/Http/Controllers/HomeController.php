@@ -14,12 +14,15 @@ use App\TalentOption as TalentOption;
 use App\CharacterTrait as CharacterTrait;
 
 use App\PsychicPower as PsychicPower;
+use App\PsychicPowerCategory as PsychicPowerCategory;
 
 use App\SpecialQuality as SpecialQuality;
 
 use App\Weapon as Weapon;
+use App\WeaponCategory as WeaponCategory;
 
 use App\Wargear as Wargear;
+use App\WargearCategory as WargearCategory;
 
 class HomeController extends Controller
 {
@@ -44,7 +47,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+	$psychic_power_categories = PsychicPowerCategory::all();        
+        $weapon_categories = WeaponCategory::all();
+	$wargear_categories = WargearCategory::all();        
+        return view('home', ['psychic_power_categories' => $psychic_power_categories, 'weapon_categories' => $weapon_categories, 'wargear_categories' => $wargear_categories]);
     }
     
     

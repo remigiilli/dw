@@ -12,4 +12,4 @@
 	<b>Renown</b> {{ $renow_levels[$wargear_item->renown] }}<br />
     </div>
 </div>
-<p><a href="{{ route('wargear.edit', $wargear_item->id) }}">Edit</a></p>
+<p><a href="{{ route('admin.wargear.edit', $wargear_item->id) }}">Edit</a></p>

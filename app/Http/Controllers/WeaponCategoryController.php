@@ -52,7 +52,7 @@ class WeaponCategoryController extends Controller
         
         $weapon_category->save();
         
-        return redirect('weaponcategories')->with('status', 'WeaponCategory created!');        
+        return redirect('admin/weaponcategories')->with('status', 'WeaponCategory created!');        
     }
 
     /**
@@ -97,7 +97,7 @@ class WeaponCategoryController extends Controller
         
         $weapon_category->save();
         
-        return redirect('weaponcategories')->with('status', 'WeaponCategory updated!');
+        return redirect('admin/weaponcategories')->with('status', 'WeaponCategory updated!');
     }
 
     /**
@@ -112,6 +112,6 @@ class WeaponCategoryController extends Controller
         
         $weapon_category->delete();
         
-        return redirect('weaponcategories')->with('status', 'WeaponCategory deleted!');
+        return redirect('admin/weaponcategories')->with('status', 'WeaponCategory deleted!');
     }
 }

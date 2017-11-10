@@ -15,9 +15,9 @@
 @endif
 
 @if ((isset($psychic_power_category->id) && $psychic_power_category->id))
-    {{ Form::model($psychic_power_category, array('method' => 'PUT', 'route' => array('psychicpowercategories.update', $psychic_power_category->id))) }}
+    {{ Form::model($psychic_power_category, array('method' => 'PUT', 'route' => array('admin.psychicpowercategories.update', $psychic_power_category->id))) }}
 @else
-    {{ Form::model($psychic_power_category, array('method' => 'POST', 'route' => array('psychicpowercategories.store'))) }}
+    {{ Form::model($psychic_power_category, array('method' => 'POST', 'route' => array('admin.psychicpowercategories.store'))) }}
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}

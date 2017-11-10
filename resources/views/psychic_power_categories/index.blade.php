@@ -9,7 +9,7 @@
 	<tr>
 	    <th>ID</th><th>Name</th><td></td>
 	    <td>
-	      <a href="{{ route('psychicpowercategories.create') }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.psychicpowercategories.create') }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-plus"></span> Add
 	      </a>	    
 	    </td>
@@ -21,12 +21,12 @@
 	    <td>{{ $psychic_power_category->id }}</td>
 	    <td>{{ $psychic_power_category->name }}</td>
 	    <td>
-	      <a href="{{ route('psychicpowercategories.edit', $psychic_power_category->id) }}" class="btn btn-info btn-sm">
+	      <a href="{{ route('admin.psychicpowercategories.edit', $psychic_power_category->id) }}" class="btn btn-info btn-sm">
 		<span class="glyphicon glyphicon-edit"></span> Edit
 	      </a>
 	    </td>	    
 	    <td>
-	      {{ Form::open(['route' => ['psychicpowercategories.destroy', $psychic_power_category->id], 'method' => 'delete']) }}
+	      {{ Form::open(['route' => ['admin.psychicpowercategories.destroy', $psychic_power_category->id], 'method' => 'delete']) }}
 		<button type="submit" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 	      {{ Form::close() }}
 	    </td>
