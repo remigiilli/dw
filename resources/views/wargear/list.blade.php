@@ -22,7 +22,7 @@
                 <strong>Renown</strong>
             </div>
         </div>                   
-        @endif
+        @else
         <div class="row">        
             <div class="col-md-3">            
                 <strong>Name</strong>
