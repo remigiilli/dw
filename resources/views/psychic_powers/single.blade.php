@@ -20,6 +20,12 @@
     {{ $psychic_power->range }} metres x PR
 @elseif ($psychic_power->range_type == 3)
     {{ $psychic_power->range }} metres radius x PR
+@elseif ($psychic_power->range_type == 5)
+    {{ $psychic_power->range }} metres
+@elseif ($psychic_power->range_type == 6)
+    {{ $psychic_power->range }} metres + PR
+@elseif ($psychic_power->range_type == 7)
+    {{ $psychic_power->range }}d10 metres x PR    
 @else
     Special
 @endif    
