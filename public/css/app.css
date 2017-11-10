@@ -5733,6 +5733,11 @@ button.close {
 .element {
   margin-bottom: 15px; }
 
+@media (min-width: 992px) {
+  .dynamic-columns {
+    column-gap: 20px;
+    column-count: 3; } }
+
 .repeateble-template {
   display: none; }
 
