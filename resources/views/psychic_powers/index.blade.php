@@ -44,7 +44,7 @@
                 @elseif ($psychic_power->range_type == 6)
                     {{ $psychic_power->range }}m + PR
                 @elseif ($psychic_power->range_type == 7)
-                    {{ $psychic_power->range }}d10 m x PR                        
+                    {{ $psychic_power->range }}d10m x PR                        
                 @else
                     Special
                 @endif    
