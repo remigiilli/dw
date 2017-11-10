@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\URL;
 use App\Http\Requests;
 
 use App\PsychicPower as PsychicPower;
+use App\PsychicPowerCategory as PsychicPowerCategory;
 
 use App\Http\Requests\StorePsychicPower as StorePsychicPower;
 
@@ -54,7 +55,8 @@ class PsychicPowerController extends Controller
         $psychic_power->range_type = $request->range_type;
         $psychic_power->range = $request->range;
         $psychic_power->opposed = $request->opposed;
-        $psychic_power->sustained = $request->sustained;   
+        $psychic_power->sustained = $request->sustained;     
+        $psychic_power->psychic_power_category_id = ($request->psychic_power_category_id) ? $request->psychic_power_category_id : null;    
         
         $psychic_power->save();
         
@@ -90,7 +92,8 @@ class PsychicPowerController extends Controller
         $psychic_power->range_type = $request->range_type;
         $psychic_power->range = $request->range;
         $psychic_power->opposed = $request->opposed;
-        $psychic_power->sustained = $request->sustained;        
+        $psychic_power->sustained = $request->sustained;     
+        $psychic_power->psychic_power_category_id = ($request->psychic_power_category_id) ? $request->psychic_power_category_id : null;      
         
         $psychic_power->save();
         

@@ -18,6 +18,7 @@ class WeaponController extends Controller
      public $damage_types = array('e' => 'Energy', 'i' => 'Impact', 'r' => 'Rending', 'x' => 'Explosive');
      public $renow_levels = array('' => '-', 'r' => 'Respected', 'd' => 'Distinguished', 'f' => 'Famed', 'h' => 'Hero');
      public $classes = array('b' => 'Basic', 'h' => 'Heavy', 'm' => 'Melee', 'o' => 'Mounted', 'p' => 'Pistol', 't' => 'Thrown');  
+     public $range_types = array(0 => 'Range in meters', 1 => 'SB x Range'); 
     /**
      * Instantiate a new WeaponController instance.
      *
@@ -53,7 +54,8 @@ class WeaponController extends Controller
         $weapon->name = $request->name;
         $weapon->description = $request->description;
         $weapon->type = $request->type;
-        $weapon->range = $request->range;        
+        $weapon->range = $request->range;       
+        $weapon->range_type = $request->range_type;        
         $weapon->rof1 = $request->rof1;
         $weapon->rof2 = $request->rof2;
         $weapon->rof3 = $request->rof3;
@@ -65,8 +67,9 @@ class WeaponController extends Controller
         $weapon->clip = $request->clip;
         $weapon->rld = $request->rld;
         $weapon->weight = $request->weight;
-        $weapon->req = ($request->req !== '') ? $request->group_id : null;
+        $weapon->req = ($request->req !== '') ? $request->req : null;
         $weapon->renown = $request->renown;
+        $weapon->weapon_category_id = ($request->weapon_category_id) ? $request->weapon_category_id : null;
         
         $weapon->save();
         
@@ -104,7 +107,8 @@ class WeaponController extends Controller
         $weapon->name = $request->name;
         $weapon->description = $request->description;
         $weapon->type = $request->type;
-        $weapon->range = $request->range;        
+        $weapon->range = $request->range;       
+        $weapon->range_type = $request->range_type;        
         $weapon->rof1 = $request->rof1;
         $weapon->rof2 = $request->rof2;
         $weapon->rof3 = $request->rof3;
@@ -116,8 +120,9 @@ class WeaponController extends Controller
         $weapon->clip = $request->clip;
         $weapon->rld = $request->rld;
         $weapon->weight = $request->weight;
-        $weapon->req = ($request->req !== '') ? $request->group_id : null;
+        $weapon->req = ($request->req !== '') ? $request->req : null;
         $weapon->renown = $request->renown;
+        $weapon->weapon_category_id = ($request->weapon_category_id) ? $request->weapon_category_id : null;
         
         $weapon->save();
         

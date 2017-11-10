@@ -86,10 +86,10 @@ class SkillController extends Controller
     {
 	$skill = Skill::find($id);
         $skill->name = $request->name;
-	$skill->attribute = $request->attribute;        
-        $skill->description = $request->description;
+        $skill->attribute = $request->attribute;
+        $skill->description = $request->description;       
         $skill->use = $request->use;
-        $skill->special = $request->special;
+        $skill->special = $request->special;        
         $skill->group_id = ($request->group_id) ? $request->group_id : null;
 
         $skill->save();
