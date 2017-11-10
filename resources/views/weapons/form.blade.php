@@ -15,9 +15,9 @@
 @endif
 
 @if ((isset($weapon->id) && $weapon->id))
-    {{ Form::model($weapon, array('method' => 'PUT', 'route' => array('admin.weapons.update', $weapon->id))) }}
+    {{ Form::model($weapon, array('method' => 'PUT', 'data-submit' => 'repeateble-remove', 'route' => array('admin.weapons.update', $weapon->id))) }}
 @else
-    {{ Form::model($weapon, array('method' => 'POST', 'route' => array('admin.weapons.store'))) }}
+    {{ Form::model($weapon, array('method' => 'POST', 'data-submit' => 'repeateble-remove', 'route' => array('admin.weapons.store'))) }}
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}
