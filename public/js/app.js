@@ -134,6 +134,18 @@ $(function () {
         if (typeof $(this).data('extra') !== 'undefined') {
             $('[data-extra-toggle="1"]', currentElement).val($(this).data('extra'));
         }         
+        
+        $('[data-toggle="popoverload-selected"]', currentElement).click(function(event) {
+            var e=$(this);
+            var uri = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '') + '/' +  e.data('type') + '/' + e.parent().prev().val() + '/justcontent';
+            $.get(uri,function(d) {	  
+                e.popover({html: true, content: d, container: 'body'}).popover('show');
+            });
+            event.preventDefault();
+        });    
+        $('[data-toggle="popoverload-selected"]', currentElement).focusout(function(event) {
+            $(this).popover('hide');
+        });            
     });
 }) 
 //# sourceMappingURL=app.js.map
