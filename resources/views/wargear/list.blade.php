@@ -36,12 +36,12 @@
             <div class="col-md-3">    
                 <strong>Renown</strong>
             </div>
-        </div>3
+        </div>
         @endif
     @endif
     @foreach ($wargear as $wargear_item)
 	<div class="element">
-            @if (isset($wargear_category) && $wargear_category->id !== 8)
+            @if (isset($wargear_category) && $wargear_category->id === 8)
                 <b>
                     <a data-toggle="collapse" href="#wargear-item-{{ $wargear_item->id }}" aria-expanded="false" aria-controls="wargear-item-{{ $wargear_item->id }}">
                         {{ $wargear_item->name }}
