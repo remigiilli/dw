@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
-@section('title', '{{ $wargear_category->description }}')
+@section('title', 'Wargear')
 
 @section('content')
-    <h1>{{ $wargear_category->name }}</h1>
-    <p>{{ $wargear_category->description }}</p>
-    <div class="row">
+    @if (isset($wargear_category))
+        <h1>{{ $wargear_category->name }}</h1>
+        <p>{{ $wargear_category->description }}</p>
+    @else 
+        <h1>Wargear</h1> 
+    @endif
+    <div class="row">        
         <div class="col-lg-3">            
             <strong>Name</strong>
         </div>

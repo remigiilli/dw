@@ -11,24 +11,24 @@
                     <h2><a href="{{ route('skills.listing') }}">Skills</a></h2>
                     <h2><a href="{{ route('talents.listing') }}">Talents</a></h2>
                     <h2><a href="{{ route('traits.listing') }}">Traits</a></h2>                    
-                    <h2>Psychic Powers</h2>
+                    <h2><a href="{{ route('psychicpowers.listing') }}">Psychic Powers</a></h2>
                     <ul>
                     @foreach ($psychic_power_categories as $psychic_power_category)
-                        <li><a href="{{ route('psychicpower.listing', $psychic_power_category->id) }}">{{ $psychic_power_category->name }}</a></li>
+                        <li><a href="{{ route('psychicpowers.categorylisting', $psychic_power_category->id) }}">{{ $psychic_power_category->name }}</a></li>
                     @endforeach
                     </ul>                      
                     
-                    <h2>Wargear</h2>
+                    <h2><a href="{{ route('wargear.listing') }}">Wargear</a></h2>
                     <ul>
                     @foreach ($wargear_categories as $wargear_category)
-                        <li><a href="{{ route('wargear.listing', $wargear_category->id) }}">{{ $wargear_category->name }}</a></li>
+                        <li><a href="{{ route('wargear.categorylisting', $wargear_category->id) }}">{{ $wargear_category->name }}</a></li>
                     @endforeach
                     </ul>                    
                     
-                    <h2>Weapons</h2>
+                    <h2><a href="{{ route('weapons.listing') }}">Weapons</a></h2>
                     <ul>
                     @foreach ($weapon_categories as $weapon_category)
-                        <li><a href="{{ route('weapon.listing', $weapon_category->id) }}">{{ $weapon_category->name }}</a></li>
+                        <li><a href="{{ route('weapons.categorylisting', $weapon_category->id) }}">{{ $weapon_category->name }}</a></li>
                     @endforeach
                     </ul>
                 </div>

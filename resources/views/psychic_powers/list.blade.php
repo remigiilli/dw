@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
-@section('title', '{{ $psychic_power_category->name }}')
+@section('title', 'Psychic Powers')
 
 @section('content')
-
-    <h1>{{ $psychic_power_category->name }}</h1>
+    <h1>@if (isset($psychic_power_category)) {{ $psychic_power_category->name }} @else Psychic Powers @endif</h1>
     <div class="row">
         <div class="col-lg-3">            
             <b>Name</b>

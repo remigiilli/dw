@@ -41,10 +41,22 @@ class PsychicPowerController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @return \Illuminate\Http\Response
+     */
+    public function listing()
+    {        
+	$psychic_powers = PsychicPower::all()->sortBy('name');
+	
+        return view('psychic_powers.list', ['psychic_powers' => $psychic_powers]);
+    }     
+    
+    /**
+     * Display a listing of the resource.
+     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function listing($id)
+    public function categoryListing($id)
     {
         $psychic_power_category = PsychicPowerCategory::find($id);
 	$psychic_powers = PsychicPower::where('psychic_power_category_id', $id)->get()->sortBy('name');

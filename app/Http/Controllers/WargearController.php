@@ -30,10 +30,22 @@ class WargearController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @return \Illuminate\Http\Response
+     */
+    public function listing()
+    {
+	$wargear = Wargear::all()->sortBy('name');        
+	
+        return view('wargear.list', ['wargear' => $wargear, 'renow_levels' => $this->renow_levels]);
+    }        
+    
+    /**
+     * Display a listing of the resource.
+     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function listing($id)
+    public function categoryListing($id)
     {
         $wargear_category = WargearCategory::find($id);
 	$wargear = Wargear::where('wargear_category_id', $id)->get()->sortBy('name');        

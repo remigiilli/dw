@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
-@section('title', '{{ $weapon_category->name }}')
+@section('title', 'Weapons')
 
 @section('content')
-    <h1>{{ $weapon_category->name }}</h1>
-    <p>{{ $weapon_category->description }}</p>
+    @if (isset($weapon_category)) 
+        <h1>{{ $weapon_category->name }}</h1>
+        <p>{{ $weapon_category->description }}</p>
+    @else 
+        <h1>Weapons</h1>
+    @endif        
     @foreach ($weapons as $weapon)
 	<div class="element">                        
             <div class="row">

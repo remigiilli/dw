@@ -48,7 +48,7 @@ Route::get('/traits', [
     'uses' => 'TraitController@listing'
 ]);
 
-Route::resource('psychicpowers', 'PsychicPowerController', [
+Route::resource('/admin/psychicpowers', 'PsychicPowerController', [
 //     'middleware' => 'auth'
 ]);
 Route::get('/psychicpowers/{id}/justcontent', 'PsychicPowerController@justcontent');
@@ -56,9 +56,13 @@ Route::get('/psychicpowers/{id}/justcontent', 'PsychicPowerController@justconten
 Route::resource('/admin/psychicpowercategories', 'PsychicPowerCategoryController', [
 //     'middleware' => 'auth'
 ]);
-Route::get('/psychicpower/{id}', [
-    'as' => 'psychicpower.listing',
+Route::get('/psychicpowers', [
+    'as' => 'psychicpowers.listing',
     'uses' => 'PsychicPowerController@listing'
+]);
+Route::get('/psychicpowers/{id}', [
+    'as' => 'psychicpowers.categorylisting',
+    'uses' => 'PsychicPowerController@categoryListing'
 ]);
 
 Route::resource('/admin/wargear', 'WargearController', [
@@ -69,9 +73,13 @@ Route::get('/wargear/{id}/justcontent', 'WargearController@justcontent');
 Route::resource('/admin/wargearcategories', 'WargearCategoryController', [
 //     'middleware' => 'auth'
 ]);
-Route::get('/wargear/{id}', [
+Route::get('/wargear', [
     'as' => 'wargear.listing',
     'uses' => 'WargearController@listing'
+]);
+Route::get('/wargear/{id}', [
+    'as' => 'wargear.categorylisting',
+    'uses' => 'WargearController@categoryListing'
 ]);
 
 Route::resource('/admin/weapons', 'WeaponController', [
@@ -82,9 +90,13 @@ Route::get('/weapons/{id}/justcontent', 'WeaponController@justcontent');
 Route::resource('/admin/weaponcategories', 'WeaponCategoryController', [
 //     'middleware' => 'auth'
 ]);
-Route::get('/weapon/{id}', [
-    'as' => 'weapon.listing',
+Route::get('/weapons', [
+    'as' => 'weapons.listing',
     'uses' => 'WeaponController@listing'
+]);
+Route::get('/weapons/{id}', [
+    'as' => 'weapons.categorylisting',
+    'uses' => 'WeaponController@categoryListing'
 ]);
 
 Route::resource('/admin/specialqualities', 'SpecialQualityController', [

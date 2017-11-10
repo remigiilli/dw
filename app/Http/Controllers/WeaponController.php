@@ -45,10 +45,22 @@ class WeaponController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @return \Illuminate\Http\Response
+     */
+    public function listing()
+    {
+	$weapons = Weapon::all()->sortBy('name');
+	
+        return view('weapons.list', ['weapons' => $weapons, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+    }      
+    
+    /**
+     * Display a listing of the resource.
+     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function listing($id)
+    public function categoryListing($id)
     {
         $weapon_category = WeaponCategory::find($id);
 	$weapons = Weapon::where('weapon_category_id', $id)->get()->sortBy('name');
