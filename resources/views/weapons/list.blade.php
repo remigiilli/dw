@@ -20,6 +20,9 @@
                     </b>                       
                 </div>
                 <div class="col-md-3">
+                    <b>@if ($weapon->type) {{ $classes[$weapon->type] }} @else - @endif</b>
+                </div>                   
+                <div class="col-md-3">
                     <b>Damage:</b> @if ($weapon->dmg1 || $weapon->dmg3) {{ $weapon->dmg1 }}D{{ $weapon->dmg2 }} + {{ $weapon->dmg3 }}{{ strtoupper($weapon->dmg4) }} @else - @endif<br />
                 </div>
                 <div class="col-md-3">
@@ -27,10 +30,7 @@
                 </div>
             </div>
             @if ($weapon->range)
-            <div class="row">
-                <div class="col-md-3">
-                    <b>@if ($weapon->type) {{ $classes[$weapon->type] }} @else - @endif</b>
-                </div>                
+            <div class="row">             
                 <div class="col-md-offset-3 col-md-2">
                     <b>Range:</b> @if ($weapon->range) @if ($weapon->range_type == 0) {{ $weapon->range }}m @else SB x {{ $weapon->range }}@endif @else - @endif <br />
                 </div>
