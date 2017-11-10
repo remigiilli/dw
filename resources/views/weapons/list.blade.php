@@ -6,7 +6,7 @@
     <h1>{{ $weapon_category->name }}</h1>
     <p>{{ $weapon_category->description }}</p>
     @foreach ($weapons as $weapon)
-	<div>                        
+	<div class="element">                        
             <div class="row">
                 <div class="col-lg-3">
                     <b>
@@ -19,7 +19,7 @@
                     <b>@if ($weapon->type) {{ $classes[$weapon->type] }} @else - @endif</b>
                 </div>
                 <div class="col-lg-3">
-                    <b>Damage:</b> @if ($weapon->dmg1 || $weapon->dmg3) {{ $weapon->dmg1 }}D{{ $weapon->dmg2 }} + {{ $weapon->dmg3 }} {{ $weapon->dmg4 }}@endif<br />
+                    <b>Damage:</b> @if ($weapon->dmg1 || $weapon->dmg3) {{ $weapon->dmg1 }}D{{ $weapon->dmg2 }} + {{ $weapon->dmg3 }} {{ $weapon->dmg4 }} @else - @endif<br />
                 </div>
                 <div class="col-lg-3">
                     <b>Pen:</b> {{ $weapon->pen }}<br />

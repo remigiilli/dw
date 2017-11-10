@@ -20,7 +20,7 @@
         </div>
     </div>    
     @foreach ($wargear as $wargear_item)
-	<div>            
+	<div class="element">            
             <div class="row">
                 <div class="col-lg-3">              
                     <b>

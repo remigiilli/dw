@@ -23,7 +23,7 @@
         </div>
     </div>
     @foreach ($psychic_powers as $psychic_power)
-	<div>   
+	<div class="element">   
             <div class="row">
                 <div class="col-lg-3">            
                     <b>
