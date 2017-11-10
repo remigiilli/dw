@@ -15,7 +15,7 @@ use App\Http\Requests\StorePsychicPower as StorePsychicPower;
 
 class PsychicPowerController extends Controller
 {
-    public $range_types = array(0 => 'Self', 1 => 'Touch', 2 => 'metres x PR', 3 => 'metres radius x PR', 4 => 'Special', 5 => 'meters');  
+    public $range_types = array(0 => 'Self', 1 => 'Touch', 2 => 'metres x PR', 3 => 'metres radius x PR', 4 => 'Special', 5 => 'meters', 6 => 'meters + PR');  
     /**
      * Instantiate a new PsychicPowerController instance.
      *
