@@ -118,13 +118,18 @@
             @endif                        
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
-                    <select name="special_qualities[]" class="form-control" data-change="check-extra">    
-                    @foreach ($special_qualities as $special_quality)
-                        <option value="{{ $special_quality->id }}"
-                                @if ($special_quality->extra) data-extra="1" @endif                                 
-                        >{{ $special_quality->name }}</option>        
-                    @endforeach
-                    </select>
+                    <div class="input-group">
+                        <select name="special_qualities[]" class="form-control" data-change="check-extra">    
+                        @foreach ($special_qualities as $special_quality)
+                            <option value="{{ $special_quality->id }}"
+                                    @if ($special_quality->extra) data-extra="1" @endif                                 
+                            >{{ $special_quality->name }}</option>        
+                        @endforeach
+                        </select>
+                        <span class="input-group-btn">
+                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="specialqualities"><span class="glyphicon glyphicon-question-sign"></span></button>
+                        </span>                       
+                    </div>                        
                 </div>                    
                 <div class="col-lg-3">
                     <input name="special_qualities[][extra]" data-extra-toggle="1" type="text" disabled="disabled" class="form-control" />    
