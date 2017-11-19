@@ -31,6 +31,15 @@
                         <li><a href="{{ route('weapons.categorylisting', $weapon_category->id) }}">{{ $weapon_category->name }}</a></li>
                     @endforeach
                     </ul>
+                    
+                    <h2>Characer Advances</h2>
+                    <ul>
+                        <li><a href="{{ url('andee') }}">Andee</a></li>
+                        <li><a href="{{ url('garreth') }}">Garreth</a></li>
+                        <li><a href="{{ url('joder') }}">Joder</a></li>
+                        <li><a href="{{ url('mouse') }}">Mouse</a></li>
+                        <li><a href="{{ url('zack') }}">Zack</a></li>                    
+                    </ul>                    
                 </div>
             </div>
         </div>

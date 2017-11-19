@@ -81,4 +81,50 @@ class HomeController extends Controller
           
 	  return view('searchresults', ['skills' => $skills, 'talents' => $talents, 'traits' => $traits, 'special_qualities' => $special_qualities, 'psychic_powers' => $psychic_powers, 'weapons' => $weapons, 'wargear' => $wargear, 'attributes' => $this->attributes, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }    
+    
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function andee()
+    {       
+        return view('tables.andee');
+    }    
+   /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function joder()
+    {       
+        return view('tables.andee');
+    }    
+   /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function mouse()
+    {       
+        return view('tables.andee');
+    }    
+   /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function garreth()
+    {       
+        return view('tables.garreth');
+    }    
+       /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function zack()
+    {       
+        return view('tables.zack');
+    }    
 }

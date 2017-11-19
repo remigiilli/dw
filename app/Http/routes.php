@@ -107,5 +107,11 @@ Route::get('/specialqualities/{id}/justcontent', 'SpecialQualityController@justc
 //Route::auth();
 
 Route::get('/', 'HomeController@index');
+Route::get('/mouse', 'HomeController@mouse');
+Route::get('/andee', 'HomeController@andee');
+Route::get('/zack', 'HomeController@zack');
+Route::get('/joder', 'HomeController@joder');
+Route::get('/garreth', 'HomeController@garreth');
+
 Route::post('/search', 'HomeController@search');
 
