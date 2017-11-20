@@ -3,14 +3,14 @@
 @section('title', 'Page Title')
 
 @section('content')
-@include('tables.rank1_general')
-@include('tables.rank2_general')
-@include('tables.rank1_deathwatch')
-@include('tables.rank2_deathwatch')
+@include('tables.general.rank1')
+@include('tables.general.rank2')
+@include('tables.deathwatch.rank1')
+@include('tables.deathwatch.rank2')
 
-@include('tables.assault_marine_characteristics')
-@include('tables.rank1_assault_marine')
-@include('tables.rank2_assault_marine')
+@include('tables.assault_marine.characteristics')
+@include('tables.assault_marine.rank1')
+@include('tables.assault_marine.rank2')
 
-@include('tables.raven_guard')
+@include('tables.chapters.raven_guard')
 @endsection 

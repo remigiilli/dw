@@ -3,11 +3,12 @@
 @section('title', 'Page Title')
 
 @section('content')
-@include('tables.rank1_general')
-@include('tables.rank1_deathwatch')
+@include('tables.general.rank1')
+@include('tables.deathwatch.rank1')
 
-@include('tables.librarian_characteristics')
-@include('tables.rank1_librarian')
 
-@include('tables.blood_ravens')
+@include('tables.librarian.characteristics')
+@include('tables.librarian.rank1')
+
+@include('tables.chapters.blood_ravens')
 @endsection 

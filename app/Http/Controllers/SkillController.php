@@ -122,6 +122,20 @@ class SkillController extends Controller
     }        
     
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $name
+     * @return \Illuminate\Http\Response
+     */
+    public function byName($name)
+    {
+	 $skill = Skill::where('name', 'like', $name)	      
+	      ->first();
+	
+        return view('skills.single',  ['skill' => $skill, 'attributes' => $this->attributes]);
+    }       
+    
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

@@ -33,7 +33,17 @@ $(function () {
     
     $('[data-toggle="popoverload"]').click(function(event) {
 	var e=$(this);
-	var uri = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '') + '/' +  e.data('type') + '/' + e.data('id') + '/justcontent';
+        if (e.data('by') == 'name') {       
+            if (typeof e.data('name') !== 'undefined') {
+                var uri = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '') + '/' +  e.data('type') + '/byname/'+ e.data('name');
+            }            
+            else {
+                var uri = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '') + '/' +  e.data('type') + '/byname/'+ e.text();
+            }            
+        }
+        else {
+            var uri = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '') + '/' +  e.data('type') + '/' + e.data('id') + '/justcontent';
+        }
 	$.get(uri,function(d) {	  
 	    e.popover({html: true, content: d}).popover('show');
 	});

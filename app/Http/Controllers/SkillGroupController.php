@@ -80,6 +80,20 @@ class SkillGroupController extends Controller
 	
         return view('skillgroups.show',  ['skill_group' => $skill_group]);
     }
+    
+   /**
+     * Display the specified resource.
+     *
+     * @param  int  $name
+     * @return \Illuminate\Http\Response
+     */
+    public function byName($name)
+    {
+	 $skill_group = SkillGroup::where('name', 'like', $name)	      
+	      ->first();
+	
+        return view('skillgroups.single',  ['skill_group' => $skill_group]);
+    }      
 
     /**
      * Show the form for editing the specified resource.

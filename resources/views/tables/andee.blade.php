@@ -3,14 +3,14 @@
 @section('title', 'Page Title')
 
 @section('content')
-@include('tables.rank1_general')
-@include('tables.rank2_general')
-@include('tables.rank1_deathwatch')
-@include('tables.rank2_deathwatch')
+@include('tables.general.rank1')
+@include('tables.general.rank2')
+@include('tables.deathwatch.rank1')
+@include('tables.deathwatch.rank2')
 
-@include('tables.devastator_characteristics')
-@include('tables.rank1_devastator')
-@include('tables.rank2_devastator')
+@include('tables.devastator.characteristics')
+@include('tables.devastator.rank1')
+@include('tables.devastator.rank2')
 
-@include('tables.blood_angels')
+@include('tables.chapters.blood_angels')
 @endsection 

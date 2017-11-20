@@ -112,6 +112,20 @@ class TalentController extends Controller
 	
         return view('talents.single',  ['talent' => $talent]);
     }       
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function byName($name)
+    {
+	 $talent = Talent::where('name', 'like', $name)	      
+	      ->first();
+	
+        return view('talents.single',  ['talent' => $talent]);
+    }           
 
     /**
      * Show the form for editing the specified resource.

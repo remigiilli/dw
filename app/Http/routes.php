@@ -18,6 +18,7 @@ Route::resource('/admin/talents', 'TalentController', [
 //     'middleware' => 'auth'
 ]);
 Route::get('/talents/{id}/justcontent', 'TalentController@justcontent');
+Route::get('/talents/byname/{name}', 'TalentController@byName');
 Route::get('/talents', [
     'as' => 'talents.listing',
     'uses' => 'TalentController@listing'
@@ -29,11 +30,13 @@ Route::resource('talentoptions', 'TalentOptionController', [
 Route::resource('/admin/skillgroups', 'SkillGroupController', [
 //     'middleware' => 'auth'
 ]);
+Route::get('/skillgroups/byname/{name}', 'SkillGroupController@byName');
 
 Route::resource('/admin/skills', 'SkillController', [
 //     'middleware' => 'auth'
 ]);
 Route::get('/skills/{id}/justcontent', 'SkillController@justcontent');
+Route::get('/skills/byname/{name}', 'SkillController@byName');
 Route::get('/skills', [
     'as' => 'skills.listing',
     'uses' => 'SkillController@listing'
