@@ -40,10 +40,10 @@
             <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Logic</a></td><td>400</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Common</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Imperial Guard</a>)</td><td>200</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Common Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Imperial Guard</a>)</td><td>200</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Common</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Imperial Navy</a>)</td><td>200</td><td>Skill</td><td>—</td>         
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Common Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Imperial Navy</a>)</td><td>200</td><td>Skill</td><td>—</td>         
         </tr>                
         <tr>             
             <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Scrutiny</a></td><td>400</td><td>Skill</td><td>—</td>

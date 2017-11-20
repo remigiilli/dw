@@ -13,10 +13,10 @@
             <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Ciphers</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Deathwatch</a>) +10</td><td>200</td><td>Skill</td><td>Ciphers (Deathwatch)</td>
         </tr>                
         <tr>             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Common</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Deathwatch</a>) +10</td><td>200</td><td>Skill</td><td>Lore: Common (Deathwatch)</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Common Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Deathwatch</a>) +10</td><td>200</td><td>Skill</td><td>Lore: Common (Deathwatch)</td>
         </tr>                
         <tr>             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Common</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Jericho Reach</a>) +10</td><td>400</td><td>Skill</td><td>Lore: Common (Jericho Reach)</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Common Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Jericho Reach</a>) +10</td><td>400</td><td>Skill</td><td>Lore: Common (Jericho Reach)</td>
         </tr>                
         <tr>             
             <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Interrogation</a> +10</td><td>400</td><td>Skill</td><td>Interrogation</td>

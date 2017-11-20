@@ -16,13 +16,13 @@
             <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Ciphers</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Inquisition</a>)</td><td>200</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Common</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Deathwatch</a>) </td><td>200</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Common Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Deathwatch</a>) </td><td>200</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Common</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Jericho Reach</a>)</td><td>400</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Common Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Jericho Reach</a>)</td><td>400</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Forbidden</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Xenos</a>)</td><td>400</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Forbidden Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Xenos</a>)</td><td>400</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>             
             <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Interrogation</a></td><td>400</td><td>Skill</td><td>—</td>

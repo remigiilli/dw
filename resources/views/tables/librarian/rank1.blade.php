@@ -10,19 +10,19 @@
             <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Invocation</a></td><td>400</td><td>Skill</td><td>—</td>         
         </tr>                
         <tr>                             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Common</a> (any)</td><td>400</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Common Lore</a> (any)</td><td>400</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>                             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Forbidden</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Adeptus Astartes</a>)</td><td>200</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Forbidden Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Adeptus Astartes</a>)</td><td>200</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>                           
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Forbidden</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Psykers</a>)</td><td>400</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Forbidden Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Psykers</a>)</td><td>400</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>                             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Forbidden</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Warp</a>)</td><td>400</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Forbidden Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Warp</a>)</td><td>400</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>                             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Scholastic</a> (any)</td><td>400</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Scholastic Lore</a> (any)</td><td>400</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>                          
             <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Psyniscience</a></td><td>400</td><td>Skill</td><td>—</td>         

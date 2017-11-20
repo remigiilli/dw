@@ -13,10 +13,10 @@
             <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Interrogation</a> +10</td><td>200</td><td>Skill</td><td>Interrogation</td>
         </tr>                
         <tr>                                       
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Scholastic</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Beasts</a>)</td><td>200</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Scholastic Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Beasts</a>)</td><td>200</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>                                       
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Lore: Scholastic</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Chymistry</a>)</td><td>200</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Scholastic Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Chymistry</a>)</td><td>200</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>                                       
             <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Medicae</a> +10</td><td>400</td><td>Skill</td><td>Medicae</td>      
