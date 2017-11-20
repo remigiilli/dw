@@ -37,7 +37,7 @@
             <td><a href="#" data-toggle="popoverload" data-type="talents" data-placement="auto" data-by="name">Hatred</a> (Orks)</td><td>500</td><td>Talent</td><td>—</td>         
         </tr>                
         <tr>             
-            <td><a href="#" data-toggle="popoverload" data-type="talents" data-placement="auto" data-by="name">Mental Rage<</a>/td><td>800</td><td>Talent</td><td>Frenzy</td>         
+            <td><a href="#" data-toggle="popoverload" data-type="talents" data-placement="auto" data-by="name">Mental Rage</a>/td><td>800</td><td>Talent</td><td>Frenzy</td>         
         </tr>                
         <tr>             
             <td><a href="#" data-toggle="popoverload" data-type="talents" data-placement="auto" data-by="name">Slayer of Daemons</a></td><td>1,000</td><td>Talent</td><td>—</td>         

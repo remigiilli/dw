@@ -98,7 +98,7 @@ class HomeController extends Controller
      */
     public function joder()
     {       
-        return view('tables.andee');
+        return view('tables.joder');
     }    
    /**
      * Show the application dashboard.
@@ -107,7 +107,7 @@ class HomeController extends Controller
      */
     public function mouse()
     {       
-        return view('tables.andee');
+        return view('tables.mouse');
     }    
    /**
      * Show the application dashboard.
