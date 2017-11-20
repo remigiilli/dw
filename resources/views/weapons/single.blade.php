@@ -38,7 +38,7 @@
 @if (count($weapon->specialQualities()->first()) > 0)
     <p><b>Special Qualities:</b>
     @foreach ($weapon->specialQualities as $special_quality)
-	 <a href="#" data-toggle="popoverload" data-id="{{ $special_quality->id }}" data-type="specialqualities">{{ $special_quality->name }}</a>
+	 <a href="#" data-toggle="popoverload" data-id="{{ $special_quality->id }}" data-type="specialqualities" data-placement="auto">{{ $special_quality->name }}</a>
 	 @if ($special_quality->extra)
 	 ({{$special_quality->pivot->extra}})
 	 @endif	    	 

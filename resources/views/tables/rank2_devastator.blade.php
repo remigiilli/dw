@@ -1,4 +1,4 @@
-<h3>Rank 1 Deathwatch Devastator Advances</h3>
+<h3>Rank 2 Deathwatch Devastator Advances</h3>
 <table  class="table table-striped">
     <thead>    
         <tr>

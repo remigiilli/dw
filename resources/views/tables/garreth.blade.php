@@ -4,9 +4,7 @@
 
 @section('content')
 @include('tables.rank1_general')
-@include('tables.rank2_general')
 @include('tables.rank1_deathwatch')
-@include('tables.rank2_deathwatch')
 
 @include('tables.librarian_characteristics')
 @include('tables.rank1_librarian')
