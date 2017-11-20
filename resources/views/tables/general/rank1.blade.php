@@ -13,7 +13,7 @@
             <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Carouse</a></td><td>200</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>             
-            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Chyphers</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Chapter Runes</a>)</td><td>200</td><td>Skill</td><td>—</td>
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Ciphers</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Chapter Runes</a>)</td><td>200</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>             
             <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Climb</a></td><td>400</td><td>Skill</td><td>—</td>
