@@ -43,7 +43,7 @@
             <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Common Lore</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">War</a>)</td><td>400</td><td>Skill</td><td>—</td>
         </tr>                
         <tr>             
-            <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Navigation</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Surface</a>)</td><td>400</td><td>Skill</td><td>—</td>         
+            <td><a href="#" data-toggle="popoverload" data-type="skillgroups" data-placement="auto" data-by="name">Navigation</a> (<a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Surface</a>)</td><td>400</td><td>Skill</td><td>—</td>         
         </tr>                
         <tr>             
             <td><a href="#" data-toggle="popoverload" data-type="skills" data-placement="auto" data-by="name">Search</a></td><td>400</td><td>Skill</td><td>—</td>

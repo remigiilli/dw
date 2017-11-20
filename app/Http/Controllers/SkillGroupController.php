@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\URL;
 use App\Http\Requests;
 
 use App\SkillGroup as SkillGroup;
+use App\Skill as Skill;
 
 use App\Http\Requests\StoreSkillGroup as StoreSkillGroup;
 
