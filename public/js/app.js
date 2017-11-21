@@ -159,7 +159,9 @@ $(function () {
     });
     
     $('.collapse').on('shown.bs.collapse', function (event) {
-        $(window).scrollTop($(this).parent().position().top);
+        $('html, body').animate({
+            scrollTop: $(this).parent().offset().top
+        }, 500);        
     });    
 }); 
 //# sourceMappingURL=app.js.map
