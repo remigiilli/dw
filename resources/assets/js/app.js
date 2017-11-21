@@ -159,8 +159,6 @@ $(function () {
     });
     
     $('.collapse').on('shown.bs.collapse', function (event) {
-        event.target.scrollIntoView({
-            behavior: "smooth",
-        });
+        $(window).scrollTop($(this).parent().position().top);
     });    
-}) 
+}); 
