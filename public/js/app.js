@@ -157,5 +157,11 @@ $(function () {
             $(this).popover('hide');
         });            
     });
+    
+    $('.collapse').on('shown.bs.collapse', function (event) {
+        event.target.scrollIntoView({
+            behavior: "smooth",
+        });
+    });    
 }) 
 //# sourceMappingURL=app.js.map
