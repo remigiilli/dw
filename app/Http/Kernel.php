@@ -32,6 +32,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+            'cors' => \App\Http\Middleware\Cors::class,                            
             'throttle:60,1',
         ],
     ];
@@ -43,12 +44,11 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
-    protected $routeMiddleware = [
+    protected $routeMiddleware = [        
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'cors' => \App\Http\Middleware\Cors::class,        
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,        
     ];
 }
