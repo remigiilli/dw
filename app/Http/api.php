@@ -10,39 +10,20 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::resource('talents', 'TalentController', [
+Route::group(['middleware' => 'cors'], function() {
+    Route::resource('talents', 'TalentController');
+    Route::resource('talentoptions', 'TalentOptionController');
+    Route::resource('skillgroups', 'SkillGroupController');
+    Route::resource('skills', 'SkillController');
+    Route::resource('traits', 'TraitController');
+    Route::resource('/psychicpowercategories', 'PsychicPowerCategoryController');
+    Route::resource('psychicpowers', 'PsychicPowerController');
+    Route::resource('weaponcategories', 'WeaponCategoryController');
+    Route::resource('weapons', 'WeaponController');
+    Route::resource('specialqualities', 'SpecialQualityController');
+    Route::resource('wargearcategories', 'WargearCategoryController');
+    Route::resource('wargear', 'WargearController');    
+});
+/*Route::resource('talents', 'TalentController', [
     'middleware' => 'cors'
-]);
-Route::resource('talentoptions', 'TalentOptionController', [
-    'middleware' => 'cors'
-]);
-Route::resource('skillgroups', 'SkillGroupController', [
-    'middleware' => 'cors'
-]);
-Route::resource('skills', 'SkillController', [
-    'middleware' => 'cors'
-]);
-Route::resource('traits', 'TraitController', [
-    'middleware' => 'cors'
-]);
-Route::resource('/psychicpowercategories', 'PsychicPowerCategoryController', [
-    'middleware' => 'cors'
-]);
-Route::resource('psychicpowers', 'PsychicPowerController', [
-    'middleware' => 'cors'
-]);
-Route::resource('weaponcategories', 'WeaponCategoryController', [
-    'middleware' => 'cors'
-]);
-Route::resource('weapons', 'WeaponController', [
-    'middleware' => 'cors'
-]);
-Route::resource('specialqualities', 'SpecialQualityController', [
-    'middleware' => 'cors'
-]);
-Route::resource('wargearcategories', 'WargearCategoryController', [
-    'middleware' => 'cors'
-]);
-Route::resource('wargear', 'WargearController', [
-    'middleware' => 'cors'
-]);
+]);*/
