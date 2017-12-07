@@ -47,6 +47,14 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <span class=" glyphicon glyphicon-log-in"></span> Login
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
