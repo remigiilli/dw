@@ -39,12 +39,18 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
+                    @if (Auth::guest())
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                    @else                    
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                Admin <span class="caret"></span>
+                                {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                @if (Auth::user()->admin)
+                                    <li><a href="{{ url('/admin/users') }}"><span class="glyphicon glyphicon-user"></span> Users</a></li>
+                                @endif                                 
 				<li><a href="{{ url('/admin/characters') }}"><span class="glyphicon glyphicon-user"></span> Characters</a></li>
 				<li><a href="{{ url('/admin/skills') }}"><span class="glyphicon glyphicon-education"></span> Skills</a></li>
 				<li><a href="{{ url('/admin/skillgroups') }}"><span class="glyphicon glyphicon-list"></span> Skill Groups</a></li>
@@ -58,8 +64,10 @@
 				<li><a href="{{ url('/admin/weapons') }}"><span class="glyphicon glyphicon-screenshot"></span> Weapons</a></li>
                                 <li><a href="{{ url('/admin/weaponcategories') }}"><span class="glyphicon glyphicon-screenshot"></span> Weapon Categories</a></li>
 				<li><a href="{{ url('/admin/specialqualities') }}"><span class="glyphicon glyphicon-list"></span> Weapon Special Qualities</a></li>
+                                <li><a href="{{ url('/logout') }}"><span class=" glyphicon glyphicon-log-out"></span> Logout</a></li>
                             </ul>
                         </li>
+                    @endif                        
                 </ul>
             </div>
         </div>

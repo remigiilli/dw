@@ -107,7 +107,8 @@ Route::resource('/admin/specialqualities', 'SpecialQualityController', [
 ]);
 Route::get('/specialqualities/{id}/justcontent', 'SpecialQualityController@justcontent');
 
-//Route::auth();
+Route::auth();
+Route::resource('/admin/users', 'UserController');
 
 Route::get('/', 'HomeController@index');
 Route::get('/mouse', 'HomeController@mouse');

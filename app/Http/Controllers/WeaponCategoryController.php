@@ -13,6 +13,16 @@ use App\Http\Requests\StoreWeaponCategory as StoreWeaponCategory;
 class WeaponCategoryController extends Controller
 {
     /**
+     * Instantiate a new WeaponController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+         $this->middleware('auth');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

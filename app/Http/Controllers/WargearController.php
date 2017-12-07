@@ -15,6 +15,17 @@ use App\Http\Requests\StoreWargear as StoreWargear;
 class WargearController extends Controller
 {
     public $renow_levels = array('' => '-', 'r' => 'Respected', 'd' => 'Distinguished', 'f' => 'Famed', 'h' => 'Hero');
+    
+    /**
+     * Instantiate a new WeaponController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+         $this->middleware('auth');
+    }    
+    
     /**
      * Display a listing of the resource.
      *

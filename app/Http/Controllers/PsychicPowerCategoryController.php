@@ -13,6 +13,16 @@ use App\Http\Requests\StorePsychicPowerCategory as StorePsychicPowerCategory;
 class PsychicPowerCategoryController extends Controller
 {
     /**
+     * Instantiate a new PsychicPowerController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

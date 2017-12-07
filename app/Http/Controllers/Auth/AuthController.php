@@ -28,13 +28,20 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
     /**
      * Where to redirect users after logout.
      *
      * @var string
      */    
     protected $redirectAfterLogout = '/login';
+
+    /**
+     * Set username as username istead of email
+     *
+     * @var string
+     */    
+    protected $username = 'username';    
 
     /**
      * Create a new authentication controller instance.
@@ -56,6 +63,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
+            'username' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -72,7 +80,19 @@ class AuthController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'username' => $data['username'],
             'password' => bcrypt($data['password']),
         ]);
     }
+    
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        return redirect('/register');
+    }    
 }

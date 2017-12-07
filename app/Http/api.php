@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::group(['middleware' => 'cors'], function() {
+Route::group(['middleware' => ['cors', 'auth:api']], function() {
     Route::resource('talents', 'TalentController');
     Route::resource('talentoptions', 'TalentOptionController');
     Route::resource('skillgroups', 'SkillGroupController');

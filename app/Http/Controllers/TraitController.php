@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\URL;
 
 use App\Http\Requests;
 
-use Gate;
 use App\CharacterTrait as CharacterTrait;
 
 use App\Http\Requests\StoreCharacterTrait as StoreCharacterTrait;
@@ -22,7 +21,7 @@ class TraitController extends Controller
      */
     public function __construct()
     {
-//         $this->middleware('auth');
+        $this->middleware('auth');
     }
     
     /**
