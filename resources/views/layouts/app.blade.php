@@ -65,7 +65,6 @@
 				<li><a href="{{ url('/admin/talents') }}"><span class="glyphicon glyphicon-star"></span> Talents</a></li>
 				<li><a href="{{ url('/admin/talentoptions') }}"><span class="glyphicon glyphicon-list"></span> Talent Options</a></li>
                                 <li><a href="{{ url('/admin/traits') }}"><span class="glyphicon glyphicon-asterisk"></span> Traits</a></li>
-                                <li><a href="{{ url('/admin/trappings') }}"><span class="glyphicon glyphicon-user"></span> Trappings</a></li>                                
 				<li><a href="{{ url('/admin/weapons') }}"><span class="glyphicon glyphicon-screenshot"></span> Weapons</a></li>
                                 <li><a href="{{ url('/admin/weaponcategories') }}"><span class="glyphicon glyphicon-screenshot"></span> Weapon Categories</a></li>
                                 <li><a href="{{ url('/admin/wargear') }}"><span class="glyphicon glyphicon-screenshot"></span> Wargear</a></li>
