@@ -52,18 +52,24 @@
                                     <li><a href="{{ url('/admin/users') }}"><span class="glyphicon glyphicon-user"></span> Users</a></li>
                                 @endif                                 
 				<li><a href="{{ url('/admin/characters') }}"><span class="glyphicon glyphicon-user"></span> Characters</a></li>
-				<li><a href="{{ url('/admin/skills') }}"><span class="glyphicon glyphicon-education"></span> Skills</a></li>
-				<li><a href="{{ url('/admin/skillgroups') }}"><span class="glyphicon glyphicon-list"></span> Skill Groups</a></li>
-				<li><a href="{{ url('/admin/traits') }}"><span class="glyphicon glyphicon-asterisk"></span> Traits</a></li>
-				<li><a href="{{ url('/admin/talents') }}"><span class="glyphicon glyphicon-star"></span> Talents</a></li>
-				<li><a href="{{ url('/admin/talentoptions') }}"><span class="glyphicon glyphicon-list"></span> Talent Options</a></li>
+                                <li><a href="{{ url('/admin/chapters') }}"><span class="glyphicon glyphicon-user"></span> Chapters</a></li>
                                 <li><a href="{{ url('/admin/psychicpowers') }}"><span class="glyphicon glyphicon-star"></span> Psychic Powers</a></li>
                                 <li><a href="{{ url('/admin/psychicpowercategories') }}"><span class="glyphicon glyphicon-star"></span> Psychic Powers Categories</a></li>
-                                <li><a href="{{ url('/admin/wargear') }}"><span class="glyphicon glyphicon-screenshot"></span> Wargear</a></li>
-                                <li><a href="{{ url('/admin/wargearcategories') }}"><span class="glyphicon glyphicon-screenshot"></span> Wargear Categories</a></li>
+				<li><a href="{{ url('/admin/skills') }}"><span class="glyphicon glyphicon-education"></span> Skills</a></li>
+				<li><a href="{{ url('/admin/skillgroups') }}"><span class="glyphicon glyphicon-list"></span> Skill Groups</a></li>		                                
+                                <li><a href="{{ url('/admin/solomodeabilities') }}"><span class="glyphicon glyphicon-list"></span> Solo Mode Abilities</a></li>
+                                <li><a href="{{ url('/admin/squadmodeabilities') }}"><span class="glyphicon glyphicon-list"></span> Squad Mode Abilities</a></li>
+				<li><a href="{{ url('/admin/specialqualities') }}"><span class="glyphicon glyphicon-list"></span> Weapon Special Qualities</a></li>                                                                
+                                <li><a href="{{ url('/admin/specialabilities') }}"><span class="glyphicon glyphicon-list"></span> Special Abilities</a></li>                                
+                                <li><a href="{{ url('/admin/specialities') }}"><span class="glyphicon glyphicon-list"></span> Specialities</a></li>                                
+				<li><a href="{{ url('/admin/talents') }}"><span class="glyphicon glyphicon-star"></span> Talents</a></li>
+				<li><a href="{{ url('/admin/talentoptions') }}"><span class="glyphicon glyphicon-list"></span> Talent Options</a></li>
+                                <li><a href="{{ url('/admin/traits') }}"><span class="glyphicon glyphicon-asterisk"></span> Traits</a></li>
+                                <li><a href="{{ url('/admin/trappings') }}"><span class="glyphicon glyphicon-user"></span> Trappings</a></li>                                
 				<li><a href="{{ url('/admin/weapons') }}"><span class="glyphicon glyphicon-screenshot"></span> Weapons</a></li>
                                 <li><a href="{{ url('/admin/weaponcategories') }}"><span class="glyphicon glyphicon-screenshot"></span> Weapon Categories</a></li>
-				<li><a href="{{ url('/admin/specialqualities') }}"><span class="glyphicon glyphicon-list"></span> Weapon Special Qualities</a></li>
+                                <li><a href="{{ url('/admin/wargear') }}"><span class="glyphicon glyphicon-screenshot"></span> Wargear</a></li>
+                                <li><a href="{{ url('/admin/wargearcategories') }}"><span class="glyphicon glyphicon-screenshot"></span> Wargear Categories</a></li>                               
                                 <li><a href="{{ url('/logout') }}"><span class=" glyphicon glyphicon-log-out"></span> Logout</a></li>
                             </ul>
                         </li>

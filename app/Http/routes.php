@@ -10,55 +10,27 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::resource('/admin/characters', 'CharacterController', [
-//     'middleware' => 'auth'
-]);
+Route::resource('/admin/characters', 'CharacterController');
+Route::resource('/admin/chapters', 'ChapterController');
+Route::resource('/admin/psychicpowers', 'PsychicPowerController');
+Route::resource('/admin/psychicpowercategories', 'PsychicPowerCategoryController');
+Route::resource('/admin/skills', 'SkillController');
+Route::resource('/admin/skillgroups', 'SkillGroupController');
+Route::resource('/admin/solomodeabilities', 'SoloModeAbilityController');
+Route::resource('/admin/specialqualities', 'SpecialQualityController');
+Route::resource('/admin/specialabilities', 'SpecialAbilityController');
+Route::resource('/admin/specialities', 'SpecialityController');
+Route::resource('/admin/squadmodeabilities', 'SquadModeAbilityController');
+Route::resource('/admin/talents', 'TalentController');
+Route::resource('/admin/talentoptions', 'TalentOptionController');
+Route::resource('/admin/traits', 'TraitController');
+Route::resource('/admin/users', 'UserController');
+Route::resource('/admin/weapons', 'WeaponController');
+Route::resource('/admin/weaponcategories', 'WeaponCategoryController');
+Route::resource('/admin/wargear', 'WargearController');
+Route::resource('/admin/wargearcategories', 'WargearCategoryController');
 
-Route::resource('/admin/talents', 'TalentController', [
-//     'middleware' => 'auth'
-]);
-Route::get('/talents/{id}/justcontent', 'TalentController@justcontent');
-Route::get('/talents/byname/{name}', 'TalentController@byName');
-Route::get('/talents', [
-    'as' => 'talents.listing',
-    'uses' => 'TalentController@listing'
-]);
-Route::resource('talentoptions', 'TalentOptionController', [
-//     'middleware' => 'auth'
-]);
-
-Route::resource('/admin/skillgroups', 'SkillGroupController', [
-//     'middleware' => 'auth'
-]);
-Route::get('/skillgroups/byname/{name}', 'SkillGroupController@byName');
-
-Route::resource('/admin/skills', 'SkillController', [
-//     'middleware' => 'auth'
-]);
-Route::get('/skills/{id}/justcontent', 'SkillController@justcontent');
-Route::get('/skills/byname/{name}', 'SkillController@byName');
-Route::get('/skills', [
-    'as' => 'skills.listing',
-    'uses' => 'SkillController@listing'
-]);
-
-Route::resource('/admin/traits', 'TraitController', [
-//     'middleware' => 'auth'
-]);
-Route::get('/traits/{id}/justcontent', 'TraitController@justcontent');
-Route::get('/traits', [
-    'as' => 'traits.listing',
-    'uses' => 'TraitController@listing'
-]);
-
-Route::resource('/admin/psychicpowers', 'PsychicPowerController', [
-//     'middleware' => 'auth'
-]);
 Route::get('/psychicpowers/{id}/justcontent', 'PsychicPowerController@justcontent');
-
-Route::resource('/admin/psychicpowercategories', 'PsychicPowerCategoryController', [
-//     'middleware' => 'auth'
-]);
 Route::get('/psychicpowers', [
     'as' => 'psychicpowers.listing',
     'uses' => 'PsychicPowerController@listing'
@@ -68,31 +40,33 @@ Route::get('/psychicpowers/{id}', [
     'uses' => 'PsychicPowerController@categoryListing'
 ]);
 
-Route::resource('/admin/wargear', 'WargearController', [
-//     'middleware' => 'auth'
-]);
-Route::get('/wargear/{id}/justcontent', 'WargearController@justcontent');
-
-Route::resource('/admin/wargearcategories', 'WargearCategoryController', [
-//     'middleware' => 'auth'
-]);
-Route::get('/wargear', [
-    'as' => 'wargear.listing',
-    'uses' => 'WargearController@listing'
-]);
-Route::get('/wargear/{id}', [
-    'as' => 'wargear.categorylisting',
-    'uses' => 'WargearController@categoryListing'
+Route::get('/skills/{id}/justcontent', 'SkillController@justcontent');
+Route::get('/skills/byname/{name}', 'SkillController@byName');
+Route::get('/skills', [
+    'as' => 'skills.listing',
+    'uses' => 'SkillController@listing'
 ]);
 
-Route::resource('/admin/weapons', 'WeaponController', [
-//     'middleware' => 'auth'
+Route::get('/skillgroups/byname/{name}', 'SkillGroupController@byName');
+
+Route::resource('/specialabilities/{id}/justcontent', 'SpecialAbilityController@justcontent');
+
+Route::get('/specialqualities/{id}/justcontent', 'SpecialQualityController@justcontent');
+
+Route::get('/talents/{id}/justcontent', 'TalentController@justcontent');
+Route::get('/talents/byname/{name}', 'TalentController@byName');
+Route::get('/talents', [
+    'as' => 'talents.listing',
+    'uses' => 'TalentController@listing'
 ]);
+
+Route::get('/traits/{id}/justcontent', 'TraitController@justcontent');
+Route::get('/traits', [
+    'as' => 'traits.listing',
+    'uses' => 'TraitController@listing'
+]);
+
 Route::get('/weapons/{id}/justcontent', 'WeaponController@justcontent');
-
-Route::resource('/admin/weaponcategories', 'WeaponCategoryController', [
-//     'middleware' => 'auth'
-]);
 Route::get('/weapons', [
     'as' => 'weapons.listing',
     'uses' => 'WeaponController@listing'
@@ -102,13 +76,17 @@ Route::get('/weapons/{id}', [
     'uses' => 'WeaponController@categoryListing'
 ]);
 
-Route::resource('/admin/specialqualities', 'SpecialQualityController', [
-//     'middleware' => 'auth'
+Route::get('/wargear/{id}/justcontent', 'WargearController@justcontent');
+Route::get('/wargear', [
+    'as' => 'wargear.listing',
+    'uses' => 'WargearController@listing'
 ]);
-Route::get('/specialqualities/{id}/justcontent', 'SpecialQualityController@justcontent');
+Route::get('/wargear/{id}', [
+    'as' => 'wargear.categorylisting',
+    'uses' => 'WargearController@categoryListing'
+]);
 
 Route::auth();
-Route::resource('/admin/users', 'UserController');
 
 Route::get('/', 'HomeController@index');
 Route::get('/mouse', 'HomeController@mouse');
@@ -118,4 +96,3 @@ Route::get('/joder', 'HomeController@joder');
 Route::get('/garreth', 'HomeController@garreth');
 
 Route::post('/search', 'HomeController@search');
-

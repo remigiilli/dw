@@ -21,23 +21,26 @@
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}
-    {{ Form::text('name', null, array('class' => 'form-control')) }}</p>
+    {{ Form::text('name', null, array('class' => 'form-control')) }}
     </div>
     <div class="form-group">
     {{ Form::label('username', 'username') }}
-    {{ Form::text('username', null, array('class' => 'form-control')) }}</p>
+    {{ Form::text('username', null, array('class' => 'form-control')) }}
     </div>
     <div class="form-group">
     {{ Form::label('email', 'E-Mail') }}
-    {{ Form::text('email', null, array('class' => 'form-control')) }}</p>
+    {{ Form::text('email', null, array('class' => 'form-control')) }}
     </div>
     <div class="form-group">
     {{ Form::label('password', 'Password') }}
-    {{ Form::password('password', array('class' => 'form-control')) }}</p>
+    {{ Form::password('password', array('class' => 'form-control')) }}
     </div>
     <div class="form-group">
-    {{ Form::label('admin', 'Admin') }}
-    {{ Form::checkbox('admin', 1, null, array('class' => 'form-control')) }}</p>
+        <div class="checkbox">        
+            <label for="admin">
+                {{ Form::checkbox('admin', 1, null) }} Admin
+            </label>
+        </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 {{ Form::close() }}
