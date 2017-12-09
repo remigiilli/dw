@@ -8,6 +8,6 @@ class Skill extends Model
 {
     public function group()
     {
-        return $this->belongsTo('App\Speciality');
+        return $this->belongsTo('App\SKillGroup');
     }
 }
