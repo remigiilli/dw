@@ -18,14 +18,13 @@ class Cors
         // ALLOW OPTIONS METHOD
         $headers = [
             'Access-Control-Allow-Origin' => 'http://dw.knoblau.ch',
-            'Access-Control-Allow-Headers' => 'Origin, Content-Type, Origin, Authorization',
-            'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS'
         ];
 
-        if ($request->getMethod() != "OPTIONS") {
-            return $next($request);
+        if ($request->getMethod() == "OPTIONS") {
+            $headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Origin, Authorization';
+            $headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS';
         }
-
+        
         $response = $next($request);
 
         foreach ($headers as $key => $value) {
