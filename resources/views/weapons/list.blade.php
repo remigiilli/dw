@@ -15,7 +15,7 @@
                 <div class="col-md-3">
                     <b>
                         <a data-toggle="collapse" href="#weapon-{{ $weapon->id }}" aria-expanded="false" aria-controls="weapon-{{ $weapon->id }}">
-                            {{ $weapon->name }}
+                            {{ $weapon->name }} @if (count($weapon->chapter()->first()) > 0) {{ $weapon->chapter()->first()->name }} @endif
                         </a>
                     </b>                       
                 </div>

@@ -10,6 +10,7 @@ use App\Http\Requests;
 
 use App\PsychicPower as PsychicPower;
 use App\PsychicPowerCategory as PsychicPowerCategory;
+use App\Chapter as Chapter;
 
 use App\Http\Requests\StorePsychicPower as StorePsychicPower;
 
@@ -74,8 +75,9 @@ class PsychicPowerController extends Controller
 	$psychic_power = new PsychicPower;	
         
         $psychic_power_categories = PsychicPowerCategory::lists('name', 'id');        
+        $chapters = Chapter::lists('name', 'id');        
 	
-        return view('psychic_powers.form', ['psychic_power' => $psychic_power, 'range_types' => $this->range_types, 'psychic_power_categories' => $psychic_power_categories]);
+        return view('psychic_powers.form', ['psychic_power' => $psychic_power, 'range_types' => $this->range_types, 'psychic_power_categories' => $psychic_power_categories, 'chapters' => $chapters]);
     }
 
     /**
@@ -96,6 +98,7 @@ class PsychicPowerController extends Controller
         $psychic_power->opposed = $request->opposed;
         $psychic_power->sustained = $request->sustained;     
         $psychic_power->psychic_power_category_id = ($request->psychic_power_category_id) ? $request->psychic_power_category_id : null;        
+        $psychic_power->chapter_id = ($psychic_power->chapter_id) ? $psychic_power->chapter_id : null;                
         
         $psychic_power->save();
         
@@ -138,9 +141,10 @@ class PsychicPowerController extends Controller
     {
 	$psychic_power = PsychicPower::find($id);
         
-        $psychic_power_categories = PsychicPowerCategory::lists('name', 'id');         
+        $psychic_power_categories = PsychicPowerCategory::lists('name', 'id');       
+        $chapters = Chapter::lists('name', 'id');        
 	
-        return view('psychic_powers.form', ['psychic_power' => $psychic_power, 'range_types' => $this->range_types, 'psychic_power_categories' => $psychic_power_categories]);
+        return view('psychic_powers.form', ['psychic_power' => $psychic_power, 'range_types' => $this->range_types, 'psychic_power_categories' => $psychic_power_categories, 'chapters' => $chapters]);
     }
 
     /**
@@ -161,6 +165,7 @@ class PsychicPowerController extends Controller
         $psychic_power->opposed = $request->opposed;
         $psychic_power->sustained = $request->sustained;        
         $psychic_power->psychic_power_category_id = ($request->psychic_power_category_id) ? $request->psychic_power_category_id : null;        
+        $psychic_power->chapter_id = ($psychic_power->chapter_id) ? $psychic_power->chapter_id : null;                
         
         $psychic_power->save();
         

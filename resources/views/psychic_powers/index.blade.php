@@ -26,7 +26,7 @@
     @foreach ($psychic_powers as $psychic_power)
 	<tr>
 	    <td>{{ $psychic_power->id }}</td>
-	    <td>{{ $psychic_power->name }}</td>
+	    <td>{{ $psychic_power->name }} @if (count($psychic_power->chapter()->first()) > 0) {{ $psychic_power->chapter()->first()->name }} @endif</td>
             <td>@if (count($psychic_power->category()->first()) > 0) {{ $psychic_power->category()->first()->name }} @else - @endif</td>               
             <td>{{ $psychic_power->action }}</td>	
             <td>@if ($psychic_power->opposed) Yes @else No @endif</td>	    	    	    

@@ -23,10 +23,14 @@
     {{ Form::label('name', 'Name') }}
     {{ Form::text('name', null, array('class' => 'form-control', 'data-paste' => 'capitalize')) }}
     </div>
-   <div class="form-group">
+    <div class="form-group">
     {{ Form::label('psychic_power_category_id', 'Category') }}    
     {{ Form::select('psychic_power_category_id', $psychic_power_categories, $psychic_power->psychic_power_category_id, ['placeholder' => 'Uncategorized', 'class' => 'form-control']) }}
     </div> 
+    <div class="form-group">
+    {{ Form::label('chapter_id', 'Chapter') }}
+    {{ Form::select('chapter_id', $chapters, $psychic_power->chapter_id, ['placeholder' => 'No Chapter', 'class' => 'form-control']) }}
+    </div>
     <div class="form-group">
     {{ Form::label('description', 'Description') }}
     {{ Form::textarea('description', null, array('class' => 'form-control', 'data-paste' => 'remove-newlines')) }}

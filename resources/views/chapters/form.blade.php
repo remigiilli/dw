@@ -15,9 +15,9 @@
 @endif
 
 @if ((isset($chapter->id) && $chapter->id))
-    {{ Form::model($chapter, array('method' => 'PUT', 'route' => array('admin.chapters.update', $chapter->id))) }}
+    {{ Form::model($chapter, array('method' => 'PUT', 'data-submit' => 'repeateble-remove', 'route' => array('admin.chapters.update', $chapter->id))) }}
 @else
-    {{ Form::model($chapter, array('method' => 'POST', 'route' => array('admin.chapters.store'))) }}
+    {{ Form::model($chapter, array('method' => 'POST', 'data-submit' => 'repeateble-remove', 'route' => array('admin.chapters.store'))) }}
 @endif
     <div class="form-group">
     {{ Form::label('name', 'Name') }}
@@ -43,6 +43,127 @@
     {{ Form::label('curse_description', 'Curse Description') }}
     {{ Form::textarea('curse_description', null, array('class' => 'form-control', 'data-paste' => 'remove-newlines')) }}
     </div>    
+    <!-- Skill Advances -->
+    <div class="form-group">
+        {{ Form::label('chapter-skill-advances', 'Chapter Skill Advances') }}
+        <div class="repeateble-holder" id="character-skills-holder">           
+            @if (count($chapter->skillAdvances()->first()) > 0)        
+                @foreach ($chapter->skillAdvances as $skill)
+                    <div data-load="repeateble-add" data-id="{{ $skill->id }}" data-extra="[1, 2, 3]" data-extra-1="{{$skill->pivot->rank}}" data-extra-2="{{$skill->pivot->cost}}" data-extra-3="{{$skill->pivot->proficeincy}}"></div>
+                @endforeach                       
+            @endif                        
+            <div class="repeateble-template form-group row">
+                <div class="col-lg-4">
+                    <div class="input-group"> 
+                        <select name="skills[]" class="form-control" data-org-name="skills[]" data-change="check-extra">    
+                        @foreach ($skills as $skill)
+                            <option value="{{ $skill->id }}" data-extra="[1, 2, 3]">@if (count($skill->group()->first()) > 0) {{ $skill->group()->first()->name }} @endif{{ $skill->name }} ({{ $attributes[$skill->attribute] }})</option>        
+                        @endforeach
+                        </select>
+                        <span class="input-group-btn">
+                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="skills"><span class="glyphicon glyphicon-question-sign"></span></button>
+                        </span>                    
+                    </div>
+                </div>                    
+                <div class="col-lg-2">
+                    <input type="number" name="skills[][rank]" data-extra-toggle="1"  disabled="disabled" class="form-control" />
+                </div>                
+                <div class="col-lg-2">
+                    <input type="number" name="skills[][cost]" data-extra-toggle="2"  disabled="disabled" class="form-control" />
+                </div>                                
+                <div class="col-lg-2">
+                    <select name="skills[][proficeincy]" data-extra-toggle="3"  disabled="disabled" class="form-control">
+                        <option value="0">Trained</option>
+                        <option value="10">+10</option>
+                        <option value="20">+20</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <a class="btn btn-info btn-sm" data-click="repeateble-remove">
+                        <span class="glyphicon glyphicon-trash"></span> Remove
+                    </a>
+                </div>    
+            </div>
+            <div class="repeateble-content ">
+                <div class="row form-group">
+                    <div class="col-lg-4">
+                        <label>Skill</label>              
+                    </div>        
+                    <div class="col-lg-2">
+                        <label>Rank</label>              
+                    </div>                     
+                    <div class="col-lg-2">
+                        <label>Cost</label>              
+                    </div>                
+                    <div class="col-lg-2">
+                        <label>Proficiency</label>              
+                    </div>                
+                    <div class="col-lg-2">
+                        <a class="btn btn-info btn-sm" data-click="repeateble-add">
+                            <span class="glyphicon glyphicon-trash"></span> Add
+                        </a>                
+                    </div>                
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Skill Advances -->
+    <div class="form-group">
+        {{ Form::label('chapter-talent-advances', 'Chapter Talent Advances') }}
+        <div class="repeateble-holder" id="character-talents-holder">           
+            @if (count($chapter->talentAdvances()->first()) > 0)        
+                @foreach ($chapter->talentAdvances as $skill)
+                    <div data-load="repeateble-add" data-id="{{ $talent->id }}" data-extra="[1, 2]" data-extra-1="{{$talent->pivot->rank}}" data-extra-2="{{$talent->pivot->cost}}"></div>
+                @endforeach                       
+            @endif                        
+            <div class="repeateble-template form-group row">
+                <div class="col-lg-4">
+                    <div class="input-group"> 
+                        <select name="talents[]" class="form-control" data-org-name="talents[]" data-change="check-extra">    
+                        @foreach ($talents as $talent)
+                            <option value="{{ $talent->id }}" data-extra="[1, 2, 3]">{{ $talent->name }}</option>        
+                        @endforeach
+                        </select>
+                        <span class="input-group-btn">
+                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="skills"><span class="glyphicon glyphicon-question-sign"></span></button>
+                        </span>                    
+                    </div>
+                </div>                    
+                <div class="col-lg-2">
+                    <input type="number" name="talents[][rank]" data-extra-toggle="1"  disabled="disabled" class="form-control" />
+                </div>                
+                <div class="col-lg-2">
+                    <input type="number" name="talents[][cost]" data-extra-toggle="2"  disabled="disabled" class="form-control" />
+                </div>                                
+
+                <div class="col-lg-2">
+                    <a class="btn btn-info btn-sm" data-click="repeateble-remove">
+                        <span class="glyphicon glyphicon-trash"></span> Remove
+                    </a>
+                </div>    
+            </div>
+            <div class="repeateble-content ">
+                <div class="row form-group">
+                    <div class="col-lg-4">
+                        <label>Talent</label>              
+                    </div>        
+                    <div class="col-lg-2">
+                        <label>Rank</label>              
+                    </div>                     
+                    <div class="col-lg-2">
+                        <label>Cost</label>              
+                    </div>                             
+                    <div class="col-lg-2">
+                        <a class="btn btn-info btn-sm" data-click="repeateble-add">
+                            <span class="glyphicon glyphicon-trash"></span> Add
+                        </a>                
+                    </div>                
+                </div>
+            </div>
+        </div>
+    </div>    
+
     <button type="submit" class="btn btn-primary">Submit</button>
 {{ Form::close() }}
 @endsection 

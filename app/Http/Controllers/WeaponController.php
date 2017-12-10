@@ -11,6 +11,7 @@ use App\Http\Requests;
 use App\Weapon as Weapon;
 use App\WeaponCategory as WeaponCategory;
 use App\SpecialQuality as SpecialQuality;
+use App\Chapter as Chapter;
 
 use App\Http\Requests\StoreWeapon as StoreWeapon;
 
@@ -79,8 +80,9 @@ class WeaponController extends Controller
 	
 	$special_qualities = SpecialQuality::all();
         $weapon_categories = WeaponCategory::lists('name', 'id');
+        $chapters = Chapter::lists('name', 'id');
 	
-        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'weapon_categories' => $weapon_categories, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'weapon_categories' => $weapon_categories, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes, 'chapters' => $chapters]);
     }
 
     /**
@@ -112,6 +114,7 @@ class WeaponController extends Controller
         $weapon->req = ($request->req !== '') ? $request->req : null;
         $weapon->renown = $request->renown;
         $weapon->weapon_category_id = ($request->weapon_category_id) ? $request->weapon_category_id : null;
+        $weapon->chapter_id = ($weapon->chapter_id) ? $weapon->chapter_id : null;        
         
         $weapon->save();
         
@@ -161,8 +164,9 @@ class WeaponController extends Controller
 
 	$special_qualities = SpecialQuality::all();
         $weapon_categories = WeaponCategory::lists('name', 'id');        
+        $chapters = Chapter::lists('name', 'id');        
 	
-        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'weapon_categories' => $weapon_categories, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
+        return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'weapon_categories' => $weapon_categories, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes, 'chapters' => $chapters]);
     }
 
     /**
@@ -194,6 +198,7 @@ class WeaponController extends Controller
         $weapon->req = ($request->req !== '') ? $request->req : null;
         $weapon->renown = $request->renown;
         $weapon->weapon_category_id = ($request->weapon_category_id) ? $request->weapon_category_id : null;
+        $weapon->chapter_id = ($weapon->chapter_id) ? $weapon->chapter_id : null;        
         
         $weapon->save();
         

@@ -44,7 +44,7 @@
             @if (isset($wargear_category) && $wargear_category->id === 8)
                 <b>
                     <a data-toggle="collapse" href="#wargear-item-{{ $wargear_item->id }}" aria-expanded="false" aria-controls="wargear-item-{{ $wargear_item->id }}">
-                        {{ $wargear_item->name }}
+                        {{ $wargear_item->name }} @if (count($wargear_item->chapter()->first()) > 0) {{ $wargear_item->chapter()->first()->name }} @endif
                     </a>
                 </b>     
             @elseif (isset($wargear_category) && in_array($wargear_category->id, array(3, 4, 5, 6, 7)))

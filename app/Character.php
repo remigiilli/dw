@@ -34,5 +34,5 @@ class Character extends Model
     public function wargear()
     {
         return $this->belongsToMany('App\Wargear')->withPivot('amount');
-    }       
+    }    
 }

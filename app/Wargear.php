@@ -11,5 +11,10 @@ class Wargear extends Model
     public function category()
     {    
         return $this->belongsTo('App\WargearCategory', 'wargear_category_id');
-    }    
+    }   
+    
+    public function chapter()
+    {
+        return $this->belongsTo('App\Chapter');
+    }      
 }

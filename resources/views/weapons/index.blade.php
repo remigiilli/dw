@@ -31,7 +31,7 @@
       <tbody>
     @foreach ($weapons as $weapon)
 	<tr>
-	    <td>{{ $weapon->id }}</td>
+	    <td>{{ $weapon->id }} @if (count($weapon->chapter()->first()) > 0) {{ $weapon->chapter()->first()->name }} @endif</td>
 	    <td>{{ $weapon->name }}</td>
 	    <td>@if (count($weapon->category()->first()) > 0) {{ $weapon->category()->first()->name }} @else - @endif</td>            
 	    <td>	

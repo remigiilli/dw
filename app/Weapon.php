@@ -16,4 +16,9 @@ class Weapon extends Model
     {    
         return $this->belongsTo('App\WeaponCategory', 'weapon_category_id');
     }
+    
+    public function chapter()
+    {
+        return $this->belongsTo('App\Chapter');
+    }      
 }

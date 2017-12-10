@@ -18,11 +18,11 @@ class Chapter extends Model
     
     public function skillAdvances()
     {
-        return $this->belongsToMany('App\Skill', 'chapter_skill_advances', 'chapter_id', 'trait_id')->withPivot(['cost', 'rank', 'proficeincy']);
+        return $this->belongsToMany('App\Skill', 'chapter_skill_advance', 'chapter_id', 'skill_id')->withPivot(['cost', 'rank', 'proficeincy']);
     }    
 
-    public function TraitAdvances()
+    public function talentAdvances()
     {
-        return $this->belongsToMany('App\Skill', 'chapter_trait_advances', 'chapter_id', 'trait_id')->withPivot(['cost', 'rank']);
+        return $this->belongsToMany('App\Skill', 'chapter_talent_advance', 'chapter_id', 'talent_id')->withPivot(['cost']);
     }     
 }

@@ -28,6 +28,10 @@
     {{ Form::select('weapon_category_id', $weapon_categories, $weapon->weapon_category_id, ['placeholder' => 'Uncategorized', 'class' => 'form-control']) }}
     </div>  
     <div class="form-group">
+    {{ Form::label('chapter_id', 'Chapter') }}
+    {{ Form::select('chapter_id', $chapters, $weapon->chapter_id, ['placeholder' => 'No Chapter', 'class' => 'form-control']) }}
+    </div>
+    <div class="form-group">
     {{ Form::label('description', 'Description') }}
     {{ Form::textarea('description', null, array('class' => 'form-control', 'data-paste' => 'remove-newlines')) }}
     </div>

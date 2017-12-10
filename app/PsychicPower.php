@@ -10,4 +10,9 @@ class PsychicPower extends Model
     {    
         return $this->belongsTo('App\PsychicPowerCategory', 'psychic_power_category_id');
     }    
+    
+    public function chapter()
+    {
+        return $this->belongsTo('App\Chapter');
+    }      
 }

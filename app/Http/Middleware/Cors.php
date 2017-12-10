@@ -17,7 +17,7 @@ class Cors
 
         // ALLOW OPTIONS METHOD
         $headers = [
-            'Access-Control-Allow-Origin' => 'http://dw.knoblau.ch',
+            'Access-Control-Allow-Origin' => 'https://dw.knoblau.ch',
         ];
 
         if ($request->getMethod() == "OPTIONS") {

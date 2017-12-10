@@ -1,4 +1,4 @@
-<h3>{{ $wargear_item->name }}</h3>
+<h3>{{ $wargear_item->name }} @if (count($wargear_item->chapter()->first()) > 0) {{ $wargear_item->chapter()->first()->name }} @endif</h3>
 <p>@if (count($wargear_item->category()->first()) > 0) {{ $wargear_item->category()->first()->name }} @else Uncategorized @endif</p>
 <p>{!! nl2br(e($wargear_item->description)) !!}</p>
 <div class="row">

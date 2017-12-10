@@ -27,7 +27,7 @@
                 <div class="col-md-3">            
                     <b>
                         <a data-toggle="collapse" href="#psychic-powers-{{ $psychic_power->id }}" aria-expanded="false" aria-controls="psychic-powers-{{ $psychic_power->id }}">
-                            {{ $psychic_power->name }}
+                            {{ $psychic_power->name }}  @if (count($psychic_power->chapter()->first()) > 0) {{ $psychic_power->chapter()->first()->name }} @endif
                         </a>
                     </b>            
                 </div>
