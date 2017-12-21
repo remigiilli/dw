@@ -213,22 +213,27 @@
         <div class="repeateble-holder" id="speciality-talent-advances-holder">           
             @if (count($speciality->talentAdvances()->first()) > 0)        
                 @foreach ($speciality->talentAdvances as $talent)
-                    <div data-load="repeateble-add" data-id="{{ $talent->id }}" data-extra="[1, 2]" data-extra-1="{{$talent->pivot->cost}}" data-extra-2="{{$talent->pivot->rank}}"></div>
+                    <div data-load="repeateble-add" data-id="{{ $talent->id }}" data-extra-1="{{$talent->pivot->cost}}" data-extra-2="{{$talent->pivot->rank}}" }}"@if ($talent->talent_option_id) data-extra="[1, 2, 3]" data-extra-3="{{$talent->pivot->talent_option_id}}" @else data-extra="[1, 2]" @endif></div>
                 @endforeach                       
             @endif                        
             <div class="repeateble-template form-group row">
                 <div class="col-lg-4">
                     <div class="input-group"> 
-                        <select name="talent_advances[][id]" class="form-control" data-org-name="talent_advances[]" data-change="check-extra">    
+                        <select name="talent_advances[][id]" class="form-control" data-org-name="talent_advances[][id]" data-change="check-extra">    
                         @foreach ($talents as $talent)
-                            <option value="{{ $talent->id }}" data-extra="[1, 2]">{{ $talent->name }}</option>        
+                            <option value="{{ $talent->id }}" @if (count($talent->options()->first()) > 0) data-extra="[1, 2, 3]" data-extra-placeholder-3="Any" data-type-extra-3="options" data-options='{!! $talent->options->toJson() !!}' @else data-extra="[1]"  @endif>{{ $talent->name }}</option>        
                         @endforeach
                         </select>
                         <span class="input-group-btn">
                           <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="skills"><span class="glyphicon glyphicon-question-sign"></span></button>
                         </span>                    
                     </div>
-                </div>                                  
+                </div>             
+                <div class="col-lg-2">
+                    <select name="talents[][talent_option_id]" data-extra-toggle="2"  disabled="disabled" class="form-control">
+
+                    </select>
+                </div>                 
                 <div class="col-lg-2">
                     <input type="number" name="talent_advances[][cost]" data-extra-toggle="1"  disabled="disabled" class="form-control" />
                 </div>                                
@@ -247,6 +252,9 @@
                     <div class="col-lg-4">
                         <label>Talent</label>              
                     </div>                           
+                    <div class="col-lg-2">
+                        <label>Talent Option</label>              
+                    </div>                                                 
                     <div class="col-lg-2">
                         <label>Cost</label>              
                     </div>                             

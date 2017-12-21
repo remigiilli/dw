@@ -123,15 +123,15 @@
         <div class="repeateble-holder" id="character-talents-holder">           
             @if (count($character->talents()->first()) > 0)        
                 @foreach ($character->talents as $talent)
-                    <div data-load="repeateble-add" data-id="{{ $talent->id }}" @if ($talent->pivot->talent_option_id) data-extra="{{$talent->pivot->talent_option_id}}" @endif></div>
+                    <div data-load="repeateble-add" data-id="{{ $talent->id }}" @if ($talent->pivot->talent_option_id) data-extra=[1] data-extra-1="{{$talent->pivot->talent_option_id}}" @endif></div>
                 @endforeach                       
             @endif                        
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
                     <div class="input-group"> 
-                        <select name="talents[][id]" class="form-control" data-org-name="talents[]" data-change="check-extra">    
+                        <select name="talents[][id]" class="form-control" data-org-name="talents[][id]" data-change="check-extra">    
                         @foreach ($talents as $talent)
-                            <option value="{{ $talent->id }}" @if (count($talent->options()->first()) > 0) data-extra="options" data-options='{!! $talent->options->toJson() !!}' @endif>{{ $talent->name }}</option>        
+                            <option value="{{ $talent->id }}" @if (count($talent->options()->first()) > 0) data-extra="[1]" data-type-extra-1="options" data-options='{!! $talent->options->toJson() !!}' @endif>{{ $talent->name }}</option>        
                         @endforeach
                         </select>
                         <span class="input-group-btn">

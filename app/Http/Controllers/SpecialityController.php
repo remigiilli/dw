@@ -114,7 +114,12 @@ class SpecialityController extends Controller
         if ($talent_advances && is_array($talent_advances)) {
             foreach ($talent_advances as $talent_advance) {                      
                 if (is_array($talent_advance)) {
-                    $speciality->talentAdvances()->attach($talent_advance['id'], ['cost' => $talent_advance['cost'], 'rank' => $talent_advance['rank']]);
+                    if (isset($talent_advance['talent_option_id'])) {
+                        $speciality->talentAdvances()->attach($talent_advance['id'], ['talent_option_id' => $talent_advance['talent_option_id'], 'cost' => $talent_advance['cost'], 'rank' => $talent_advance['rank']]);
+                    }
+                    else {
+                        $speciality->talentAdvances()->attach($talent_advance['id'], ['cost' => $talent_advance['cost'], 'rank' => $talent_advance['rank']]);
+                    }
                 }       
             }
         }
@@ -211,7 +216,13 @@ class SpecialityController extends Controller
         if ($talent_advances && is_array($talent_advances)) {
             foreach ($talent_advances as $talent_advance) {                      
                 if (is_array($talent_advance)) {
-                    $speciality->talentAdvances()->attach($talent_advance['id'], ['cost' => $talent_advance['cost'], 'rank' => $talent_advance['rank']]);
+                    if (isset($talent_advance['talent_option_id'])) {
+                        $speciality->talentAdvances()->attach($talent_advance['id'], ['talent_option_id' => $talent_advance['talent_option_id'], 'cost' => $talent_advance['cost'], 'rank' => $talent_advance['rank']]);
+                    }
+                    else {
+                        $speciality->talentAdvances()->attach($talent_advance['id'], ['cost' => $talent_advance['cost'], 'rank' => $talent_advance['rank']]);
+                    }
+
                 }       
             }
         }

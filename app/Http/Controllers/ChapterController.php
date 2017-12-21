@@ -93,7 +93,12 @@ class ChapterController extends Controller
         if ($talents && is_array($talents)) {
             foreach ($talents as $talent) {                      
                 if (is_array($talent)) {
-                    $chapter->talentAdvances()->attach($talent['id'], ['cost' => $talent['cost']]);
+                    if (isset($talent['talent_option_id'])) {
+                        $chapter->talentAdvances()->attach($talent['id'], ['talent_option_id' => $talent['talent_option_id'], 'cost' => $talent['cost']]);
+                    }
+                    else {
+                        $chapter->talentAdvances()->attach($talent['id'], ['cost' => $talent['cost']]);
+                    }
                 }       
             }
         }
@@ -161,7 +166,12 @@ class ChapterController extends Controller
         if ($talents && is_array($talents)) {
             foreach ($talents as $talent) {                      
                 if (is_array($talent)) {
-                    $chapter->talentAdvances()->attach($talent['id'], ['cost' => $talent['cost']]);
+                    if (isset($talent['talent_option_id'])) {
+                        $chapter->talentAdvances()->attach($talent['id'], ['talent_option_id' => $talent['talent_option_id'], 'cost' => $talent['cost']]);
+                    }
+                    else {
+                        $chapter->talentAdvances()->attach($talent['id'], ['cost' => $talent['cost']]);
+                    }
                 }        
             }       
         }

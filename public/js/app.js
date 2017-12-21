@@ -91,6 +91,7 @@ $(function () {
         $('[data-change="check-extra"]', repeateble_element).change(function(event) {
             //id = $('option:selected', this).val();            
             var extra = $('option:selected', this).data('extra');
+            $(this).parent().parent().parent().find('[data-extra-toggle]').attr('disabled', 'disabled').hide();                           
             if (typeof extra !== 'undefined') {
                 
                 name =  $(this).attr('name');
@@ -98,38 +99,67 @@ $(function () {
                 $(this).attr('name', name);                                
                 //id = $('option:selected', this).val();
                 name =  $(this).parent().parent().parent().find('[data-extra-toggle="1"]').attr('name');
-                name = name.replace(/\[(\d+)?\]/, '['+id+']');
-                if (extra == 'options') {
-                    var options = $('option:selected', this).data('options');
-                    name =  $(this).parent().parent().parent().find('[data-extra-toggle="1"]').attr('name');
-                    name = name.replace(/\[(\d+)?\]/, '['+id+']');
-                    for(i=0; i < options.length ; i++) {
-                        $(this).parent().parent().parent().find('[data-extra-toggle="1"]').append($('<option>', { 
-                            value: options[i].id,
-                            text : options[i].name 
-                        }));
-                    }
-                    $(this).parent().parent().parent().find('[data-extra-toggle="1"]').removeAttr('disabled').attr('name', name).show();
-                }
-                else {                            
-                    if (Array.isArray(extra)) {
-                        for (i = 0;i < extra.length; i++) {
-                            name =  $(this).parent().parent().parent().find('[data-extra-toggle="'+extra[i]+'"]').attr('name');
-                            name = name.replace(/\[(\d+)?\]/, '['+id+']');
-                            $(this).parent().parent().parent().find('[data-extra-toggle="'+extra[i]+'"]').removeAttr('disabled').attr('name', name).show();
+                name = name.replace(/\[(\d+)?\]/, '['+id+']');                                
+                           
+                if (Array.isArray(extra)) {
+                    for (i = 0;i < extra.length; i++) {
+                        name =  $(this).parent().parent().parent().find('[data-extra-toggle="'+extra[i]+'"]').attr('name');
+                        name = name.replace(/\[(\d+)?\]/, '['+id+']');
+
+                        data_type = $('option:selected', this).data('type-extra-'+extra[i]);                            
+                        if (typeof data_type !== 'undefined' && data_type  == 'options') {
+                            
+                            $(this).parent().parent().parent().find('[data-extra-toggle="'+extra[i]+'"]').empty();                            
+                            placeholder = $('option:selected', this).data('extra-placeholder-'+extra[i]);      
+                            if (typeof placeholder !== 'undefined' && placeholder  != '') {
+                                $(this).parent().parent().parent().find('[data-extra-toggle="'+extra[i]+'"]').append($('<option>', { 
+                                    value: '',
+                                    text : placeholder
+                                }));
+                            }                                    
+                            
+                            var options = $('option:selected', this).data('options');
+                            for(j=0; j < options.length ; j++) {
+                                $(this).parent().parent().parent().find('[data-extra-toggle="'+extra[i]+'"]').append($('<option>', { 
+                                    value: options[j].id,
+                                    text : options[j].name 
+                                }));
+                            }                                
                         }
+                        $(this).parent().parent().parent().find('[data-extra-toggle="'+extra[i]+'"]').removeAttr('disabled').attr('name', name).show();                           
                     }
-                    else {
-                        name =  $(this).parent().parent().parent().find('[data-extra-toggle="1"]').attr('name');
-                        name = name.replace(/\[(\d+)?\]/, '['+id+']');                        
-                        $(this).parent().parent().parent().find('[data-extra-toggle="1"]').removeAttr('disabled').attr('name', name).show();
-                    }
+                }
+                else {
+                    name =  $(this).parent().parent().parent().find('[data-extra-toggle="1"]').attr('name');
+                    name = name.replace(/\[(\d+)?\]/, '['+id+']');                        
+
+                    data_type = $('option:selected', this).data('type-extra-1');                            
+
+                    if (typeof data_type !== 'undefined' && data_type  == 'options') {
+                        var options = $('option:selected', this).data('options');
+                        $(this).parent().parent().parent().find('[data-extra-toggle="1"]').empty();                            
+                        placeholder = $('option:selected', this).data('extra-placeholder-1');      
+                        if (typeof placeholder !== 'undefined' && placeholder  != '') {
+                            $(this).parent().parent().parent().find('[data-extra-toggle="1"]').append($('<option>', { 
+                                value: '',
+                                text : placeholder 
+                            }));
+                        }  
+                        for(i=0; i < options.length ; i++) {
+                            $(this).parent().parent().parent().find('[data-extra-toggle="1"]').append($('<option>', { 
+                                value: options[i].id,
+                                text : options[i].name 
+                            }));
+                        }                                
+                    }                        
+
+                    $(this).parent().parent().parent().find('[data-extra-toggle="1"]').removeAttr('disabled').attr('name', name).show();
                 }
             }
             else {
                 //$(this).attr('name', $(this).data('org-name'));                
                 name =  $(this).parent().parent().parent().find('[data-extra-toggle="1"]').attr('name');
-                name = name.replace(/\[(\d+)\]/, '[]');                
+                name = name.replace(/\[(\d+)\]/, '['+id+']');                
                 $(this).parent().parent().parent().find('[data-extra-toggle="1"]').val('').attr('disabled', 'disabled').attr('name', name).hide();
             }
         });
@@ -164,8 +194,8 @@ $(function () {
         if (typeof extra !== 'undefined') {
             if (Array.isArray(extra)) {
                 for (i = 0;i < extra.length; i++) {
-                        $('[data-extra-toggle="'+extra[i]+'"]', currentElement).val($(this).data('extra-'+extra[i]));
-
+                    console.log($(this).data('extra-'+extra[i]));
+                    $('[data-extra-toggle="'+extra[i]+'"]', currentElement).val($(this).data('extra-'+extra[i]));
                 }
             }
             else {
