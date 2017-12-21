@@ -83,7 +83,7 @@
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
                     <div class="input-group"> 
-                        <select name="skills[]" class="form-control" data-change="check-extra">    
+                        <select name="skills[][id]" class="form-control" data-change="check-extra">    
                         @foreach ($skills as $skill)
                             <option value="{{ $skill->id }}" data-extra="1">@if (count($skill->group()->first()) > 0) {{ $skill->group()->first()->name }} @endif{{ $skill->name }} ({{ $attributes[$skill->attribute] }})</option>        
                         @endforeach
@@ -129,7 +129,7 @@
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
                     <div class="input-group"> 
-                        <select name="talents[]" class="form-control" data-org-name="talents[]" data-change="check-extra">    
+                        <select name="talents[][id]" class="form-control" data-org-name="talents[]" data-change="check-extra">    
                         @foreach ($talents as $talent)
                             <option value="{{ $talent->id }}" @if (count($talent->options()->first()) > 0) data-extra="options" data-options='{!! $talent->options->toJson() !!}' @endif>{{ $talent->name }}</option>        
                         @endforeach
@@ -140,7 +140,7 @@
                     </div>
                 </div>                    
                 <div class="col-lg-3">
-                    <select name="talents[][]" data-extra-toggle="1"  disabled="disabled" class="form-control">
+                    <select name="talents[][talent_option_id]" data-extra-toggle="1"  disabled="disabled" class="form-control">
 
                     </select>
                 </div>
@@ -173,7 +173,7 @@
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
                     <div class="input-group">      
-                        <select name="traits[]" class="form-control" data-change="check-extra">    
+                        <select name="traits[][id]" class="form-control" data-change="check-extra">    
                         @foreach ($traits as $trait)
                             <option value="{{ $trait->id }}">{{ $trait->name }}</option>        
                         @endforeach
@@ -215,7 +215,7 @@
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
                     <div class="input-group">      
-                        <select name="psychic_powers[]" class="form-control" data-change="check-extra">    
+                        <select name="psychic_powers[][id]" class="form-control" data-change="check-extra">    
                         @foreach ($psychic_powers as $psychic_power)
                             <option value="{{ $psychic_power->id }}">{{ $psychic_power->name }}</option>        
                         @endforeach
@@ -257,7 +257,7 @@
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
                     <div class="input-group">      
-                        <select name="weapons[]" class="form-control" data-change="check-extra">    
+                        <select name="weapons[][id]" class="form-control" data-change="check-extra">    
                         @foreach ($weapons as $weapon)
                             <option value="{{ $weapon->id }}">{{ $weapon->name }}</option>        
                         @endforeach
@@ -299,7 +299,7 @@
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
                     <div class="input-group">    
-                        <select name="wargear[]" class="form-control" data-change="check-extra">    
+                        <select name="wargear[][id]" class="form-control" data-change="check-extra">    
                         @foreach ($wargear as $wargear_item)
                             <option value="{{ $wargear_item->id }}">{{ $wargear_item->name }}</option>        
                         @endforeach

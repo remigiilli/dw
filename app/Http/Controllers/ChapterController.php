@@ -90,24 +90,22 @@ class ChapterController extends Controller
         $chapter->save();
         
 	$talents = $request->input('talents');  
-        foreach ($talents as $k => $talent) {                      
-            if (is_array($talent)) {
-                $chapter->talentAdvances()->attach($k, ['cost' => $talent['cost']]);
+        if ($talents && is_array($talents)) {
+            foreach ($talents as $talent) {                      
+                if (is_array($talent)) {
+                    $chapter->talentAdvances()->attach($talent['id'], ['cost' => $talent['cost']]);
+                }       
             }
-            else {
-                $chapter->talentAdvances()->attach($talent);
-            }            
         }
         
 	$skills = $request->input('skills');  
-        foreach ($skills as $k => $skill) {                      
-            if (is_array($skill)) {
-                $chapter->skillAdvances()->attach($k, ['cost' => $skill['cost'], 'rank' => $skill['rank'], 'proficeincy' => $skill['proficeincy']]);
-            }
-            else {
-                $chapter->skillAdvances()->attach($skill);
-            }            
-        }           
+        if($skills && is_array($skills)) {
+            foreach ($skills as $skill) {                      
+                if (is_array($skill)) {
+                    $chapter->skillAdvances()->attach($skill['id'], ['cost' => $skill['cost'], 'proficeincy' => $skill['proficeincy']]);
+                }       
+            }           
+        }
         
         return redirect('admin/chapters')->with('status', 'Chapter created!');
     }
@@ -160,26 +158,24 @@ class ChapterController extends Controller
 
 	$talents = $request->input('talents');  
         $chapter->talentAdvances()->detach();
-        foreach ($talents as $k => $talent) {                      
-            if (is_array($talent)) {
-                $chapter->talentAdvances()->attach($k, ['cost' => $talent['cost']]);
-            }
-            else {
-                $chapter->talents()->attach($talent);
-            }            
-        }       
-
+        if ($talents && is_array($talents)) {
+            foreach ($talents as $talent) {                      
+                if (is_array($talent)) {
+                    $chapter->talentAdvances()->attach($talent['id'], ['cost' => $talent['cost']]);
+                }        
+            }       
+        }
+        
 	$skills = $request->input('skills');  
         $chapter->skillAdvances()->detach();
-        foreach ($skills as $k => $skill) {                      
-            if (is_array($skill)) {
-                $chapter->skillAdvances()->attach($k, ['cost' => $skill['cost'], 'rank' => $skill['rank'], 'proficeincy' => $skill['proficeincy']]);
-            }
-            else {
-                $chapter->skillAdvances()->attach($skill);
-            }            
-        }               
-
+        if ($skills && is_array($skills)) {
+            foreach ($skills as $k => $skill) {                      
+                if (is_array($skill)) {
+                    $chapter->skillAdvances()->attach($skill['id'], ['cost' => $skill['cost'], 'proficeincy' => $skill['proficeincy']]);
+                }
+            }               
+        }
+        
         $chapter->save();
         
         return redirect('admin/chapters')->with('status', 'Chapter updated!');

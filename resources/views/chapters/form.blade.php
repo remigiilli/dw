@@ -49,30 +49,27 @@
         <div class="repeateble-holder" id="character-skills-holder">           
             @if (count($chapter->skillAdvances()->first()) > 0)        
                 @foreach ($chapter->skillAdvances as $skill)
-                    <div data-load="repeateble-add" data-id="{{ $skill->id }}" data-extra="[1, 2, 3]" data-extra-1="{{$skill->pivot->rank}}" data-extra-2="{{$skill->pivot->cost}}" data-extra-3="{{$skill->pivot->proficeincy}}"></div>
+                    <div data-load="repeateble-add" data-id="{{ $skill->id }}" data-extra="[1, 2]" data-extra-1="{{$skill->pivot->cost}}" data-extra-2="{{$skill->pivot->proficeincy}}"></div>
                 @endforeach                       
             @endif                        
             <div class="repeateble-template form-group row">
                 <div class="col-lg-4">
                     <div class="input-group"> 
-                        <select name="skills[]" class="form-control" data-org-name="skills[]" data-change="check-extra">    
+                        <select name="skills[][id]" class="form-control" data-org-name="skills[][id]" data-change="check-extra">    
                         @foreach ($skills as $skill)
-                            <option value="{{ $skill->id }}" data-extra="[1, 2, 3]">@if (count($skill->group()->first()) > 0) {{ $skill->group()->first()->name }} @endif{{ $skill->name }} ({{ $attributes[$skill->attribute] }})</option>        
+                            <option value="{{ $skill->id }}" data-extra="[1, 2]">@if (count($skill->group()->first()) > 0) {{ $skill->group()->first()->name }} @endif{{ $skill->name }} ({{ $attributes[$skill->attribute] }})</option>        
                         @endforeach
                         </select>
                         <span class="input-group-btn">
                           <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="skills"><span class="glyphicon glyphicon-question-sign"></span></button>
                         </span>                    
                     </div>
-                </div>                    
+                </div>                                 
                 <div class="col-lg-2">
-                    <input type="number" name="skills[][rank]" data-extra-toggle="1"  disabled="disabled" class="form-control" />
-                </div>                
-                <div class="col-lg-2">
-                    <input type="number" name="skills[][cost]" data-extra-toggle="2"  disabled="disabled" class="form-control" />
+                    <input type="number" name="skills[][cost]" data-extra-toggle="1"  disabled="disabled" class="form-control" />
                 </div>                                
                 <div class="col-lg-2">
-                    <select name="skills[][proficeincy]" data-extra-toggle="3"  disabled="disabled" class="form-control">
+                    <select name="skills[][proficeincy]" data-extra-toggle="2"  disabled="disabled" class="form-control">
                         <option value="0">Trained</option>
                         <option value="10">+10</option>
                         <option value="20">+20</option>
@@ -88,10 +85,7 @@
                 <div class="row form-group">
                     <div class="col-lg-4">
                         <label>Skill</label>              
-                    </div>        
-                    <div class="col-lg-2">
-                        <label>Rank</label>              
-                    </div>                     
+                    </div>                           
                     <div class="col-lg-2">
                         <label>Cost</label>              
                     </div>                
@@ -114,27 +108,24 @@
         <div class="repeateble-holder" id="character-talents-holder">           
             @if (count($chapter->talentAdvances()->first()) > 0)        
                 @foreach ($chapter->talentAdvances as $skill)
-                    <div data-load="repeateble-add" data-id="{{ $talent->id }}" data-extra="[1, 2]" data-extra-1="{{$talent->pivot->rank}}" data-extra-2="{{$talent->pivot->cost}}"></div>
+                    <div data-load="repeateble-add" data-id="{{ $talent->id }}" data-extra="[1]" data-extra-1="{{$talent->pivot->cost}}"></div>
                 @endforeach                       
             @endif                        
             <div class="repeateble-template form-group row">
                 <div class="col-lg-4">
                     <div class="input-group"> 
-                        <select name="talents[]" class="form-control" data-org-name="talents[]" data-change="check-extra">    
+                        <select name="talents[][id]" class="form-control" data-org-name="talents[]" data-change="check-extra">    
                         @foreach ($talents as $talent)
-                            <option value="{{ $talent->id }}" data-extra="[1, 2, 3]">{{ $talent->name }}</option>        
+                            <option value="{{ $talent->id }}" data-extra="[1]">{{ $talent->name }}</option>        
                         @endforeach
                         </select>
                         <span class="input-group-btn">
                           <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="skills"><span class="glyphicon glyphicon-question-sign"></span></button>
                         </span>                    
                     </div>
-                </div>                    
+                </div>                                  
                 <div class="col-lg-2">
-                    <input type="number" name="talents[][rank]" data-extra-toggle="1"  disabled="disabled" class="form-control" />
-                </div>                
-                <div class="col-lg-2">
-                    <input type="number" name="talents[][cost]" data-extra-toggle="2"  disabled="disabled" class="form-control" />
+                    <input type="number" name="talents[][cost]" data-extra-toggle="1"  disabled="disabled" class="form-control" />
                 </div>                                
 
                 <div class="col-lg-2">
@@ -147,10 +138,7 @@
                 <div class="row form-group">
                     <div class="col-lg-4">
                         <label>Talent</label>              
-                    </div>        
-                    <div class="col-lg-2">
-                        <label>Rank</label>              
-                    </div>                     
+                    </div>                           
                     <div class="col-lg-2">
                         <label>Cost</label>              
                     </div>                             

@@ -123,7 +123,7 @@
             <div class="repeateble-template form-group row">
                 <div class="col-lg-3">
                     <div class="input-group">
-                        <select name="special_qualities[]" class="form-control" data-change="check-extra">    
+                        <select name="special_qualities[][id]" class="form-control" data-change="check-extra">    
                         @foreach ($special_qualities as $special_quality)
                             <option value="{{ $special_quality->id }}"
                                     @if ($special_quality->extra) data-extra="1" @endif                                 

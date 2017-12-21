@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Speciality as Speciality;
 use App\SpecialAbility as SpecialAbility;
 use App\Skill as Skill;
+use App\Talent as Talent;
 use App\Weapon as Weapon;
 use App\Wargear as Wargear;
 
@@ -16,6 +17,7 @@ use App\Http\Requests\StoreSpeciality as StoreSpeciality;
 
 class SpecialityController extends Controller
 {
+    public $attributes = array('ws' => 'WS','bs' => 'BS', 's' => 'S', 't' => 'T', 'ag' => 'Ag', 'int' => 'Int', 'per' => 'Per', 'wp' => 'WP', 'fel' => 'Fel');    
     /**
      * Instantiate a new TalentController instance.
      *
@@ -60,10 +62,11 @@ class SpecialityController extends Controller
 	$speciality = new Speciality;
         
         $skills = Skill::all();
+        $talents = Talent::all();
         $weapons = Weapon::all();
         $wargear = Wargear::all();
 	
-        return view('specialities.form', ['speciality' => $speciality, 'skills' => $skills, 'weapons' => $weapons, 'wargear' => $wargear]);
+        return view('specialities.form', ['speciality' => $speciality, 'skills' => $skills, 'talents' => $talents, 'weapons' => $weapons, 'wargear' => $wargear, 'attributes' => $this->attributes]);
     }
 
     /**
@@ -80,20 +83,50 @@ class SpecialityController extends Controller
 
         $speciality->save();
         
-	$skills = $request->input('skills');               
-	if ($skills) {	
-	    $speciality->skills()->sync($skills);;
-	}        
+	$skills = $request->input('skills'); 
+        if ($skills && is_array($skills)) {
+            foreach ($skills as $skill) {                      
+                if (is_array($skill)) {
+                    $speciality->skills()->attach($skill['id']);
+                }       
+            }
+        }    
         
-	$weapons = $request->input('weapons');               
-	if ($skills) {	
-	    $speciality->weapons()->sync($skills);;
-	}  
+	$weapons = $request->input('weapons'); 
+        if ($weapons && is_array($weapons)) {
+            foreach ($weapons as $weapon) {                      
+                if (is_array($weapon)) {
+                    $speciality->weapons()->attach($weapon['id']);
+                }       
+            }
+        }          
 
-	$wargear = $request->input('wargear');               
-	if ($wargear) {	
-	    $speciality->wargear()->sync($skills);;
-	}          
+	$wargear = $request->input('wargear');   
+        if ($wargear && is_array($wargear)) {
+            foreach ($wargear as $wargear_item) {                      
+                if (is_array($weapon)) {
+                    $speciality->wargear()->attach($wargear_item['id']);
+                }       
+            }
+        }           
+
+	$talent_advances = $request->input('talent_advances');  
+        if ($talent_advances && is_array($talent_advances)) {
+            foreach ($talent_advances as $talent_advance) {                      
+                if (is_array($talent_advance)) {
+                    $speciality->talentAdvances()->attach($talent_advance['id'], ['cost' => $talent_advance['cost'], 'rank' => $talent_advance['rank']]);
+                }       
+            }
+        }
+        
+	$skill_advances = $request->input('skill_advances');  
+        if($skill_advances && is_array($skill_advances)) {
+            foreach ($skill_advances as $skill_advance) {                      
+                if (is_array($skill_advance)) {
+                    $speciality->skillAdvances()->attach($skill_advance['id'], ['cost' => $skill_advance['cost'], 'rank' => $skill_advance['rank'], 'proficeincy' => $skill_advance['proficeincy']]);
+                }       
+            }           
+        }         
         
         return redirect('admin/specialities')->with('status', 'Speciality created!');
     }
@@ -122,10 +155,11 @@ class SpecialityController extends Controller
 	$speciality = Speciality::find($id);
         
         $skills = Skill::all();
+        $talents = Talent::all();
         $weapons = Weapon::all();
         $wargear = Wargear::all();        
 	
-        return view('specialities.form',  ['speciality' => $speciality, 'skills' => $skills, 'weapons' => $weapons, 'wargear' => $wargear]);
+        return view('specialities.form',  ['speciality' => $speciality, 'skills' => $skills, 'talents' => $talents, 'weapons' => $weapons, 'wargear' => $wargear, 'attributes' => $this->attributes]);
     }
 
     /**
@@ -140,31 +174,57 @@ class SpecialityController extends Controller
 	$speciality = Speciality::find($id);
         $speciality->name = $request->name;     
 
-        $speciality->save();
+        $speciality->save();      
         
-	$skills = $request->input('skills');    
-	if ($skills) {
-	    $speciality->skills()->sync($skills);        
-	}
-	else {
-	    $speciality->skills()->detach();
-	}        
+	$skills = $request->input('skills'); 
+        $speciality->skills()->detach();
+        if ($skills && is_array($skills)) {
+            foreach ($skills as $skill) {                      
+                if (is_array($skill)) {
+                    $speciality->skills()->attach($skill['id']);
+                }       
+            }
+        }    
         
-	$weapons = $request->input('weapons');    
-	if ($weapons) {
-	    $speciality->weapons()->sync($weapons);        
-	}
-	else {
-	    $speciality->weapons()->detach();
-	}    
+	$weapons = $request->input('weapons'); 
+        $speciality->weapons()->detach();
+        if ($weapons && is_array($weapons)) {
+            foreach ($weapons as $weapon) {                      
+                if (is_array($weapon)) {
+                    $speciality->weapons()->attach($weapon['id']);
+                }       
+            }
+        }          
 
-	$wargear = $request->input('wargear');    
-	if ($wargear) {
-	    $speciality->wargear()->sync($wargear);        
-	}
-	else {
-	    $speciality->wargear()->detach();
-	}            
+	$wargear = $request->input('wargear');   
+        $speciality->wargear()->detach();
+        if ($wargear && is_array($wargear)) {
+            foreach ($wargear as $wargear_item) {                      
+                if (is_array($weapon)) {
+                    $speciality->wargear()->attach($wargear_item['id']);
+                }       
+            }
+        }                  
+        
+	$talent_advances = $request->input('talent_advances');  
+        $speciality->talentAdvances()->detach();
+        if ($talent_advances && is_array($talent_advances)) {
+            foreach ($talent_advances as $talent_advance) {                      
+                if (is_array($talent_advance)) {
+                    $speciality->talentAdvances()->attach($talent_advance['id'], ['cost' => $talent_advance['cost'], 'rank' => $talent_advance['rank']]);
+                }       
+            }
+        }
+        
+	$skill_advances = $request->input('skill_advances');  
+        $speciality->skillAdvances()->detach();
+        if($skill_advances && is_array($skill_advances)) {
+            foreach ($skill_advances as $skill_advance) {                      
+                if (is_array($skill_advance)) {
+                    $speciality->skillAdvances()->attach($skill_advance['id'], ['cost' => $skill_advance['cost'], 'rank' => $skill_advance['rank'], 'proficeincy' => $skill_advance['proficeincy']]);
+                }       
+            }           
+        }        
         
         return redirect('admin/specialities')->with('status', 'Speciality updated!');
     }

@@ -118,10 +118,19 @@ class WeaponController extends Controller
         
         $weapon->save();
         
-	$special_qualities = $request->input('special_qualities');               
-	if ($special_qualities) {	
-	    $weapon->specialQualities()->sync($special_qualities);;
-	}
+	$special_qualities = $request->input('special_qualities');  
+        if ($special_qualities && is_array($special_qualities)) {
+            foreach ($special_qualities as $special_quality) {                      
+                if (is_array($special_quality)) {
+                    if (isset($special_quality['extra'])) {
+                        $weapon->specialQualities()->attach($special_quality['id'], ['extra' => $special_quality['extra']]);
+                    }
+                    else {
+                        $weapon->specialQualities()->attach($special_quality['id']);
+                    }
+                }       
+            }
+        }        
         
         return redirect('admin/weapons')->with('status', 'Weapon created!');
     }
@@ -203,12 +212,19 @@ class WeaponController extends Controller
         $weapon->save();
         
 	$special_qualities = $request->input('special_qualities');    
-	if ($special_qualities) {
-	    $weapon->specialQualities()->sync($special_qualities);        
-	}
-	else {
-	    $weapon->specialQualities()->detach();
-	}
+	$weapon->specialQualities()->detach();
+        if ($special_qualities && is_array($special_qualities)) {
+            foreach ($special_qualities as $special_quality) {                      
+                if (is_array($special_quality)) {
+                    if (isset($special_quality['extra'])) {
+                        $weapon->specialQualities()->attach($special_quality['id'], ['extra' => $special_quality['extra']]);
+                    }
+                    else {
+                        $weapon->specialQualities()->attach($special_quality['id']);
+                    }
+                }       
+            }
+        }
         
         return redirect('admin/weapons')->with('status', 'Weapon updated!');
     }

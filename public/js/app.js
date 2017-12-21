@@ -78,19 +78,25 @@ $(function () {
         }        
 	event.preventDefault();        
     });     
-    
+    var repeateble_count = 0;
     $('[data-click="repeateble-add"]').click(function(event) {        
+        repeateble_count ++;
         var repeateble_element = $(this).parent().parent().parent().parent().find('.repeateble-template').clone().removeClass('repeateble-template').addClass('repeateble-element');
         $('[data-extra-toggle="1"]', repeateble_element).hide();
         $('[data-click="repeateble-remove"]', repeateble_element).click(function(event) {
             $(this).parent().parent().remove();
         });        
+        var id = repeateble_count;        
+        
         $('[data-change="check-extra"]', repeateble_element).change(function(event) {
-            id = $('option:selected', this).val();            
+            //id = $('option:selected', this).val();            
             var extra = $('option:selected', this).data('extra');
             if (typeof extra !== 'undefined') {
-                $(this).attr('name', '');                                
-                id = $('option:selected', this).val();
+                
+                name =  $(this).attr('name');
+                name = name.replace(/\[(\d+)?\]/, '['+id+']');                
+                $(this).attr('name', name);                                
+                //id = $('option:selected', this).val();
                 name =  $(this).parent().parent().parent().find('[data-extra-toggle="1"]').attr('name');
                 name = name.replace(/\[(\d+)?\]/, '['+id+']');
                 if (extra == 'options') {
@@ -121,7 +127,7 @@ $(function () {
                 }
             }
             else {
-                $(this).attr('name', $(this).data('org-name'));                
+                //$(this).attr('name', $(this).data('org-name'));                
                 name =  $(this).parent().parent().parent().find('[data-extra-toggle="1"]').attr('name');
                 name = name.replace(/\[(\d+)\]/, '[]');                
                 $(this).parent().parent().parent().find('[data-extra-toggle="1"]').val('').attr('disabled', 'disabled').attr('name', name).hide();
@@ -158,12 +164,8 @@ $(function () {
         if (typeof extra !== 'undefined') {
             if (Array.isArray(extra)) {
                 for (i = 0;i < extra.length; i++) {
-                    if (currentElement.isSelect()) {
-                        
-                    }
-                    else {
                         $('[data-extra-toggle="'+extra[i]+'"]', currentElement).val($(this).data('extra-'+extra[i]));
-                    }
+
                 }
             }
             else {

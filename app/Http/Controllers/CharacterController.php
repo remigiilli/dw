@@ -98,42 +98,64 @@ class CharacterController extends Controller
         
         $character->save();
 
-	$skills = $request->input('skills');               
-	if ($skills) {	
-	    $character->skills()->sync($skills);
-	}
-	
-	$traits = $request->input('traits');               
-	if ($skills) {	
-	    $character->traits()->sync($traits);
-	}
+	$skills = $request->input('skills');  
+        if($skills && is_array($skills)) {
+            foreach ($skills as $skill) {                      
+                if (is_array($skill)) {
+                    $character->skills()->attach($skill['id'], ['proficeincy' => $skill['proficeincy']]);
+                }       
+            }           
+        }        
         
-	$talents = $request->input('talents');  
-        foreach ($talents as $k => $talent) {                      
-            if (is_array($talent)) {
-                foreach ($talent as $t) {
-                    $character->talents()->attach($k, ['talent_option_id' => $t]);
-                }
+	$traits = $request->input('traits'); 
+        if ($traits && is_array($traits)) {
+            foreach ($traits as $trait) {                      
+                if (is_array($trait)) {
+                    $character->traits()->attach($trait['id']);
+                }       
             }
-            else {
-                $character->talents()->attach($talent);
-            }            
-        }
+        }          
 
-	$psychic_powers = $request->input('psychic_powers');               
-	if ($psychic_powers) {	
-	    $character->psychicPowers()->sync($psychic_powers);
-	}         
+	$talents = $request->input('talents');  
+        if ($talents && is_array($talents)) {
+            foreach ($talents as $talent) {                      
+                if (is_array($talent)) {
+                    if (isset($talent['talent_option_id'])) {
+                        $character->talents()->attach($talent['id'], ['talent_option_id' => $talent['talent_option_id']]);
+                    }
+                    else {
+                        $character->talents()->attach($talent['id']);
+                    }
+                }       
+            }
+        }           
         
-	$weapons = $request->input('weapons');               
-	if ($weapons) {	
-	    $character->weapons()->sync($weapons);
-	}
+	$psychic_powers = $request->input('psychic_powers');
+        if ($psychic_powers && is_array($psychic_powers)) {
+            foreach ($psychic_powers as $psychic_power) {                      
+                if (is_array($psychic_power)) {
+                    $character->psychicPowers()->attach($psychic_power['id']);
+                }       
+            }
+        }       
         
-	$wargear = $request->input('wargear');               
-	if ($wargear) {	
-	    $character->wargear()->sync($wargear);
-	}        
+	$weapons = $request->input('weapons'); 
+        if ($weapons && is_array($weapons)) {
+            foreach ($weapons as $weapon) {                      
+                if (is_array($weapon)) {
+                    $character->wargear()->attach($weapon['id']);
+                }       
+            }
+        }           
+        
+	$wargear = $request->input('wargear'); 
+        if ($wargear && is_array($wargear)) {
+            foreach ($wargear as $wargear_item) {                      
+                if (is_array($wargear_item)) {
+                    $character->wargear()->attach($wargear_item['id']);
+                }       
+            }
+        }         
                 
         return redirect('admin/characters')->with('status', 'Character created!');
     }
@@ -207,59 +229,72 @@ class CharacterController extends Controller
         
         $character->save();
 
-	$skills = $request->input('skills'); 
-	if ($skills) {
-	    $character->skills()->sync($skills);   
-	}
-	else {
-	    $character->skills()->detach();
-	}        
+	$skills = $request->input('skills');          
+        $character->skills()->detach();        
+        if($skills && is_array($skills)) {
+            foreach ($skills as $skill) {                      
+                if (is_array($skill)) {
+                    $character->skills()->attach($skill['id'], ['proficeincy' => $skill['proficeincy']]);
+                }       
+            }           
+        }        
         
 	$traits = $request->input('traits'); 
-	if ($traits) {
-	    $character->traits()->sync($traits);   
-	}
-	else {
-	    $character->traits()->detach();
-	}    
-        
-	$talents = $request->input('talents');  
-        $character->talents()->detach();
-        foreach ($talents as $k => $talent) {                      
-            if (is_array($talent)) {
-                foreach ($talent as $t) {
-                    $character->talents()->attach($k, ['talent_option_id' => $t]);
-                }
+        $character->traits()->detach();        
+        if ($traits && is_array($traits)) {
+            foreach ($traits as $trait) {                      
+                if (is_array($trait)) {
+                    $character->traits()->attach($trait['id']);
+                }       
             }
-            else {
-                $character->talents()->attach($talent);
-            }            
-        }
-        
-	$psychic_powers = $request->input('psychic_powers');               
-	if ($psychic_powers) {	
-	    $character->psychicPowers()->sync($psychic_powers);
-	}     
-	else {
-	    $character->psychicPowers()->detach();
-	}         
+        }          
 
-        $weapons = $request->input('weapons'); 
-	if ($weapons) {
-	    $character->weapons()->sync($weapons);   
-	}
-	else {
-	    $character->weapons()->detach();
-	}           
+	$talents = $request->input('talents');  
+
+        $character->talents()->detach();
+        if ($talents && is_array($talents)) {
+            foreach ($talents as $talent) {                      
+                if (is_array($talent)) {
+                    if (isset($talent['talent_option_id'])) {
+                        $character->talents()->attach($talent['id'], ['talent_option_id' => $talent['talent_option_id']]);
+                    }
+                    else {
+                        $character->talents()->attach($talent['id']);
+                    }
+                }       
+            }
+        }           
+        
+	$psychic_powers = $request->input('psychic_powers');
+        $character->psychicPowers()->detach();
+        if ($psychic_powers && is_array($psychic_powers)) {
+            foreach ($psychic_powers as $psychic_power) {                      
+                if (is_array($psychic_power)) {
+                    $character->psychicPowers()->attach($psychic_power['id']);
+                }       
+            }
+        }       
+        
+	$weapons = $request->input('weapons'); 
+        $character->weapons()->detach();
+        if ($weapons && is_array($weapons)) {
+            foreach ($weapons as $weapon) {                      
+                if (is_array($weapon)) {
+                    $character->wargear()->attach($weapon['id']);
+                }       
+            }
+        }           
         
 	$wargear = $request->input('wargear'); 
-	if ($wargear) {
-	    $character->wargear()->sync($wargear);   
-	}
-	else {
-	    $character->wargear()->detach();
-	}         
-                
+        $character->wargear()->detach();
+        if ($wargear && is_array($wargear)) {
+            foreach ($wargear as $wargear_item) {                      
+                if (is_array($wargear_item)) {
+                    $character->wargear()->attach($wargear_item['id']);
+                }       
+            }
+        }                 
+
         return redirect('admin/characters')->with('status', 'Character updated!');
     }
 
