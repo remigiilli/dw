@@ -107,7 +107,6 @@
         {{ Form::label('chapter-talent-advances', 'Chapter Talent Advances') }}
         <div class="repeateble-holder" id="character-talents-holder">           
             @if (count($chapter->talentAdvances()->first()) > 0)        
-                <pre>{!! var_dump($chapter->talentAdvances); !!}</pre>
                 @foreach ($chapter->talentAdvances as $talent)
                     <div data-load="repeateble-add" data-id="{{ $talent->id }}" data-extra-1="{{$talent->pivot->cost}}"@if ($talent->pivot->talent_option_id)  data-extra="[1, 2]" data-extra-2="{{$talent->pivot->talent_option_id}}" @else  data-extra="[1]" @endif></div>
                 @endforeach                       
