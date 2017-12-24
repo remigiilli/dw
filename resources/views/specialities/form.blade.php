@@ -225,7 +225,7 @@
                         @endforeach
                         </select>
                         <span class="input-group-btn">
-                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="skills"><span class="glyphicon glyphicon-question-sign"></span></button>
+                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="talents"><span class="glyphicon glyphicon-question-sign"></span></button>
                         </span>                    
                     </div>
                 </div>             
