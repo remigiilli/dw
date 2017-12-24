@@ -221,7 +221,7 @@
                     <div class="input-group"> 
                         <select name="talent_advances[][id]" class="form-control" data-org-name="talent_advances[][id]" data-change="check-extra">    
                         @foreach ($talents as $talent)
-                            <option value="{{ $talent->id }}" @if (count($talent->options()->first()) > 0) data-extra="[1, 2, 3]" data-extra-placeholder-3="Any" data-type-extra-3="options" data-options='{!! $talent->options->toJson() !!}' @else data-extra="[1]"  @endif>{{ $talent->name }}</option>        
+                            <option value="{{ $talent->id }}" @if (count($talent->options()->first()) > 0) data-extra="[1, 2, 3]" data-extra-placeholder-3="Any" data-type-extra-3="options" data-options='{!! $talent->options->toJson() !!}' @else data-extra="[1, 2]"  @endif>{{ $talent->name }}</option>        
                         @endforeach
                         </select>
                         <span class="input-group-btn">
