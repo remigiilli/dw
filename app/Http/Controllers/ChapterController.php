@@ -93,7 +93,7 @@ class ChapterController extends Controller
         if ($talents && is_array($talents)) {
             foreach ($talents as $talent) {                      
                 if (is_array($talent)) {
-                    if (isset($talent['talent_option_id'])) {
+                    if (isset($talent['talent_option_id']) && $talent['talent_option_id']) {
                         $chapter->talentAdvances()->attach($talent['id'], ['talent_option_id' => $talent['talent_option_id'], 'cost' => $talent['cost']]);
                     }
                     else {
@@ -166,7 +166,7 @@ class ChapterController extends Controller
         if ($talents && is_array($talents)) {
             foreach ($talents as $talent) {                      
                 if (is_array($talent)) {
-                    if (isset($talent['talent_option_id'])) {
+                    if (isset($talent['talent_option_id']) && $talent['talent_option_id']) {
                         $chapter->talentAdvances()->attach($talent['id'], ['talent_option_id' => $talent['talent_option_id'], 'cost' => $talent['cost']]);
                     }
                     else {

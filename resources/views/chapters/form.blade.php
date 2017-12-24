@@ -53,7 +53,7 @@
                 @endforeach                       
             @endif                        
             <div class="repeateble-template form-group row">
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <div class="input-group"> 
                         <select name="skills[][id]" class="form-control" data-org-name="skills[][id]" data-change="check-extra">    
                         @foreach ($skills as $skill)
@@ -65,17 +65,17 @@
                         </span>                    
                     </div>
                 </div>                                 
-                <div class="col-lg-2">
+                <div class="col-md-2">
                     <input type="number" name="skills[][cost]" data-extra-toggle="1"  disabled="disabled" class="form-control" />
                 </div>                                
-                <div class="col-lg-2">
+                <div class="col-md-2">
                     <select name="skills[][proficeincy]" data-extra-toggle="2"  disabled="disabled" class="form-control">
                         <option value="0">Trained</option>
                         <option value="10">+10</option>
                         <option value="20">+20</option>
                     </select>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-md-2">
                     <a class="btn btn-info btn-sm" data-click="repeateble-remove">
                         <span class="glyphicon glyphicon-trash"></span> Remove
                     </a>
@@ -83,16 +83,16 @@
             </div>
             <div class="repeateble-content ">
                 <div class="row form-group">
-                    <div class="col-lg-4">
+                    <div class="col-md-4">
                         <label>Skill</label>              
                     </div>                           
-                    <div class="col-lg-2">
+                    <div class="col-md-2">
                         <label>Cost</label>              
                     </div>                
-                    <div class="col-lg-2">
+                    <div class="col-md-2">
                         <label>Proficiency</label>              
                     </div>                
-                    <div class="col-lg-2">
+                    <div class="col-md-2">
                         <a class="btn btn-info btn-sm" data-click="repeateble-add">
                             <span class="glyphicon glyphicon-trash"></span> Add
                         </a>                
@@ -112,7 +112,7 @@
                 @endforeach                       
             @endif                        
             <div class="repeateble-template form-group row">
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <div class="input-group"> 
                         <select name="talents[][id]" class="form-control" data-org-name="talents[][id]" data-change="check-extra">    
                         @foreach ($talents as $talent)
@@ -124,16 +124,16 @@
                         </span>                    
                     </div>
                 </div>                     
-                <div class="col-lg-3">
+                <div class="col-md-3">
                     <select name="talents[][talent_option_id]" data-extra-toggle="2"  disabled="disabled" class="form-control">
 
                     </select>
                 </div>                
-                <div class="col-lg-2">
+                <div class="col-md-2">
                     <input type="number" name="talents[][cost]" data-extra-toggle="1"  disabled="disabled" class="form-control" />
                 </div>                                
 
-                <div class="col-lg-2">
+                <div class="col-md-2">
                     <a class="btn btn-info btn-sm" data-click="repeateble-remove">
                         <span class="glyphicon glyphicon-trash"></span> Remove
                     </a>
@@ -141,16 +141,16 @@
             </div>
             <div class="repeateble-content ">
                 <div class="row form-group">
-                    <div class="col-lg-4">
+                    <div class="col-md-4">
                         <label>Talent</label>              
                     </div>        
-                    <div class="col-lg-4">
+                    <div class="col-md-4">
                         <label>Talent Option</label>              
                     </div>                    
-                    <div class="col-lg-2">
+                    <div class="col-md-2">
                         <label>Cost</label>              
                     </div>                             
-                    <div class="col-lg-2">
+                    <div class="col-md-2">
                         <a class="btn btn-info btn-sm" data-click="repeateble-add">
                             <span class="glyphicon glyphicon-trash"></span> Add
                         </a>                
