@@ -70,7 +70,7 @@ class SquadModeAbilityController extends Controller
     {
 	$squad_mode_ability = new SquadModeAbility;
         
-        $chapters = Chapter::lists('name', 'id');
+        $chapters = Chapter::lists('name', 'id')->sortBy('name');
 	
         return view('squad_mode_abilities.form', ['squad_mode_ability' => $squad_mode_ability, 'chapters' => $chapters]);
 
@@ -135,7 +135,7 @@ class SquadModeAbilityController extends Controller
     {
 	$squad_mode_ability = SquadModeAbility::find($id);
         
-        $chapters = Chapter::lists('name', 'id');
+        $chapters = Chapter::lists('name', 'id')->sortBy('name');
 
         return view('squad_mode_abilities.form', ['squad_mode_ability' => $squad_mode_ability, 'chapters' => $chapters]);
 

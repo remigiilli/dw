@@ -23,6 +23,7 @@ elixir(function(mix) {
 	'bootstrap/js/dropdown.js',
 	'bootstrap/js/collapse.js',
 	'bootstrap/js/popover.js',
+        'bootstrap/js/tab.js',
         // list your other npm packages here
     ],
     'public/js/vendor.js',

@@ -220,4 +220,9 @@ $(function () {
             scrollTop: $(this).parent().offset().top
         }, 500);        
     });    
+    
+    $('.nav-tabs a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    })    
 }); 

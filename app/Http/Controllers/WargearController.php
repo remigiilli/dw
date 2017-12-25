@@ -74,8 +74,8 @@ class WargearController extends Controller
     {
 	$wargear = new Wargear;
         
-        $wargear_categories = WargearCategory::lists('name', 'id');
-        $chapters = Chapter::lists('name', 'id');        
+        $wargear_categories = WargearCategory::lists('name', 'id')->sortBy('name');
+        $chapters = Chapter::lists('name', 'id')->sortBy('name');        
 	
         return view('wargear.form', ['wargear' => $wargear, 'renow_levels' => $this->renow_levels, 'wargear_categories' => $wargear_categories, 'chapters' => $chapters]);
 
@@ -97,7 +97,7 @@ class WargearController extends Controller
         $wargear->req = ($request->req !== '') ? $request->req : null;
         $wargear->renown = $request->renown;
         $wargear->wargear_category_id = ($request->wargear_category_id) ? $request->wargear_category_id : null;
-        $wargear->chapter_id = ($wargear->chapter_id) ? $wargear->chapter_id : null;        
+        $wargear->chapter_id = ($request->chapter_id) ? $request->chapter_id : null;        
         
         $wargear->save();
         
@@ -140,8 +140,8 @@ class WargearController extends Controller
     {
 	$wargear = Wargear::find($id);
         
-        $wargear_categories = WargearCategory::lists('name', 'id');
-        $chapters = Chapter::lists('name', 'id');        
+        $wargear_categories = WargearCategory::lists('name', 'id')->sortBy('name');
+        $chapters = Chapter::lists('name', 'id')->sortBy('name');        
 
         return view('wargear.form', ['wargear' => $wargear, 'renow_levels' => $this->renow_levels, 'wargear_categories' => $wargear_categories, 'chapters' => $chapters]);
 
@@ -163,7 +163,7 @@ class WargearController extends Controller
         $wargear->req = ($request->req !== '') ? $request->req : null;
         $wargear->renown = $request->renown;
         $wargear->wargear_category_id = ($request->wargear_category_id) ? $request->wargear_category_id : null;        
-        $wargear->chapter_id = ($wargear->chapter_id) ? $wargear->chapter_id : null;                
+        $wargear->chapter_id = ($request->chapter_id) ? $request->chapter_id : null;                
         
         $wargear->save();
         

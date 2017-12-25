@@ -30,6 +30,11 @@ Route::resource('/admin/weaponcategories', 'WeaponCategoryController');
 Route::resource('/admin/wargear', 'WargearController');
 Route::resource('/admin/wargearcategories', 'WargearCategoryController');
 
+Route::get('/chapters/{id}', [
+    'as' => 'chapters.listing',
+    'uses' => 'ChapterController@show'
+]);
+
 Route::get('/psychicpowers/{id}/justcontent', 'PsychicPowerController@justcontent');
 Route::get('/psychicpowers', [
     'as' => 'psychicpowers.listing',

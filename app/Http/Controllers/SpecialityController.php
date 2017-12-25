@@ -61,10 +61,17 @@ class SpecialityController extends Controller
     {
 	$speciality = new Speciality;
         
-        $skills = Skill::all();
-        $talents = Talent::all();
-        $weapons = Weapon::all();
-        $wargear = Wargear::all();
+	$skills = Skill::all()->sortBy(function($skill) {
+            if (count($skill->group()->first()) > 0) {
+                return $skill->group()->first()->name.' '.$skill->name;
+            }
+            else {
+                return $skill->name;
+            }
+        });
+        $talents = Talent::all()->sortBy('name'); 
+        $weapons = Weapon::all()->sortBy('name'); 
+        $wargear = Wargear::all()->sortBy('name'); 
 	
         return view('specialities.form', ['speciality' => $speciality, 'skills' => $skills, 'talents' => $talents, 'weapons' => $weapons, 'wargear' => $wargear, 'attributes' => $this->attributes]);
     }
@@ -159,10 +166,17 @@ class SpecialityController extends Controller
     {
 	$speciality = Speciality::find($id);
         
-        $skills = Skill::all();
-        $talents = Talent::all();
-        $weapons = Weapon::all();
-        $wargear = Wargear::all();        
+	$skills = Skill::all()->sortBy(function($skill) {
+            if (count($skill->group()->first()) > 0) {
+                return $skill->group()->first()->name.' '.$skill->name;
+            }
+            else {
+                return $skill->name;
+            }
+        });
+        $talents = Talent::all()->sortBy('name'); 
+        $weapons = Weapon::all()->sortBy('name'); 
+        $wargear = Wargear::all()->sortBy('name');         
 	
         return view('specialities.form',  ['speciality' => $speciality, 'skills' => $skills, 'talents' => $talents, 'weapons' => $weapons, 'wargear' => $wargear, 'attributes' => $this->attributes]);
     }

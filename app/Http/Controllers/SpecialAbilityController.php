@@ -70,7 +70,7 @@ class SpecialAbilityController extends Controller
     {
 	$special_ability = new SpecialAbility;
         
-        $specialities = Speciality::lists('name', 'id');
+        $specialities = Speciality::lists('name', 'id')->sortBy('name');
 	
         return view('special_abilities.form', ['special_ability' => $special_ability, 'specialities' => $specialities]);
 
@@ -131,7 +131,7 @@ class SpecialAbilityController extends Controller
     {
 	$special_ability = SpecialAbility::find($id);
         
-        $specialities = Speciality::lists('name', 'id');
+        $specialities = Speciality::lists('name', 'id')->sortBy('name');
 
         return view('special_abilities.form', ['special_ability' => $special_ability, 'specialities' => $specialities]);
 

@@ -194,7 +194,6 @@ $(function () {
         if (typeof extra !== 'undefined') {
             if (Array.isArray(extra)) {
                 for (i = 0;i < extra.length; i++) {
-                    console.log($(this).data('extra-'+extra[i]));
                     $('[data-extra-toggle="'+extra[i]+'"]', currentElement).val($(this).data('extra-'+extra[i]));
                 }
             }
@@ -221,5 +220,10 @@ $(function () {
             scrollTop: $(this).parent().offset().top
         }, 500);        
     });    
+    
+    $('.nav-tabs a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    })    
 }); 
 //# sourceMappingURL=app.js.map

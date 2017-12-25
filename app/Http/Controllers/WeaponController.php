@@ -78,9 +78,9 @@ class WeaponController extends Controller
     {  
 	$weapon = new Weapon;
 	
-	$special_qualities = SpecialQuality::all();
-        $weapon_categories = WeaponCategory::lists('name', 'id');
-        $chapters = Chapter::lists('name', 'id');
+	$special_qualities = SpecialQuality::all()->sortBy('name');
+        $weapon_categories = WeaponCategory::lists('name', 'id')->sortBy('name');
+        $chapters = Chapter::lists('name', 'id')->sortBy('name');
 	
         return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'weapon_categories' => $weapon_categories, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes, 'chapters' => $chapters]);
     }
@@ -114,7 +114,7 @@ class WeaponController extends Controller
         $weapon->req = ($request->req !== '') ? $request->req : null;
         $weapon->renown = $request->renown;
         $weapon->weapon_category_id = ($request->weapon_category_id) ? $request->weapon_category_id : null;
-        $weapon->chapter_id = ($weapon->chapter_id) ? $weapon->chapter_id : null;        
+        $weapon->chapter_id = ($request->chapter_id) ? $request->chapter_id : null;        
         
         $weapon->save();
         
@@ -171,9 +171,9 @@ class WeaponController extends Controller
     {
 	$weapon = Weapon::find($id);
 
-	$special_qualities = SpecialQuality::all();
-        $weapon_categories = WeaponCategory::lists('name', 'id');        
-        $chapters = Chapter::lists('name', 'id');        
+	$special_qualities = SpecialQuality::all()->sortBy('name');
+        $weapon_categories = WeaponCategory::lists('name', 'id')->sortBy('name');        
+        $chapters = Chapter::lists('name', 'id')->sortBy('name');        
 	
         return view('weapons.form', ['weapon' => $weapon, 'special_qualities' => $special_qualities, 'weapon_categories' => $weapon_categories, 'range_types' => $this->range_types, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes, 'chapters' => $chapters]);
     }
@@ -207,7 +207,7 @@ class WeaponController extends Controller
         $weapon->req = ($request->req !== '') ? $request->req : null;
         $weapon->renown = $request->renown;
         $weapon->weapon_category_id = ($request->weapon_category_id) ? $request->weapon_category_id : null;
-        $weapon->chapter_id = ($weapon->chapter_id) ? $weapon->chapter_id : null;        
+        $weapon->chapter_id = ($request->chapter_id) ? $request->chapter_id : null;        
         
         $weapon->save();
         

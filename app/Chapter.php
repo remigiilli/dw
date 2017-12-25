@@ -11,7 +11,7 @@ class Chapter extends Model
         return $this->hasMany('App\SoloModeAbility');
     }
     
-    public function SquadModeAbilities()
+    public function squadModeAbilities()
     {
         return $this->hasMany('App\SquadModeAbility');
     }     
@@ -25,4 +25,20 @@ class Chapter extends Model
     {
         return $this->belongsToMany('App\Talent', 'chapter_talent_advance', 'chapter_id', 'talent_id')->withPivot(['cost', 'talent_option_id'])->leftJoin('talent_options', 'talent_options.id', '=', 'chapter_talent_advance.talent_option_id');
     }     
+    
+    public function psychicPowers()
+    {
+        return $this->hasMany('App\PsychicPower');
+    }    
+    
+    public function weapons()
+    {
+        return $this->hasMany('App\Weapon');
+    }    
+
+    public function wargear()
+    {
+        return $this->hasMany('App\Wargear');
+    }    
+    
 }

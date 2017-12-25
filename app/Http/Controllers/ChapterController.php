@@ -20,6 +20,10 @@ use App\Http\Requests\StoreChapter as StoreChapter;
 class ChapterController extends Controller
 {
     public $attributes = array('ws' => 'WS','bs' => 'BS', 's' => 'S', 't' => 'T', 'ag' => 'Ag', 'int' => 'Int', 'per' => 'Per', 'wp' => 'WP', 'fel' => 'Fel');
+    public $damage_types = array('e' => 'Energy', 'i' => 'Impact', 'r' => 'Rending', 'x' => 'Explosive');
+    public $renow_levels = array('' => '-', 'r' => 'Respected', 'd' => 'Distinguished', 'f' => 'Famed', 'h' => 'Hero');
+    public $classes = array('b' => 'Basic', 'h' => 'Heavy', 'm' => 'Melee', 'o' => 'Mounted', 'p' => 'Pistol', 't' => 'Thrown');  
+    public $range_types = array(0 => 'Range in meters', 1 => 'SB x Range');      
     
     /**
      * Instantiate a new TalentController instance.
@@ -64,8 +68,15 @@ class ChapterController extends Controller
     {
 	$chapter = new Chapter;
         
-	$skills = Skill::all();        
-        $talents = Talent::all();            
+	$skills = Skill::all()->sortBy(function($skill) {
+            if (count($skill->group()->first()) > 0) {
+                return $skill->group()->first()->name.' '.$skill->name;
+            }
+            else {
+                return $skill->name;
+            }
+        });      
+        $talents = Talent::all()->sortBy('name');        
 	
         return view('chapters.form', ['chapter' => $chapter, 'skills' => $skills, 'talents' => $talents, 'attributes' => $this->attributes]);
     }
@@ -125,7 +136,7 @@ class ChapterController extends Controller
     {
 	$chapter = Chapter::find($id);
 	
-        return view('chapters.show',  ['chapter' => $chapter]);
+        return view('chapters.show',  ['chapter' => $chapter, 'damage_types' => $this->damage_types, 'renow_levels' => $this->renow_levels, 'classes' => $this->classes]);
     }
 
     /**
@@ -138,8 +149,15 @@ class ChapterController extends Controller
     {
 	$chapter = Chapter::find($id);
         
-	$skills = Skill::all();        
-        $talents = Talent::all();        
+	$skills = Skill::all()->sortBy(function($skill) {
+            if (count($skill->group()->first()) > 0) {
+                return $skill->group()->first()->name.' '.$skill->name;
+            }
+            else {
+                return $skill->name;
+            }
+        });     
+        $talents = Talent::all()->sortBy('name');        
 	
         return view('chapters.form',  ['chapter' => $chapter, 'skills' => $skills, 'talents' => $talents, 'attributes' => $this->attributes]);
     }

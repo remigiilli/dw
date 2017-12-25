@@ -10,7 +10,13 @@
                 <div class="panel-body">
                     <h2><a href="{{ route('skills.listing') }}">Skills</a></h2>
                     <h2><a href="{{ route('talents.listing') }}">Talents</a></h2>
-                    <h2><a href="{{ route('traits.listing') }}">Traits</a></h2>                    
+                    <h2><a href="{{ route('traits.listing') }}">Traits</a></h2>               
+                    <h2>Chapters</h2>
+                    <ul>
+                    @foreach ($chapters as $chapter)
+                        <li><a href="{{ route('chapters.listing', $chapter->id) }}">{{ $chapter->name }}</a></li>
+                    @endforeach
+                    </ul>                                            
                     <h2><a href="{{ route('psychicpowers.listing') }}">Psychic Powers</a></h2>
                     <ul>
                     @foreach ($psychic_power_categories as $psychic_power_category)
@@ -32,9 +38,9 @@
                     @endforeach
                     </ul>
                     
-                    <h2>Characer Advances</h2>
+                    <h2>Character Advances</h2>
                     <ul>
-                        <li><a href="{{ url('andee') }}">Andee</a></li>
+                        <li><a href="{{ url('andee') }}">Andeee</a></li>
                         <li><a href="{{ url('garreth') }}">Garreth</a></li>
                         <li><a href="{{ url('joder') }}">Joder</a></li>
                         <li><a href="{{ url('mouse') }}">Mouse</a></li>

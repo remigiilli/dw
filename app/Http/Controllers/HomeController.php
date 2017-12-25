@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
+use App\Chapter as Chapter;
+
 use App\Skill as Skill;
 use App\SkillGroup as SkillGroup;
 
@@ -47,10 +49,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-	$psychic_power_categories = PsychicPowerCategory::all();        
-        $weapon_categories = WeaponCategory::all();
-	$wargear_categories = WargearCategory::all();        
-        return view('home', ['psychic_power_categories' => $psychic_power_categories, 'weapon_categories' => $weapon_categories, 'wargear_categories' => $wargear_categories]);
+	$psychic_power_categories = PsychicPowerCategory::all()->sortBy('name');
+        $weapon_categories = WeaponCategory::all()->sortBy('name');
+	$wargear_categories = WargearCategory::all()->sortBy('name');
+        $chapters = Chapter::all()->sortBy('name');
+        
+        return view('home', ['psychic_power_categories' => $psychic_power_categories, 'weapon_categories' => $weapon_categories, 'wargear_categories' => $wargear_categories, 'chapters' => $chapters]);
     }
     
     

@@ -45,11 +45,11 @@
     </div>      
     <div class="form-group">    
 	<div class="row">
-            <div class="col-lg-6">
+            <div class="col-md-6">
                 {{ Form::label('range_type', 'Range Type') }}    
                 {{ Form::select('range_type', $range_types, $psychic_power->range_type, ['class' => 'form-control']) }}                
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6">
                 {{ Form::label('range', 'Range') }}
                 {{ Form::number('range', null, array('class' => 'form-control')) }}                
             </div>

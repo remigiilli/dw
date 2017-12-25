@@ -53,12 +53,19 @@ class CharacterController extends Controller
     {  
 	$character = new Character;
         
-	$skills = Skill::all();        
-        $talents = Talent::all();    
-        $traits = CharacterTrait::all();    
-        $weapons = Weapon::all();    
-        $wargear = Wargear::all();    
-        $psychic_powers = PsychicPower::all();              
+	$skills = Skill::all()->sortBy(function($skill) {
+            if (count($skill->group()->first()) > 0) {
+                return $skill->group()->first()->name.' '.$skill->name;
+            }
+            else {
+                return $skill->name;
+            }
+        });      
+        $talents = Talent::all()->sortBy('name');     
+        $traits = CharacterTrait::all()->sortBy('name');     
+        $weapons = Weapon::all()->sortBy('name');     
+        $wargear = Wargear::all()->sortBy('name');     
+        $psychic_powers = PsychicPower::all()->sortBy('name');               
 	
         return view('characters.form', [
             'character' => $character, 
@@ -183,12 +190,19 @@ class CharacterController extends Controller
     {
 	$character = Character::find($id);
         
-	$skills = Skill::all();          
-        $talents = Talent::all();    
-        $traits = CharacterTrait::all();    
-        $weapons = Weapon::all();           
-        $wargear = Wargear::all();
-        $psychic_powers = PsychicPower::all();      
+	$skills = Skill::all()->sortBy(function($skill) {
+            if (count($skill->group()->first()) > 0) {
+                return $skill->group()->first()->name.' '.$skill->name;
+            }
+            else {
+                return $skill->name;
+            }
+        });        
+        $talents = Talent::all()->sortBy('name');     
+        $traits = CharacterTrait::all()->sortBy('name');     
+        $weapons = Weapon::all()->sortBy('name');            
+        $wargear = Wargear::all()->sortBy('name'); 
+        $psychic_powers = PsychicPower::all()->sortBy('name');       
 	
         return view('characters.form', [
             'character' => $character, 
