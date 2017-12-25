@@ -74,8 +74,8 @@ class PsychicPowerController extends Controller
     {  
 	$psychic_power = new PsychicPower;	
         
-        $psychic_power_categories = PsychicPowerCategory::lists('name', 'id')->sortBy('name');         
-        $chapters = Chapter::lists('name', 'id')->sortBy('name');         
+        $psychic_power_categories = PsychicPowerCategory::sortBy('name')->lists('name', 'id');         
+        $chapters = Chapter::sortBy('name')->lists('name', 'id');         
 	
         return view('psychic_powers.form', ['psychic_power' => $psychic_power, 'range_types' => $this->range_types, 'psychic_power_categories' => $psychic_power_categories, 'chapters' => $chapters]);
     }
@@ -141,8 +141,8 @@ class PsychicPowerController extends Controller
     {
 	$psychic_power = PsychicPower::find($id);
         
-        $psychic_power_categories = PsychicPowerCategory::lists('name', 'id')->sortBy('name');        
-        $chapters = Chapter::lists('name', 'id')->sortBy('name');         
+        $psychic_power_categories = PsychicPowerCategory::orderBy('name')->lists('name', 'id');        
+        $chapters = Chapter::orderBy('name')->lists('name', 'id');         
 	
         return view('psychic_powers.form', ['psychic_power' => $psychic_power, 'range_types' => $this->range_types, 'psychic_power_categories' => $psychic_power_categories, 'chapters' => $chapters]);
     }
