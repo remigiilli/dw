@@ -68,7 +68,7 @@ class SoloModeAbilityController extends Controller
     {
 	$solo_mode_ability = new SoloModeAbility;
         
-        $chapters = Chapter::lists('name', 'id')->sortBy('name');
+        $chapters = Chapter::orderBy('name')->lists('name', 'id');
 	
         return view('solo_mode_abilities.form', ['solo_mode_ability' => $solo_mode_ability, 'chapters' => $chapters]);
 
@@ -132,7 +132,7 @@ class SoloModeAbilityController extends Controller
     {
 	$solo_mode_ability = SoloModeAbility::find($id);
         
-        $chapters = Chapter::lists('name', 'id')->sortBy('name');
+        $chapters = Chapter::orderBy('name')->lists('name', 'id');
 
         return view('solo_mode_abilities.form', ['solo_mode_ability' => $solo_mode_ability, 'chapters' => $chapters]);
 

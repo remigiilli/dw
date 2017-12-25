@@ -58,7 +58,7 @@ class TalentController extends Controller
     {
 	$talent = new Talent;
 	
-	$talent_options = TalentOption::lists('name', 'id')->sortBy('name');
+	$talent_options = TalentOption::orderBy('name')->lists('name', 'id');
 	
         return view('talents.form', ['talent' => $talent, 'talent_options' => $talent_options]);
     }
@@ -137,7 +137,7 @@ class TalentController extends Controller
     {
 	$talent = Talent::find($id);
 
-	$talent_options = TalentOption::lists('name', 'id')->sortBy('name');
+	$talent_options = TalentOption::orderBy('name')->lists('name', 'id');
 	
         return view('talents.form',  ['talent' => $talent, 'talent_options' => $talent_options]);
     }

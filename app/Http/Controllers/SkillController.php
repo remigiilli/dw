@@ -66,7 +66,7 @@ class SkillController extends Controller
     public function create()
     {
 	$skill = new Skill;	
- 	$skillgroups = SkillGroup::lists('name', 'id');
+ 	$skillgroups = SkillGroup::orderBy('name')->lists('name', 'id');
 
 	
         return view('skills.form', ['skill' => $skill, 'skillgroups' => $skillgroups, 'attributes' => $this->attributes]);
@@ -144,7 +144,7 @@ class SkillController extends Controller
     public function edit($id)
     {
 	$skill = Skill::find($id);
- 	$skillgroups = SkillGroup::lists('name', 'id');
+ 	$skillgroups = SkillGroup::orderBy('name')->lists('name', 'id');
 	
         return view('skills.form', ['skill' => $skill, 'skillgroups' => $skillgroups, 'attributes' => $this->attributes]);
     }

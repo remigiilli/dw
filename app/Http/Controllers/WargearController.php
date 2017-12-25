@@ -74,8 +74,8 @@ class WargearController extends Controller
     {
 	$wargear = new Wargear;
         
-        $wargear_categories = WargearCategory::lists('name', 'id')->sortBy('name');
-        $chapters = Chapter::lists('name', 'id')->sortBy('name');        
+        $wargear_categories = WargearCategory::orderBy('name')->lists('name', 'id');
+        $chapters = Chapter::orderBy('name')->lists('name', 'id');        
 	
         return view('wargear.form', ['wargear' => $wargear, 'renow_levels' => $this->renow_levels, 'wargear_categories' => $wargear_categories, 'chapters' => $chapters]);
 
@@ -140,8 +140,8 @@ class WargearController extends Controller
     {
 	$wargear = Wargear::find($id);
         
-        $wargear_categories = WargearCategory::lists('name', 'id')->sortBy('name');
-        $chapters = Chapter::lists('name', 'id')->sortBy('name');        
+        $wargear_categories = WargearCategory::orderBy('name')->lists('name', 'id');
+        $chapters = Chapter::orderBy('name')->lists('name', 'id');        
 
         return view('wargear.form', ['wargear' => $wargear, 'renow_levels' => $this->renow_levels, 'wargear_categories' => $wargear_categories, 'chapters' => $chapters]);
 
