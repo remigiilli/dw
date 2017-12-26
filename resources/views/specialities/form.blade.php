@@ -230,7 +230,7 @@
                     </div>
                 </div>             
                 <div class="col-md-2">
-                    <select name="talents[][talent_option_id]" data-extra-toggle="3"  disabled="disabled" class="form-control">
+                    <select name="talent_advances[][talent_option_id]" data-extra-toggle="3"  disabled="disabled" class="form-control">
 
                     </select>
                 </div>                 
