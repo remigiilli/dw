@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Chapter as Chapter;
 
+use App\Speciality as Speciality;
+
 use App\Skill as Skill;
 use App\SkillGroup as SkillGroup;
 
@@ -53,8 +55,15 @@ class HomeController extends Controller
         $weapon_categories = WeaponCategory::all()->sortBy('name');
 	$wargear_categories = WargearCategory::all()->sortBy('name');
         $chapters = Chapter::all()->sortBy('name');
+        $specialities = Speciality::all()->sortBy('name');
         
-        return view('home', ['psychic_power_categories' => $psychic_power_categories, 'weapon_categories' => $weapon_categories, 'wargear_categories' => $wargear_categories, 'chapters' => $chapters]);
+        return view('home', [
+            'psychic_power_categories' => $psychic_power_categories, 
+            'weapon_categories' => $weapon_categories, 
+            'wargear_categories' => $wargear_categories, 
+            'chapters' => $chapters,
+            'specialities' => $specialities
+        ]);
     }
     
     

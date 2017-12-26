@@ -31,7 +31,7 @@ Route::resource('/admin/wargear', 'WargearController');
 Route::resource('/admin/wargearcategories', 'WargearCategoryController');
 
 Route::get('/chapters/{id}', [
-    'as' => 'chapters.listing',
+    'as' => 'chapters.show',
     'uses' => 'ChapterController@show'
 ]);
 
@@ -57,6 +57,12 @@ Route::get('/skillgroups/byname/{name}', 'SkillGroupController@byName');
 Route::resource('/specialabilities/{id}/justcontent', 'SpecialAbilityController@justcontent');
 
 Route::get('/specialqualities/{id}/justcontent', 'SpecialQualityController@justcontent');
+
+
+Route::get('/specialities/{id}', [
+    'as' => 'specialities.show',
+    'uses' => 'SpecialityController@show'
+]);
 
 Route::get('/talents/{id}/justcontent', 'TalentController@justcontent');
 Route::get('/talents/byname/{name}', 'TalentController@byName');

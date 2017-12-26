@@ -14,9 +14,18 @@
                     <h2>Chapters</h2>
                     <ul>
                     @foreach ($chapters as $chapter)
-                        <li><a href="{{ route('chapters.listing', $chapter->id) }}">{{ $chapter->name }}</a></li>
+                        <li><a href="{{ route('chapters.show', $chapter->id) }}">{{ $chapter->name }}</a></li>
                     @endforeach
                     </ul>                                            
+                    
+                    <h2>Specialities</h2>
+                    <ul>
+                    @foreach ($specialities as $speciality)
+                        <li><a href="{{ route('specialities.show', $speciality->id) }}">{{ $speciality->name }}</a></li>
+                    @endforeach
+                    </ul>                                            
+                    
+                    
                     <h2><a href="{{ route('psychicpowers.listing') }}">Psychic Powers</a></h2>
                     <ul>
                     @foreach ($psychic_power_categories as $psychic_power_category)
