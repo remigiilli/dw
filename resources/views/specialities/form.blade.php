@@ -213,7 +213,7 @@
         <div class="repeateble-holder" id="speciality-talent-advances-holder">           
             @if (count($speciality->talentAdvances()->first()) > 0)        
                 @foreach ($speciality->talentAdvances as $talent)
-                    <div data-load="repeateble-add" data-id="{{ $talent->id }}" data-extra-1="{{$talent->pivot->cost}}" data-extra-2="{{$talent->pivot->rank}}" }}"@if ($talent->talent_option_id) data-extra="[1, 2, 3]" data-extra-3="{{$talent->pivot->talent_option_id}}" @else data-extra="[1, 2]" @endif></div>
+                    <div data-load="repeateble-add" data-id="{{ $talent->id }}" data-extra-1="{{$talent->pivot->cost}}" data-extra-2="{{$talent->pivot->rank}}" @if ($talent->pivot->talent_option_id) data-extra="[1, 2, 3]" data-extra-3="{{$talent->pivot->talent_option_id}}" @else data-extra="[1, 2]" @endif></div>
                 @endforeach                       
             @endif                        
             <div class="repeateble-template form-group row">
