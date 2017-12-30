@@ -35,6 +35,6 @@ class Speciality extends Model
 
     public function talentAdvances()
     {
-        return $this->belongsToMany('App\Talent', 'speciality_talent_advance', 'speciality_id', 'talent_id')->withPivot(['cost', 'rank', 'talent_option_id'])->leftJoin('talent_options', 'talent_options.id', '=', 'speciality_talent_advance.talent_option_id');
+        return $this->belongsToMany('App\Talent', 'speciality_talent_advance', 'speciality_id', 'talent_id')->withPivot(['cost', 'rank', 'talent_option_id'])->leftJoin('talent_options', 'talent_options.id', '=', 'speciality_talent_advance.talent_option_id')->select('talents.*', 'talent_options.name as pivot_talent_option_name');
     }        
 }

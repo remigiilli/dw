@@ -23,7 +23,7 @@ class Chapter extends Model
 
     public function talentAdvances()
     {
-        return $this->belongsToMany('App\Talent', 'chapter_talent_advance', 'chapter_id', 'talent_id')->withPivot(['cost', 'talent_option_id'])->leftJoin('talent_options', 'talent_options.id', '=', 'chapter_talent_advance.talent_option_id');
+        return $this->belongsToMany('App\Talent', 'chapter_talent_advance', 'chapter_id', 'talent_id')->withPivot(['cost', 'talent_option_id'])->leftJoin('talent_options', 'talent_options.id', '=', 'chapter_talent_advance.talent_option_id')->select('talents.*', 'talent_options.name as pivot_talent_option_name');
     }     
     
     public function psychicPowers()

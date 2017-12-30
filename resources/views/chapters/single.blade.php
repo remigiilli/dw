@@ -302,10 +302,10 @@
                         <th>Prerequisites</th>
                     </tr>
                   </thead>
-                  <tbody>        
+                  <tbody>                         
                 @foreach ($chapter->talentAdvances as $talent)
                 <tr>
-                    <td><a href="#" data-toggle="popoverload" data-id="{{ $talent->id }}" data-type="talents" data-placement="auto">{{$talent->name}}</a> @if($talent->pivot->talent_option_id) {{$talent->pivot->talent_option_id}} @endif</td>
+                    <td><a href="#" data-toggle="popoverload" data-id="{{ $talent->id }}" data-type="talents" data-placement="auto">{{$talent->name}}</a> @if($talent->pivot->talent_option_name) {{$talent->pivot->talent_option_name}} @endif</td>
                     <td>{{$talent->pivot->cost}}</td>
                     <td>{{$talent->prerequisites}}</td>
                 </tr>
