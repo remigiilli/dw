@@ -52,6 +52,7 @@ Route::get('/skills', [
     'uses' => 'SkillController@listing'
 ]);
 
+Route::get('/skillgroups/{id}/justcontent', 'SkillGroupController@justcontent');
 Route::get('/skillgroups/byname/{name}', 'SkillGroupController@byName');
 
 Route::resource('/specialabilities/{id}/justcontent', 'SpecialAbilityController@justcontent');

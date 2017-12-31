@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Speciality as Speciality;
 use App\SpecialAbility as SpecialAbility;
 use App\Skill as Skill;
+use App\SkillGroup as SkillGroup;
 use App\Talent as Talent;
 use App\Weapon as Weapon;
 use App\Wargear as Wargear;
@@ -69,6 +70,7 @@ class SpecialityController extends Controller
                 return $skill->name;
             }
         });
+        $skill_groups = SkillGroup::all()->sortBy('name');  
         $talents = Talent::all()->sortBy('name'); 
         $weapons = Weapon::all()->sortBy('name'); 
         $wargear = Wargear::all()->sortBy('name'); 
@@ -140,6 +142,15 @@ class SpecialityController extends Controller
             }           
         }         
         
+        $skill_groups = $request->input('skill_groups');  
+        if ($skill_groups && is_array($skill_groups)) {
+            foreach ($skill_groups as $k => $skill_group) {                      
+                if (is_array($skill_group)) {
+                    $speciality->skillGroupAdvances()->attach($skill_group['id'], ['cost' => $skill_group['cost'], 'rank' => $skill_group['rank'], 'proficeincy' => $skill_group['proficeincy']]);
+                }
+            }               
+        }            
+        
         return redirect('admin/specialities')->with('status', 'Speciality created!');
     }
 
@@ -174,11 +185,12 @@ class SpecialityController extends Controller
                 return $skill->name;
             }
         });
+        $skill_groups = SkillGroup::all()->sortBy('name');  
         $talents = Talent::all()->sortBy('name'); 
         $weapons = Weapon::all()->sortBy('name'); 
         $wargear = Wargear::all()->sortBy('name');         
 	
-        return view('specialities.form',  ['speciality' => $speciality, 'skills' => $skills, 'talents' => $talents, 'weapons' => $weapons, 'wargear' => $wargear, 'attributes' => $this->attributes]);
+        return view('specialities.form',  ['speciality' => $speciality, 'skills' => $skills, 'skill_groups' => $skill_groups, 'talents' => $talents, 'weapons' => $weapons, 'wargear' => $wargear, 'attributes' => $this->attributes]);
     }
 
     /**
@@ -251,6 +263,16 @@ class SpecialityController extends Controller
             }           
         }        
         
+        $skill_groups = $request->input('skill_groups');  
+        $speciality->skillGroupAdvances()->detach();
+        if ($skill_groups && is_array($skill_groups)) {
+            foreach ($skill_groups as $k => $skill_group) {                      
+                if (is_array($skill_group)) {
+                    $speciality->skillGroupAdvances()->attach($skill_group['id'], ['cost' => $skill_group['cost'], 'rank' => $skill_group['rank'], 'proficeincy' => $skill_group['proficeincy']]);
+                }
+            }               
+        }           
+        
         return redirect('admin/specialities')->with('status', 'Speciality updated!');
     }
 
@@ -267,6 +289,9 @@ class SpecialityController extends Controller
         $speciality->skills()->detach();
         $speciality->weapons()->detach();
         $speciality->wargear()->detach();
+        $speciality->talentAdvances()->detach();
+        $speciality->skillAdvances()->detach();
+        $speciality->skillGroupAdvances()->detach();
         $speciality->delete();
         
         return redirect('admin/specialities')->with('status', 'Speciality deleted!');

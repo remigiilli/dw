@@ -143,8 +143,8 @@
 
     <!-- Skill Advances -->
     <div class="form-group">
-        {{ Form::label('chapter-skill-advances', 'Speciality Skill Advances') }}
-        <div class="repeateble-holder" id="character-skills-holder">           
+        {{ Form::label('speciality-skill-advances', 'Speciality Skill Advances') }}
+        <div class="repeateble-holder" id="speciality-skills-holder">           
             @if (count($speciality->skillAdvances()->first()) > 0)        
                 @foreach ($speciality->skillAdvances as $skill)
                     <div data-load="repeateble-add" data-id="{{ $skill->id }}" data-extra="[1, 2, 3]" data-extra-1="{{$skill->pivot->cost}}" data-extra-2="{{$skill->pivot->proficeincy}}" data-extra-3="{{$skill->pivot->rank}}"></div>
@@ -206,6 +206,72 @@
             </div>
         </div>
     </div>
+    
+    <!-- SkillGroup Advances -->
+    <div class="form-group">
+        {{ Form::label('speciality-skill-group-advances', 'Speciality Skill Group Advances') }}
+        <div class="repeateble-holder" id="speciality-skill-groups-holder">           
+            @if (count($speciality->skillGroupAdvances()->first()) > 0)        
+                @foreach ($speciality->skillGroupAdvances as $skill_group)
+                    <div data-load="repeateble-add" data-id="{{ $skill_group->id }}" data-extra="[1, 2, 3]" data-extra-1="{{$skill_group->pivot->cost}}" data-extra-2="{{$skill_group->pivot->proficeincy}}" data-extra-3="{{$skill_group->pivot->rank}}"></div>
+                @endforeach                       
+            @endif                        
+            <div class="repeateble-template form-group row">
+                <div class="col-md-4">
+                    <div class="input-group"> 
+                        <select name="skill_groups[][id]" class="form-control" data-org-name="skill_groups[][id]" data-change="check-extra">    
+                        @foreach ($skill_groups as $skill_group)
+                            <option value="{{ $skill_group->id }}" data-extra="[1, 2, 3]">{{ $skill_group->name }}</option>        
+                        @endforeach
+                        </select>
+                        <span class="input-group-btn">
+                          <button class="btn btn-info" type="button" data-toggle="popoverload-selected" data-type="skillgroups"><span class="glyphicon glyphicon-question-sign"></span></button>
+                        </span>                    
+                    </div>
+                </div>                                 
+                <div class="col-md-2">
+                    <input type="number" name="skill_groups[][cost]" data-extra-toggle="1"  disabled="disabled" class="form-control" />
+                </div>                                
+                <div class="col-md-2">
+                    <select name="skill_groups[][proficeincy]" data-extra-toggle="2"  disabled="disabled" class="form-control">
+                        <option value="0">Trained</option>
+                        <option value="10">+10</option>
+                        <option value="20">+20</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="skill_groups[][rank]" data-extra-toggle="3"  disabled="disabled" class="form-control" />
+                </div>                                
+                
+                <div class="col-md-2">
+                    <a class="btn btn-info btn-sm" data-click="repeateble-remove">
+                        <span class="glyphicon glyphicon-trash"></span> Remove
+                    </a>
+                </div>    
+            </div>
+            <div class="repeateble-content ">
+                <div class="row form-group">
+                    <div class="col-md-4">
+                        <label>Skill</label>              
+                    </div>                           
+                    <div class="col-md-2">
+                        <label>Cost</label>              
+                    </div>                
+                    <div class="col-md-2">
+                        <label>Proficiency</label>              
+                    </div>                
+                    <div class="col-md-2">
+                        <label>Rank</label>              
+                    </div>                                    
+                    <div class="col-md-2">
+                        <a class="btn btn-info btn-sm" data-click="repeateble-add">
+                            <span class="glyphicon glyphicon-trash"></span> Add
+                        </a>                
+                    </div>                
+                </div>
+            </div>
+        </div>
+    </div>    
     
     <!-- Talent Advances -->
     <div class="form-group">

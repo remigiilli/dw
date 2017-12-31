@@ -13,6 +13,7 @@ use App\Weapon as Weapon;
 use App\Wargear as Wargear;
 use App\PsychicPower as PsychicPower;
 use App\Skill as Skill;
+use App\SkillGroup as SkillGroup;
 use App\Talent as Talent;
 
 use App\Http\Requests\StoreChapter as StoreChapter;
@@ -76,9 +77,10 @@ class ChapterController extends Controller
                 return $skill->name;
             }
         });      
-        $talents = Talent::all()->sortBy('name');        
+        $skill_groups = SkillGroup::all()->sortBy('name');
+        $talents = Talent::all()->sortBy('name');
 	
-        return view('chapters.form', ['chapter' => $chapter, 'skills' => $skills, 'talents' => $talents, 'attributes' => $this->attributes]);
+        return view('chapters.form', ['chapter' => $chapter, 'skills' => $skills, 'talents' => $talents, 'skill_groups' => $skill_groups, 'attributes' => $this->attributes]);
     }
 
     /**
@@ -123,6 +125,15 @@ class ChapterController extends Controller
             }           
         }
         
+        $chapter->skillGroupAdvances()->detach();
+        if ($skill_groups && is_array($skill_groups)) {
+            foreach ($skill_groups as $k => $skill_group) {                      
+                if (is_array($skill_group)) {
+                    $chapter->skillGroupAdvances()->attach($skill_group['id'], ['cost' => $skill_group['cost'], 'proficeincy' => $skill_group['proficeincy']]);
+                }
+            }               
+        }            
+        
         return redirect('admin/chapters')->with('status', 'Chapter created!');
     }
 
@@ -157,9 +168,10 @@ class ChapterController extends Controller
                 return $skill->name;
             }
         });     
+        $skill_groups = SkillGroup::all()->sortBy('name');  
         $talents = Talent::all()->sortBy('name');        
-	
-        return view('chapters.form',  ['chapter' => $chapter, 'skills' => $skills, 'talents' => $talents, 'attributes' => $this->attributes]);
+       
+        return view('chapters.form',  ['chapter' => $chapter, 'skills' => $skills, 'talents' => $talents, 'skill_groups' => $skill_groups, 'attributes' => $this->attributes]);
     }
 
     /**
@@ -204,6 +216,16 @@ class ChapterController extends Controller
             }               
         }
         
+	$skill_groups = $request->input('skill_groups');  
+        $chapter->skillGroupAdvances()->detach();
+        if ($skill_groups && is_array($skill_groups)) {
+            foreach ($skill_groups as $k => $skill_group) {                      
+                if (is_array($skill_group)) {
+                    $chapter->skillGroupAdvances()->attach($skill_group['id'], ['cost' => $skill_group['cost'], 'proficeincy' => $skill_group['proficeincy']]);
+                }
+            }               
+        }        
+        
         $chapter->save();
         
         return redirect('admin/chapters')->with('status', 'Chapter updated!');
@@ -218,7 +240,9 @@ class ChapterController extends Controller
     public function destroy($id)
     {
         $chapter = Chapter::find($id);
-        
+        $chapter->talentAdvances()->detach();
+        $chapter->skillAdvances()->detach();
+        $chapter->skillGroupAdvances()->detach();               
         $chapter->delete();
         
         return redirect('admin/chapters')->with('status', 'Chapter deleted!');

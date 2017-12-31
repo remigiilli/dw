@@ -18,6 +18,11 @@ class Speciality extends Model
         return $this->belongsToMany('App\Skill', 'speciality_skill', 'speciality_id', 'skill_id');
     }
     
+    public function skillGroupAdvances()
+    {
+        return $this->belongsToMany('App\SkillGroup', 'speciality_skill_group_advance', 'speciality_id', 'skill_group_id')->withPivot(['cost', 'rank', 'proficeincy']);
+    }      
+    
     public function weapons()
     {
         return $this->belongsToMany('App\Weapon');

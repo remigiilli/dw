@@ -82,6 +82,19 @@ class SkillGroupController extends Controller
         return view('skillgroups.show',  ['skill_group' => $skill_group]);
     }
     
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function justcontent($id)
+    {
+	$skill_group = SkillGroup::find($id);
+	
+        return view('skillgroups.single',  ['skill_group' => $skill_group]);
+    }      
+    
    /**
      * Display the specified resource.
      *

@@ -20,6 +20,11 @@ class Chapter extends Model
     {
         return $this->belongsToMany('App\Skill', 'chapter_skill_advance', 'chapter_id', 'skill_id')->withPivot(['cost', 'proficeincy']);
     }    
+    
+    public function skillGroupAdvances()
+    {
+        return $this->belongsToMany('App\SkillGroup', 'chapter_skill_group_advance', 'chapter_id', 'skill_group_id')->withPivot(['cost', 'proficeincy']);
+    }      
 
     public function talentAdvances()
     {
