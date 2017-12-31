@@ -292,6 +292,33 @@
                     </tbody>
                 </table>            
             @endif      
+            
+            @if (count($chapter->skillGroupAdvances()->first()) > 0)   
+                <table  class="table table-striped">
+                  <thead>    
+                    <tr>
+                        <th>Skill</th>	    
+                        <th>Cost</th>
+                        <th>Prerequisites</th>
+                    </tr>
+                  </thead>
+                  <tbody>        
+                @foreach ($chapter->skillGroupAdvances as $skill_group)
+                <tr>
+                    <td><a href="#" data-toggle="popoverload" data-id="{{ $skill_group->id }}" data-type="skillgroups" data-placement="auto">{{$skill_group->name}}</a> @if($skill_group->pivot->proficeincy) +{{$skill_group->pivot->proficeincy}} @endif</td>
+                    <td>{{$skill_group->pivot->cost}}</td>
+                    <td>
+                        @if($skill_group->pivot->proficeincy == 10)
+                            {{$skill_group->name}}
+                        @elseif($skill_group->pivot->proficeincy == 20)
+                            {{$skill_group->name}} +10
+                        @endif                
+                    </td>
+                </tr>
+                @endforeach                       
+                    </tbody>
+                </table>            
+            @endif            
 
             @if (count($chapter->talentAdvances()->first()) > 0)   
                 <table  class="table table-striped">
